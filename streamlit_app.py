@@ -236,11 +236,11 @@ if os.path.exists(ICON_PATH):
         with col1:
             st.image(ICON_PATH, width=10000000)  # Exibe o ícone com largura de 30px
         with col2:
-            st.title("CADE IA")  # Exibe o título
+            st.title("EG Chat")  # Exibe o título
     except Exception as e:
         st.error(f"Erro ao carregar o ícone: {e}")
 else:
-    st.title("CADE IA")  # Fallback se o ícone não existir
+    st.title("EG Chat")  # Fallback se o ícone não existir
 
 # Subtítulo com fonte reduzida e texto preto
 st.markdown(
