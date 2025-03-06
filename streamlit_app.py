@@ -11,8 +11,8 @@ import speech_recognition as sr
 
 # Configurações iniciais
 st.set_page_config(
-    page_title="CADE IA",
-    page_icon="💛",
+    page_title="EG Chat",
+    page_icon="🏛️",
     layout="wide",
 )
 
@@ -244,7 +244,7 @@ else:
 
 # Subtítulo com fonte reduzida e texto preto
 st.markdown(
-    '<cp class="subtitulo">Sou uma IA especializada em Administração Pública, reunindo estudos e documentos sobre Autoridades de Defesa da Concorrência. Fui desenvolvida pelo Instituto Publix em parceria com o Conselho Administrativo de Defesa Econômica (CADE) e estou aqui para ajudar.</p>',
+    '<cp class="subtitulo">Sou um chat desenvolvido pelo Instituto Publix em conjunto com a Escola de Gestão do Paraná que tem como objetivo te ajudar a encontrar a trilha certa para o seu aprendizado! Me fale um pouco mais do que você quer aprender sobre gestão e Administração Pública!</p>',
     unsafe_allow_html=True
 )
 
