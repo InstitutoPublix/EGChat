@@ -225,8 +225,8 @@ if os.path.exists(LOGO_BOT_PATH):
 else:
     LOGO_BOT = None
 
-# Caminho para o ícone personalizado
-ICON_PATH = "assets/icon_capr.jpg"
+# Caminho para o ícone personalizado (CASO QUEIRA LOGO AO LADO DO TÍTULO, ALTERAR AQUI)
+ICON_PATH = "assets/icon_car.jpg"
 
 # Verificar se o arquivo do ícone existe
 if os.path.exists(ICON_PATH):
