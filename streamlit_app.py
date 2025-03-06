@@ -226,7 +226,7 @@ else:
     LOGO_BOT = None
 
 # Caminho para o ícone personalizado
-ICON_PATH = "assets/icon_cade.png"
+ICON_PATH = "assets/icon_capr.jpg"
 
 # Verificar se o arquivo do ícone existe
 if os.path.exists(ICON_PATH):
