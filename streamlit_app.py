@@ -281,7 +281,7 @@ def carregar_contexto():
     # Adicione aqui os arquivos de texto que você deseja usar como contexto
     arquivos_contexto = [
         "contexto1.txt",
-    
+   
     ]
 
     for arquivo in arquivos_contexto:
@@ -321,7 +321,7 @@ def selecionar_chunks_relevantes(pergunta, chunks):
             chunks_relevantes.append(chunk)
     return chunks_relevantes[:4]  # Limita a 4 chunks para evitar excesso de tokens
 
-# Função para gerar resposta com OpenAI usando GPT-4
+# Função para gerar resposta com OpenAI usando GPT-4o
 def gerar_resposta(texto_usuario):
     if not contexto:
         return "Erro: Nenhum contexto carregado."
@@ -329,7 +329,7 @@ def gerar_resposta(texto_usuario):
     chunks = dividir_texto(contexto)  # Divide o texto em chunks
     chunks_relevantes = selecionar_chunks_relevantes(texto_usuario, chunks)  # Seleciona chunks relevantes
 
-    contexto_pergunta = "Você é um chatbot feito pelo Instituto Publix, uma consultoria em gestão pública, em parceria com a Escola de Gestão do Paraná. Seu papel é fornecer respostas sobre trilhas de capacitações existentes no banco de dados, citando os temas, modalidade, carga horária e nível de complexidade. Responda com base no seguinte contexto:\n\n"
+    contexto_pergunta = "Você é um chatbot feito pelo Instituto Publix, uma consultoria em gestão pública, em parceria com a Escola de Gestão do Paraná. Seu papel é fornecer respostas sobre trilhas de capacitações existentes no banco de dados, citando os temas, modalidade, carga horária e nível de complexidade.Responda com base no seguinte contexto:\n\n"
     for i, chunk in enumerate(chunks_relevantes):
         contexto_pergunta += f"--- Parte {i+1} do Contexto ---\n{chunk}\n\n"
 
@@ -390,7 +390,7 @@ with st.container():
                     st.markdown(f"**Você:** {mensagem['user']}", unsafe_allow_html=True)
             if mensagem["bot"]:
                 with st.chat_message("assistant"):
-                    st.markdown(f"**CADE IA:**\n\n{mensagem['bot']}", unsafe_allow_html=True)  # Permite Markdown
+                    st.markdown(f"**EG Chat:**\n\n{mensagem['bot']}", unsafe_allow_html=True)  # Permite Markdown
     else:
         with st.chat_message("assistant"):
-            st.markdown("*CADE IA:* Nenhuma mensagem ainda.", unsafe_allow_html=True)
+            st.markdown("*EG Chat:* Nenhuma mensagem ainda.", unsafe_allow_html=True)
