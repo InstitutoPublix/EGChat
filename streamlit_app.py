@@ -236,15 +236,15 @@ if os.path.exists(ICON_PATH):
         with col1:
             st.image(ICON_PATH, width=10000000)  # Exibe o ícone com largura de 30px
         with col2:
-            st.title("EG Chat")  # Exibe o título
+            st.title("Professor Virtual TJCE")  # Exibe o título
     except Exception as e:
         st.error(f"Erro ao carregar o ícone: {e}")
 else:
-    st.title("EG Chat")  # Fallback se o ícone não existir
+    st.title("Professor Virtual TJCE")  # Fallback se o ícone não existir
 
 # Subtítulo com fonte reduzida e texto preto
 st.markdown(
-    '<cp class="subtitulo">Sou um chat desenvolvido pelo Instituto Publix em conjunto com a Escola de Gestão do Paraná que tem como objetivo te ajudar a encontrar a trilha certa para o seu aprendizado! Me fale um pouco mais do que você quer aprender sobre gestão e Administração Pública!</p>',
+    '<cp class="subtitulo">Olá, tudo bem? Sou um assistente virtual feito pelo TJCE em parceria com o Instituto Publix para te auxiliar e te dar apoio na realização dos cursos e capacitações ofertados. Eu posso te dar dicas de caminhos a seguir, quais cursos escolher, e muito mais! Pra iniciar, é só mandar uma mensagem na caixa de perguntas aqui embaixo!</p>',
     unsafe_allow_html=True
 )
 
@@ -390,7 +390,7 @@ with st.container():
                     st.markdown(f"**Você:** {mensagem['user']}", unsafe_allow_html=True)
             if mensagem["bot"]:
                 with st.chat_message("assistant"):
-                    st.markdown(f"**EG Chat:**\n\n{mensagem['bot']}", unsafe_allow_html=True)  # Permite Markdown
+                    st.markdown(f"**Professor Virtual TJCE:**\n\n{mensagem['bot']}", unsafe_allow_html=True)  # Permite Markdown
     else:
         with st.chat_message("assistant"):
-            st.markdown("*EG Chat:* Nenhuma mensagem ainda.", unsafe_allow_html=True)
+            st.markdown("*Professor Virtual TJCE:* Nenhuma mensagem ainda.", unsafe_allow_html=True)
