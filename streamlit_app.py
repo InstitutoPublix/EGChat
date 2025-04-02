@@ -11,7 +11,7 @@ import speech_recognition as sr
 
 # Configurações iniciais
 st.set_page_config(
-    page_title="EG Chat",
+    page_title=" TJCE Professor Virtual",
     page_icon="🏛️",
     layout="wide",
 )
@@ -380,7 +380,7 @@ if user_input and user_input.strip():
     st.session_state.mensagens_chat.append({"user": user_input, "bot": None})
     resposta = gerar_resposta(user_input)
     st.session_state.mensagens_chat[-1]["bot"] = resposta
-    salvar_estado()  # Salva o estado após cada interação
+
 
 with st.container():
     if st.session_state.mensagens_chat:
