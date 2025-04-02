@@ -213,7 +213,7 @@ div.stChatInput textarea::placeholder {
 )
 
 # Caminho para a logo do bot
-LOGO_BOT_PATH = "assets/icon_tjce.jpg"
+LOGO_BOT_PATH = "assets/icon_tjce_branco.jpg"
 
 # Verificar se o arquivo da logo existe
 if os.path.exists(LOGO_BOT_PATH):
