@@ -213,7 +213,7 @@ div.stChatInput textarea::placeholder {
 )
 
 # Caminho para a logo do bot
-LOGO_BOT_PATH = "assets/icon_tjce.jpg"
+LOGO_BOT_PATH = "assets/icon_tjc.png"
 
 # Verificar se o arquivo da logo existe
 if os.path.exists(LOGO_BOT_PATH):
@@ -251,10 +251,6 @@ st.markdown(
 # Inicialização segura das variáveis de estado
 if "mensagens_chat" not in st.session_state:
     st.session_state.mensagens_chat = []
-
-
-
-
 
 # Função para limpar o histórico do chat
 def limpar_historico():
