@@ -254,15 +254,7 @@ if "mensagens_chat" not in st.session_state:
 
 
 
-# Função para carregar o estado de um arquivo JSON
-def carregar_estado():
-    if os.path.exists("estado_bot.json"):
-        with open("estado_bot.json", "r") as f:
-            estado = json.load(f)
-            st.session_state.mensagens_chat = estado.get("mensagens_chat", [])
 
-# Carregar o estado ao iniciar o aplicativo
-carregar_estado()
 
 # Função para limpar o histórico do chat
 def limpar_historico():
