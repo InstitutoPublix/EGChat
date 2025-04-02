@@ -273,8 +273,7 @@ carregar_estado()
 # Função para limpar o histórico do chat
 def limpar_historico():
     st.session_state.mensagens_chat = []
-    salvar_estado()
-
+ 
 # Carregar arquivos de texto nativos como contexto
 def carregar_contexto():
     contexto = ""
@@ -380,7 +379,7 @@ if user_input and user_input.strip():
     st.session_state.mensagens_chat.append({"user": user_input, "bot": None})
     resposta = gerar_resposta(user_input)
     st.session_state.mensagens_chat[-1]["bot"] = resposta
-    salvar_estado()  # Salva o estado após cada interação
+
 
 with st.container():
     if st.session_state.mensagens_chat:
