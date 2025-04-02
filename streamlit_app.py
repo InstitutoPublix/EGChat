@@ -329,7 +329,7 @@ def gerar_resposta(texto_usuario):
     chunks = dividir_texto(contexto)  # Divide o texto em chunks
     chunks_relevantes = selecionar_chunks_relevantes(texto_usuario, chunks)  # Seleciona chunks relevantes
 
-    contexto_pergunta = "Você é um chatbot feito pelo Instituto Publix, uma consultoria em gestão pública, em parceria com a Escola de Gestão do Paraná. Seu papel é fornecer respostas sobre trilhas de capacitações existentes no banco de dados, citando os temas, modalidade, carga horária e nível de complexidade.Responda com base no seguinte contexto:\n\n"
+    contexto_pergunta = "Você é um chatbot feito pelo Instituto Publix, uma consultoria em gestão pública, em parceria com o Tribunal Justiça do Ceára. Seu papel é ser um assistente virtual,que auxilia os alunos a conculírem com êxito os cursos e capacitações ofertadas.Responda com base no seguinte contexto:\n\n"
     for i, chunk in enumerate(chunks_relevantes):
         contexto_pergunta += f"--- Parte {i+1} do Contexto ---\n{chunk}\n\n"
 
