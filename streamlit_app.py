@@ -252,13 +252,7 @@ st.markdown(
 if "mensagens_chat" not in st.session_state:
     st.session_state.mensagens_chat = []
 
-# Função para salvar o estado em um arquivo JSON
-def salvar_estado():
-    estado = {
-        "mensagens_chat": st.session_state.mensagens_chat
-    }
-    with open("estado_bot.json", "w") as f:
-        json.dump(estado, f)
+
 
 # Função para carregar o estado de um arquivo JSON
 def carregar_estado():
