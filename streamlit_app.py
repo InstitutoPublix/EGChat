@@ -300,7 +300,7 @@ def selecionar_chunks_relevantes(pergunta, chunks):
     for chunk in chunks:
         if any(palavra in chunk.lower() for palavra in palavras_chave):
             chunks_relevantes.append(chunk)
-    return chunks_relevantes[:4]  # Limita a 4 chunks para evitar excesso de tokens
+    return chunks_relevantes[:2]  # Limita a 2 chunks para evitar excesso de tokens
 
 # Função para gerar resposta com OpenAI usando GPT-4o
 def gerar_resposta(texto_usuario):
@@ -325,7 +325,7 @@ def gerar_resposta(texto_usuario):
             # Implementar controle de taxa
             time.sleep(1)  # Adiciona um atraso de 1 segundo entre as solicitações
             resposta = openai.ChatCompletion.create(
-                model="gpt-4o",  # Usando o GPT-4o
+                model="gpt-3.5-turbo",  # Usando o GPT-4o
                 messages=mensagens,
                 temperature=0.3,
                 max_tokens=800  # Limita a resposta a 800 tokens
