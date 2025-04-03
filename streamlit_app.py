@@ -1,4 +1,5 @@
 import streamlit as st
+import anthropic
 import openai
 import os
 from PIL import Image
@@ -325,7 +326,7 @@ def gerar_resposta(texto_usuario):
             # Implementar controle de taxa
             time.sleep(1)  # Adiciona um atraso de 1 segundo entre as solicitações
             resposta = openai.ChatCompletion.create(
-                model="gpt-3.5-turbo",  # Usando o GPT-4o
+                model="gpt-3.5-turbo",  # Usando o GPT-3.5turbo
                 messages=mensagens,
                 temperature=0.3,
                 max_tokens=800  # Limita a resposta a 800 tokens

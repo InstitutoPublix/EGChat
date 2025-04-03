@@ -14,3 +14,4 @@ pillow
 pydub
 ffmpeg
 speechrecognition
+anthropic
