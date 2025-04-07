@@ -303,68 +303,77 @@ def selecionar_chunks_relevantes(pergunta, chunks):
             chunks_relevantes.append(chunk)
     return chunks_relevantes[:2]  # Limita a 2 chunks para evitar excesso de tokens
 
-# Função para gerar resposta com OpenAI usando GPT-4o
-def gerar_resposta(texto_usuario):
-    if not contexto:
-        return "Erro: Nenhum contexto carregado."
+# Função para gerar resposta com OpenAI usando GPT-3.5 ou Claude Haiku
+def gerar_resposta(texto_usuario, contexto_base, openai_api_key=None, claude_api_key=None):
+    chunks = dividir_texto(contexto_base)
+    chunks_relevantes = selecionar_chunks_relevantes(texto_usuario, chunks)
 
-    chunks = dividir_texto(contexto)  # Divide o texto em chunks
-    chunks_relevantes = selecionar_chunks_relevantes(texto_usuario, chunks)  # Seleciona chunks relevantes
-
-    contexto_pergunta = "Você é um chatbot feito pelo Instituto Publix, uma consultoria em gestão pública, em parceria com o Tribunal Justiça do Ceára. Seu papel é ser um assistente virtual,que auxilia os alunos a conculírem com êxito os cursos e capacitações ofertadas.Responda com base no seguinte contexto:\n\n"
+    # Montar contexto para prompt
+    contexto_prompt = "Você é um assistente virtual educacional do TJCE, desenvolvido com o apoio do Instituto Publix. Ajude o aluno a compreender melhor seu curso de transformação digital. Use uma linguagem simples, clara e amigável.\n\n"
     for i, chunk in enumerate(chunks_relevantes):
-        contexto_pergunta += f"--- Parte {i+1} do Contexto ---\n{chunk}\n\n"
+        contexto_prompt += f"--- Parte {i+1} do Contexto ---\n{chunk}\n\n"
 
-    mensagens = [
-        {"role": "system", "content": contexto_pergunta},
-        {"role": "user", "content": texto_usuario}
-    ]
+    prompt_completo = contexto_prompt + f"Pergunta do aluno: {texto_usuario}"
 
-    tentativas = 3  # Número de tentativas
-    for tentativa in range(tentativas):
-        try:
-            # Implementar controle de taxa
-            time.sleep(1)  # Adiciona um atraso de 1 segundo entre as solicitações
-            resposta = openai.ChatCompletion.create(
-                model="gpt-3.5-turbo",  # Usando o GPT-3.5turbo
-                messages=mensagens,
-                temperature=0.3,
-                max_tokens=800  # Limita a resposta a 800 tokens
-            )
-            return resposta["choices"][0]["message"]["content"]
-        except Exception as e:
-            if tentativa < tentativas - 1:  # Se não for a última tentativa
-                time.sleep(2)  # Aguarda 2 segundos antes de tentar novamente
-                continue
-            else:
-                return f"Erro ao gerar a resposta: {str(e)}"
+    if claude_api_key:
+        client = anthropic.Anthropic(api_key=claude_api_key)
+        resposta = client.messages.create(
+            model="claude-3-haiku-20240307",
+            max_tokens=800,
+            temperature=0.3,
+            messages=[
+                {"role": "user", "content": prompt_completo.strip()}
+            ]
+        )
+        return resposta.content[0].text.strip()
+
+    elif openai_api_key:
+        openai.api_key = openai_api_key
+        mensagens = [
+            {"role": "system", "content": contexto_prompt},
+            {"role": "user", "content": texto_usuario}
+        ]
+        for tentativa in range(3):
+            try:
+                time.sleep(1)
+                resposta = openai.ChatCompletion.create(
+                    model="gpt-3.5-turbo",
+                    messages=mensagens,
+                    temperature=0.3,
+                    max_tokens=800
+                )
+                return resposta["choices"][0]["message"]["content"]
+            except Exception as e:
+                if tentativa < 2:
+                    time.sleep(2)
+                    continue
+                else:
+                    return f"Erro ao gerar a resposta: {str(e)}"
+    else:
+        return "Erro: nenhuma chave de API fornecida."
 
 # Adicionar a logo na sidebar
 if LOGO_BOT:
-    st.sidebar.image(LOGO_BOT, width=300)  # Ajuste o tamanho conforme necessário
+    st.sidebar.image(LOGO_BOT, width=300)
 else:
     st.sidebar.markdown("**Logo não encontrada**")
 
 # Interface do Streamlit
 api_key = st.sidebar.text_input("🔑 Chave API OpenAI", type="password", placeholder="Insira sua chave API")
-if api_key:
-    openai.api_key = api_key
+claude_api_key = st.sidebar.text_input("🔑 Chave API Claude (Anthropic)", type="password", placeholder="sk-ant-...")
 
-    # Botão para limpar o histórico do chat
+if api_key or claude_api_key:
     if st.sidebar.button("🧹 Limpar Histórico do Chat", key="limpar_historico"):
         limpar_historico()
         st.sidebar.success("Histórico do chat limpo com sucesso!")
 else:
     st.warning("Por favor, insira sua chave de API para continuar.")
 
-
-
 user_input = st.chat_input("💬 Sua pergunta:")
 if user_input and user_input.strip():
     st.session_state.mensagens_chat.append({"user": user_input, "bot": None})
-    resposta = gerar_resposta(user_input)
+    resposta = gerar_resposta(user_input, contexto, api_key, claude_api_key)
     st.session_state.mensagens_chat[-1]["bot"] = resposta
-
 
 with st.container():
     if st.session_state.mensagens_chat:
@@ -374,7 +383,7 @@ with st.container():
                     st.markdown(f"**Você:** {mensagem['user']}", unsafe_allow_html=True)
             if mensagem["bot"]:
                 with st.chat_message("assistant"):
-                    st.markdown(f"**Professor Virtual TJCE:**\n\n{mensagem['bot']}", unsafe_allow_html=True)  # Permite Markdown
+                    st.markdown(f"**Professor Virtual TJCE:**\n\n{mensagem['bot']}", unsafe_allow_html=True)
     else:
         with st.chat_message("assistant"):
             st.markdown("*Professor Virtual TJCE:* Nenhuma mensagem ainda.", unsafe_allow_html=True)
