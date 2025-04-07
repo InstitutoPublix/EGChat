@@ -253,6 +253,21 @@ st.markdown(
 if "mensagens_chat" not in st.session_state:
     st.session_state.mensagens_chat = []
 
+# Mensagem inicial automática
+if not st.session_state.mensagens_chat:
+    mensagem_inicial = """Olá! 👋  
+Sou o **Professor Virtual TJCE** e estou aqui para te ajudar com o curso de Transformação Digital.
+
+Você pode me perguntar, por exemplo:
+- 📌 O que é transformação digital?
+- 🤔 Quais são os temas do curso?
+- 🧩 Como a cultura da inovação se aplica ao setor público?
+- 🗂️ Como acessar os materiais e atividades?
+- 📝 O que é esperado no projeto final?
+
+Fique à vontade para perguntar o que quiser. Vamos nessa! 🚀"""
+    st.session_state.mensagens_chat.append({"user": None, "bot": mensagem_inicial})
+
 # Função para limpar o histórico do chat
 def limpar_historico():
     st.session_state.mensagens_chat = []
