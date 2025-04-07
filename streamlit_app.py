@@ -260,7 +260,6 @@ Sou o **Professor Virtual TJCE** e estou aqui para te ajudar com o curso de Tran
 
 Você pode me perguntar, por exemplo:
 - 📌 O que é transformação digital?
-- 🤔 Quais são os temas do curso?
 - 🧩 Como a cultura da inovação se aplica ao setor público?
 - 🗂️ Como acessar os materiais e atividades?
 - 📝 O que é esperado no projeto final?
