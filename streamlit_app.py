@@ -357,6 +357,8 @@ if api_key:
 else:
     st.warning("Por favor, insira sua chave de API para continuar.")
 
+
+
 user_input = st.chat_input("💬 Sua pergunta:")
 if user_input and user_input.strip():
     st.session_state.mensagens_chat.append({"user": user_input, "bot": None})
