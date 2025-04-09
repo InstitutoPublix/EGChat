@@ -245,7 +245,7 @@ else:
 
 # Subtítulo com fonte reduzida e texto preto
 st.markdown(
-    '<cp class="subtitulo">Olá, tudo bem? Sou um assistente virtual feito pelo TJCE em parceria com o Instituto Publix para te auxiliar na realização do curso de Transformação Digital [nome do curso aqui]. Eu posso te dar dicas de caminhos a seguir, tirar dúvidas, e muito mais! Pra iniciar, é só mandar uma mensagem na caixa de perguntas aqui embaixo!</p>',
+    '<cp class="subtitulo">Olá, tudo bem? Sou o assistente virtual do curso de Transformação Digital [nome do curso aqui].Fui feito pelo TJCE em parceria com o Instituto Publix, posso te dar dicas de caminhos a seguir, tirar dúvidas, e muito mais! Pra iniciar, é só mandar uma mensagem na caixa de perguntas aqui embaixo!</p>',
     unsafe_allow_html=True
 )
 
