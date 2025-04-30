@@ -7,6 +7,8 @@ import time
 import json
 import streamlit.components.v1 as components
 import speech_recognition as sr
+from pathlib import Path # para percorrer diretórios
+from pypdf import PdfReader
 
 
 
@@ -270,23 +272,41 @@ Fique à vontade para perguntar o que quiser. Vamos nessa! 🚀"""
 # Função para limpar o histórico do chat
 def limpar_historico():
     st.session_state.mensagens_chat = []
- 
-# Carregar arquivos de texto nativos como contexto
-def carregar_contexto():
-    contexto = ""
-    # Adicione aqui os arquivos de texto que você deseja usar como contexto
-    arquivos_contexto = [
-        "contexto1.txt",
-   
-    ]
 
-    for arquivo in arquivos_contexto:
-        if os.path.exists(arquivo):
+def extrair_texto_pdf(caminho_pdf: str) -> str:
+    """Devolve todo o texto de um PDF localizado em `caminho_pdf`."""
+    if not Path(caminho_pdf).exists():
+        return ""
+
+    reader = PdfReader(caminho_pdf)
+    paginas = [page.extract_text() or "" for page in reader.pages]
+    return "\n".join(paginas)
+
+ 
+def carregar_contexto() -> str:
+    """Lê arquivos .txt e .pdf locais e devolve um único string com o conteúdo."""
+    contexto = ""
+
+    # 1) Arquivos .txt que já eram usados
+    txts_contexto = ["contexto1.txt"]
+    for arquivo in txts_contexto:
+        if Path(arquivo).exists():
             with open(arquivo, "r", encoding="utf-8") as f:
                 contexto += f.read() + "\n\n"
         else:
             st.error(f"Arquivo de contexto não encontrado: {arquivo}")
-    
+
+    # 2) PDFs que você quer carregar automaticamente
+    pdfs_contexto = [
+        "docs/guia_transformacao_digital.pdf",
+        "docs/manual_avaliacao.pdf",
+    ]
+    for pdf in pdfs_contexto:
+        if Path(pdf).exists():
+            contexto += extrair_texto_pdf(pdf) + "\n\n"
+        else:
+            st.error(f"Arquivo PDF não encontrado: {pdf}")
+
     return contexto
 
 # Carregar o contexto ao iniciar o aplicativo
