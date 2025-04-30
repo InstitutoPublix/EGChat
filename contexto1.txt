@@ -119,3 +119,376 @@ Diversos governos municipais adotaram chatbots para melhorar o atendimento ao ci
 A Prefeitura do Rio de Janeiro investiu na modernização e digitalização de seus processos administrativos. A implementação de sistemas digitais permitiu a automação de processos, resultando em maior agilidade, redução de burocracia e melhoria na prestação de serviços aos cidadãos. Essa iniciativa exemplifica como a transformação digital pode otimizar a gestão pública municipal. 
 5. Rede Nacional de Dados em Saúde (RNDS)
 A RNDS é uma plataforma nacional que permite a interoperabilidade de dados em saúde, integrando informações entre estabelecimentos de saúde públicos e privados. Essa iniciativa visa constituir um "Prontuário Único de Saúde", facilitando o acesso e a gestão de informações de saúde dos cidadãos, promovendo um atendimento mais eficiente e integrado. 
+
+
+
+CASO PERGUNTE SOBRE O GUIA TJCE:
+
+Programa de Desenvolvimento
+de Gestores – TJCE/2025
+
+Guia Orientador
+da elaboração do
+PROJETO APLICATIVO
+
+Caro participante,
+
+Você está vivenciando o Programa de Desenvolvimento de Gestores (PDG)
+do Tribunal de Justiça do Estado do Ceará (TJCE), uma ação de capacitação
+continuada que integra o Programa de Modernização do Poder Judiciário do
+Estado do Ceará (PROMOJUD).
+Ao longo do curso, você tem sido convidado a refletir sobre a sua atuação
+como gestor, ampliando seus conhecimentos sobre inovação, transformação
+digital, inteligência artificial, gestão por resultados e planejamento aplicado à
+realidade do Judiciário.
+Como parte fundamental da sua jornada formativa, este guia orientador
+apresenta os principais pontos para a elaboração do seu Projeto Aplicativo,
+uma atividade prática que deve ser desenvolvida em grupo e apresentada ao
+final do curso.
+O objetivo é que você elabore uma proposta de solução, envolvendo o uso de
+ferramentas de transformação digital e inteligência artificial, para um
+desafio enfrentado pela sua unidade ou pelo TJCE como um todo. Esse desafio
+deve estar vinculado a uma demanda previamente identificada no Plano de
+Trabalho da Unidade, no âmbito do Programa +Gestão, ou corresponder a
+uma nova demanda estratégica que mereça atenção e atuação qualificada.
+Os projetos devem propor melhorias viáveis, mensuráveis e sustentáveis,
+com potencial de gerar impacto positivo na gestão por resultados, na
+modernização de processos e na qualidade dos serviços públicos prestados. A
+entrega do projeto, a participação em pelo menos 70% das aulas e a
+resposta aos questionários de avaliação ex ante e ex post, são requisitos
+obrigatórios para a emissão do certificado de conclusão do PDG.
+Durante o curso, vocês serão incentivados a construir esse projeto passo a
+passo, conectando teoria e prática, com foco na entrega de valor para o
+Tribunal. Ao final, as propostas mais bem avaliadas de cada turma terão a
+oportunidade de ser apresentadas à alta liderança do TJCE, ampliando sua
+visibilidade institucional. Este é o momento de transformar ideias em soluções
+e conhecimento em ação.
+Bom trabalho e sucesso no desenvolvimento do seu projeto!
+
+Objetivo Geral
+Este guia tem como objetivo apoiar os grupos de alunos na elaboração
+de um Projeto Aplicativo, conectando os aprendizados dos quatro
+módulos a uma solução prática e inovadora para um desafio real
+enfrentado pela sua unidade ou pelo TJCE como um todo. As propostas
+devem envolver o uso de ferramentas digitais e propor melhorias viáveis,
+mensuráveis e sustentáveis, com impacto direto na gestão por
+resultados, na modernização de processos e na excelência do serviço
+público.
+
+Sobre o Projeto Aplicativo
+Formato: Trabalho em grupo, com entrega de um documento em PDF
+com no máximo 10 páginas e uma apresentação (ex: PowerPoint ou
+similar).
+Composição: Grupos de até 5 participantes.
+Participação: É obrigatória a participação de todos os inscritos que
+estiverem presentes integralmente nas atividades do programa.
+Requisitos: Cada grupo deverá elaborar uma proposta de solução que
+envolva o uso de ferramentas de transformação digital e de inteligência
+artificial, aplicada a um desafio real enfrentado pela sua unidade ou
+pelo TJCE como um todo. Esse desafio deve estar vinculado a uma
+demanda previamente identificada no Plano de Trabalho da Unidade,
+no âmbito do Programa +Gestão, ou corresponder a uma nova demanda
+estratégica que mereça atenção qualificada.
+Duração: Desenvolvido ao longo do curso, com apresentação nos
+encontros de mentorias da turma.
+Template: Para garantir padronização e facilitar a organização das
+propostas, será fornecido aos participantes um template padrão para
+elaboração do Projeto Aplicativo.
+Entrega final: Após a apresentação, os grupos deverão realizar as
+complementações e realizar a entrega final até 04 de julho de 2025. Os
+melhores projetos de cada turma serão apresentados à alta gestão do
+TJCE.
+2
+
+Etapas de
+Desenvolvimento
+A seguir, são apresentadas as quatro etapas principais para o desenvolvimento
+do Projeto Aplicativo. Cada uma está relacionada a um módulo do curso e
+deve ser construída progressivamente, com base nos aprendizados adquiridos
+ao longo da formação.
+
+Identificação do Desafio
+Nesta etapa, o grupo deve analisar sua realidade institucional para identificar
+um problema, oportunidade ou desafio relevante, que será a base do
+Projeto Aplicativo. Para isso, deve-se considerar demandas previamente
+definidas no âmbito do Plano de Trabalho da Unidade, no contexto do
+Programa +Gestão, ou ainda novas necessidades estratégicas que sejam
+passíveis de incorporação de soluções com uso ferramentas de
+transformação digital e inteligência artificial para ampliar a efetividade e os
+resultados da unidade.
+É o momento de olhar criticamente para os processos, resultados e
+contextos que dificultam o alcance das metas organizacionais. O desafio
+pode estar relacionado tanto à atividade-fim do Judiciário quanto a áreas
+administrativas de suporte.
+Além da análise interna, recomenda-se ampliar o olhar para outras
+organizações públicas, especialmente do setor de Justiça, buscando
+inspiração em soluções inovadoras já adotadas, alinhadas às tendências da
+gestão pública e ao uso estratégico da tecnologia.
+Perguntas orientadoras:
+Qual problema, dor ou oportunidade sua unidade enfrenta atualmente e que
+merece atenção prioritária?
+Esse desafio já foi identificado no âmbito do Programa +Gestão ou trata-se de uma
+nova necessidade estratégica observada pela equipe?
+Quais fatores estruturais, organizacionais ou operacionais dificultam o alcance de
+melhores resultados nesse contexto?
+De que forma a inovação, a transformação digital ou, especialmente, a inteligência
+artificial poderiam contribuir para superar esse desafio?
+O desafio apresenta potencial para aplicação de soluções com IA que otimizem
+processos, apoiem decisões ou ampliem a entrega de valor público?
+
+3
+
+Análise de Dados e
+Transformação Digital
+Após identificar o desafio, é essencial compreendê-lo com maior
+profundidade. Esta etapa tem como objetivo reunir dados, evidências e
+informações relevantes que permitam dimensionar o problema e
+compreender suas causas, impactos, contexto organizacional e
+desempenho atual — identificando sinais concretos de que a situação requer
+uma intervenção estruturada.
+Além do levantamento de dados internos e fontes institucionais, o grupo deve
+avaliar o potencial de utilização de ferramentas de transformação digital e
+inteligência artificial para apoiar a superação do desafio identificado. Nessa
+análise, é importante investigar de forma crítica como as ferramentas podem
+contribuir efetivamente para enfrentar o problema, embasando essa
+viabilidade com exemplos, estudos de caso, dados comparativos ou
+experiências similares em outras instituições.
+Essa etapa também requer atenção aos limites, riscos e responsabilidades
+do uso de tecnologias no setor público, com ênfase na proteção de dados
+pessoais, segurança da informação e uso ético da inteligência artificial.
+Perguntas orientadoras:
+Quais dados, indicadores ou evidências estão disponíveis sobre o desafio?
+Quais foram as fontes utilizadas?
+O desempenho atual da situação identificada aponta para a necessidade
+de intervenção? Há sinais de baixa efetividade, sobrecarga, retrabalho ou
+insatisfação dos usuários?
+O problema apresenta potencial para ser enfrentado com soluções
+baseadas em transformação digital e inteligência artificial? Há evidências
+ou casos que sustentem essa possibilidade?
+Quais riscos estão associados ao uso de dados e tecnologias nesse
+contexto?
+Que cuidados devem ser adotados para garantir a segurança da
+informação e a conformidade com a LGPD?
+Em caso de uso de inteligência artificial, como garantir que sua aplicação
+seja ética, transparente e alinhada ao interesse público?
+
+4
+
+Proposta de Solução com
+Resultados-Chave e Indicadores
+Com base no desafio identificado e nas evidências e análises realizadas , o
+grupo deverá agora estruturar a proposta de solução, detalhando que tipo
+de intervenção será realizada e qual ferramenta de transformação digital
+será utilizada para apoiar a superação do problema. Nesta etapa, a proposta
+deve ser traduzida em ações concretas, viáveis e alinhadas aos objetivos
+institucionais do TJCE.
+A solução deverá envolver o uso de ferramentas de transformação digital e
+inteligência artificial, podendo incluir, por exemplo, a automação de rotinas,
+o apoio à tomada de decisão com ferramentas preditivas ou generativas, ou a
+reorganização de processos com base em dados analisados por IA.
+O grupo deverá aplicar os conceitos abordados no módulo, como a definição
+estratégica dos resultados-chave, a escolha de indicadores adequados e o
+alinhamento com os objetivos e indicadores estratégicos do TJCE. Esse
+desenho deve permitir o acompanhamento dos avanços e a verificação dos
+resultados obtidos com a implementação da solução. A proposta deve incluir
+resultados-chave SMART — ou seja, Específicos, Mensuráveis, Atingíveis,
+Relevantes e Temporais — e indicadores que evidenciem o impacto da
+solução no contexto da unidade e sua contribuição para os objetivos do TJCE.
+A proposta pode ser fortalecida com base em exemplos práticos ou estudos
+de caso discutidos durante o curso, desde que adaptados à realidade local e à
+viabilidade de execução.
+Perguntas orientadoras:
+Qual é a solução proposta? Trata-se de uma ação, processo, sistema, rotina
+ou prática inovadora baseada no uso de ferramentas tecnológicas?
+Como essa solução contribui de forma concreta para enfrentar o desafio
+identificado nas etapas anteriores?
+Quais resultados-chave serão definidos para orientar a execução da
+proposta?
+Quais indicadores serão utilizados para monitorar o alcance desses
+resultados?
+De que forma a proposta se alinha aos objetivos estratégicos do TJCE?
+Quais os principais benefícios esperados com a implementação dessa
+solução?
+Quais seriam os riscos ou impactos negativos caso a proposta não seja
+implementada?
+
+5
+
+Plano de Ação e Implementação
+Com a solução já definida, esta etapa se dedica ao planejamento da sua
+execução prática. O grupo deve elaborar um plano de ação estruturado,
+descrevendo as etapas necessárias para viabilizar a proposta, com indicações
+de responsáveis, estimativas de prazos e recursos. A ideia não é apresentar
+um planejamento definitivo, mas sim um esboço viável e coerente com a
+realidade institucional.
+O plano deve considerar os fundamentos do planejamento estratégico e
+operacional, articulando objetivos, estratégias e ações. É importante que o
+grupo pense em um cronograma de implementação da solução, mesmo que
+estimado, considerando etapas iniciais, recursos de apoio, e necessidades de
+capacitação da equipe, caso a proposta envolva mudanças de cultura,
+processos ou uso de novas tecnologias.
+Também é importante refletir sobre estratégias de comunicação e
+engajamento das equipes, promovendo a corresponsabilidade entre os
+envolvidos.
+Como o uso de ferramentas digitais é um requisito da proposta, o grupo deve
+considerar quem será responsável por sua implementação (equipe interna
+ou externa), quais recursos e etapas técnicas serão necessários, e se
+haverá necessidade de integração com sistemas, capacitações ou ajustes
+normativos. Esses aspectos são fundamentais para garantir a viabilidade da
+solução dentro das condições do TJCE.
+Perguntas orientadoras:
+Quais são as etapas necessárias para implementar a solução proposta?
+Quem seriam os responsáveis mais adequados por cada ação? Há uma
+estimativa de prazos para sua execução?
+Será necessário recurso financeiro? Qual a estimativa de valor e sua
+finalidade?
+A proposta exige capacitação da equipe, apoio técnico especializado ou
+aquisição de tecnologias específicas?
+Há necessidade de revisar ou criar normativos, rotinas ou procedimentos
+internos para viabilizar a solução?
+Como as equipes envolvidas serão engajadas e comunicadas ao longo da
+execução?
+6
+
+Template do Projeto
+Aplicativo
+Visando padronizar e facilitar a elaboração das propostas, foi desenvolvido
+um template padrão que servirá como instrumento norteador para a
+construção do Projeto Aplicativo.
+Esse modelo deverá ser obrigatoriamente utilizado por todos os grupos,
+contendo campos específicos e orientações para descrever o desafio
+identificado, reunir dados e evidências que justifiquem a necessidade de
+intervenção, apresentar a solução proposta com o detalhamento da
+ferramentas, estabelecer resultados-chave e indicadores, e estruturar o
+plano de ação.
+O template será apresentado durante os encontros do curso, com
+explicações detalhadas sobre seu preenchimento e aplicação ao longo do
+desenvolvimento do Projeto Aplicativo.
+
+Acesse aqui: https://bit.ly/TemplateTJCE
+
+7
+
+Apresentação das
+Propostas
+A proposta do Projeto Aplicativo deve ser elaborada progressivamente ao
+longo do Programa de Desenvolvimento de Gestores (PDG), com base nos
+conteúdos apresentados em cada módulo e nas orientações repassadas pelos
+professores. Trata-se de uma atividade prática e estratégica, que exige
+articulação entre teoria e realidade institucional.
+Os grupos de trabalho deverão ser formados pelos próprios participantes,
+respeitando o limite máximo de 5 integrantes por grupo. Recomenda-se que
+os grupos considerem a diversidade de experiências e áreas de atuação dos
+membros, favorecendo a construção colaborativa de propostas aplicáveis e
+com potencial de impacto.
+A realização do Projeto Aplicativo exige dedicação extraclasse: os alunos
+deverão reservar tempo fora dos encontros regulares para realizar as reflexões,
+análises e estruturação da proposta. Essa organização será essencial para
+garantir a qualidade do trabalho e a coerência com os conteúdos do
+programa.
+Após a realização dos quatro módulos do curso, cada turma contará com
+duas sessões de mentoria. Nessas mentorias, os grupos deverão apresentar a
+proposta desenvolvida e receberão feedbacks construtivos dos professores,
+com sugestões de ajustes, complementações e aprofundamentos,
+considerando os conceitos, ferramentas e metodologias trabalhados ao longo
+da capacitação.
+Durante as mentorias, cada grupo terá até 10 minutos para apresentar sua
+proposta, não devendo ultrapassar esse tempo.
+
+O Projeto Aplicativo deve ser
+desenvolvido ao longo do
+curso, com base nos conteúdos
+dos quatro módulos e nas
+orientações recebidas
+
+Os grupos serão formados
+pelos participantes e devem
+dedicar tempo extraclasse
+para construir a proposta
+com profundidade.
+
+Após os módulos, cada turma
+terá duas mentorias para que
+as propostas desenvolvidas
+sejam apresentadas e
+possam receber feedbacks e
+realizar ajustes.
+
+8
+
+Avaliação das
+Propostas
+Ao final das mentorias, todos os participantes deverão preencher uma ficha
+de avaliação, no qual deverão atribuir notas a todas as propostas
+apresentadas por sua turma, com base em critérios previamente definidos
+pelo programa. O formulário será anônimo, garantindo imparcialidade e
+transparência no processo de seleção.
+Cada participante deverá avaliar todas as propostas, exceto a do próprio
+grupo, que não poderá receber sua nota. Essa dinâmica valoriza o olhar crítico,
+promove o reconhecimento de boas práticas e incentiva a troca de
+experiências entre os participantes.
+Critérios sugeridos para a escolha da proposta destaque:
+Clareza e relevância do desafio abordado;
+Inovação e criatividade da solução proposta;
+Viabilidade de aplicação no contexto institucional do TJCE;
+Contribuição para a melhoria da gestão e o alcance de resultados e metas;
+Qualidade da apresentação e estrutura da proposta.
+A proposta com a melhor média de avaliação da turma será encaminhada
+para apresentação à alta gestão do TJCE, representando uma oportunidade
+de valorização institucional e de visibilidade para soluções aplicadas aos
+desafios reais do Judiciário cearense.
+
+Certificados
+Lembramos que, para obter o certificado de conclusão do curso, é
+necessário ter presença mínima de 70% nas aulas, responder os
+questionários de avaliação ex ante e ex post e participar
+ativamente do desenvolvimento da proposta de Projeto Aplicativo
+em grupo.
+9
+
+Você não estará sozinho:
+conte com a inteligência
+do Mentor TJCE
+Durante todo o processo de elaboração do Projeto Aplicativo, você contará
+com o apoio do Mentor TJCE, uma ferramenta de apoio baseada em
+Inteligência Artificial, desenvolvida exclusivamente para o Programa de
+Desenvolvimento de Gestores do TJCE.
+O Mentor TJCE reúne todo o conteúdo do
+curso
+—
+conceitos-chave,
+ferramentas,
+metodologias,
+exemplos
+práticos
+e
+orientações pedagógicas — em um ambiente
+digital interativo. Ele foi desenhado para
+ampliar a autonomia dos participantes,
+proporcionando suporte contínuo e acessível
+durante a construção das propostas..
+Com o Mentor TJCE, você poderá:
+Consultar os principais conceitos abordados
+nos quatro módulos do programa;
+Obter sugestões para organizar o seu projeto,
+com base nos conteúdos trabalhados;
+Tirar dúvidas sobre resultados-chave,
+indicadores, planejamento e execução de ações;
+Receber orientações sobre boas práticas e
+estratégias de gestão aplicáveis ao contexto do
+Judiciário cearense;
+Melhorar a estrutura e a clareza da proposta de
+forma prática e personalizada.
+
+O Mentor TJCE está à disposição dos participantes como um
+parceiro digital que apoia o desenvolvimento de soluções
+inovadoras, realistas e alinhadas às diretrizes institucionais do
+Tribunal de Justiça do Estado do Ceará.
+10
+
+Dúvidas?
+Fale com a equipe organizadora:
+tjce@institutopublix.com.br
+(61) 99326-0480
+
+
