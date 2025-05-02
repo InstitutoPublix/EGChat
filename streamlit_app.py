@@ -296,16 +296,6 @@ def carregar_contexto() -> str:
         else:
             st.error(f"Arquivo de contexto não encontrado: {arquivo}")
 
-    # 2) PDFs que você quer carregar automaticamente
-    pdfs_contexto = [
-        "docs/guia_transformacao_digital.pdf",
-        "docs/manual_avaliacao.pdf",
-    ]
-    for pdf in pdfs_contexto:
-        if Path(pdf).exists():
-            contexto += extrair_texto_pdf(pdf) + "\n\n"
-        else:
-            st.error(f"Arquivo PDF não encontrado: {pdf}")
 
     return contexto
 
