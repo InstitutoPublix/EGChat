@@ -15,3 +15,5 @@ pydub
 ffmpeg
 speechrecognition
 anthropic
+ pypdf 
+ PdfReader
