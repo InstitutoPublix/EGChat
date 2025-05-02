@@ -8,7 +8,7 @@ import json
 import streamlit.components.v1 as components
 import speech_recognition as sr
 from pathlib import Path # para percorrer diretórios
-from pypdf import PdfReader
+
 
 
 
