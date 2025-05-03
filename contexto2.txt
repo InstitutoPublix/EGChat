@@ -1,24 +1,4 @@
-Calendário - TJCE – Programa de Desenvolvimento de Gestores (PDG)
-Turmas e Horários
-Turma 1: Segunda-feira – Manhã (8h às 12h)
 
-Turma 2: Segunda-feira – Tarde (14h às 18h)
-
-Turma 3: Terça-feira – Manhã (8h às 12h)
-
-Turma 4: Terça-feira – Tarde (14h às 18h)
-
-Turma 5: Quarta-feira – Manhã (8h às 12h)
-
-Turma 6: Quarta-feira – Tarde (14h às 18h)
-
-Turma 7: Quinta-feira – Manhã (8h às 12h)
-
-Turma 8: Quinta-feira – Tarde (14h às 18h)
-
-Turma 9: Sexta-feira – Manhã (8h às 12h)
-
-Turma 10: Sexta-feira – Tarde (14h às 18h)
 
 Turma 1 – Segunda-feira – Manhã (8h às 12h)
 Aula 1: 05/05 – 8h às 12h
