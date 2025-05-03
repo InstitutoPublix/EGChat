@@ -283,33 +283,7 @@ def extrair_texto_pdf(caminho_pdf: str) -> str:
     return "\n".join(paginas)
 
  
-@st.cache_resource(show_spinner=False, persist=True)
-def carregar_contexto_e_embeddings():
-    """
-    1) Lê .txt e .pdf locais.
-    2) Gera chunks.
-    3) Calcula embedding de cada chunk.
-    Retorna (chunks, embeddings_tensor).
-    """
-    # ---- 1. ler arquivos ----
-    contexto = ""
-    # seus .txt
-    for arq in ["contexto1.txt"]:
-        with open(arq, "r", encoding="utf-8") as f:
-            contexto += f.read() + "\n\n"
 
-    # pdfs (se houver) – reutilize a função extrair_texto_pdf()
-    # for pdf in Path("docs").glob("*.pdf"):
-    #     contexto += extrair_texto_pdf(pdf) + "\n\n"
-
-    # ---- 2. gerar chunks menores ----
-    chunks = dividir_texto(contexto, max_tokens=800)
-
-    # ---- 3. embeddings ----
-    modelo = SentenceTransformer("paraphrase-multilingual-MiniLM-L12-v2")
-    embeds = modelo.encode(chunks, convert_to_tensor=True, show_progress_bar=False)
-
-    return chunks, embeds, modelo
 
 
 chunks, embeds_chunks, modelo_sbert = carregar_contexto_e_embeddings()
