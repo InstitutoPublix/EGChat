@@ -281,7 +281,6 @@ def extrair_texto_pdf(caminho_pdf: str) -> str:
     reader = PdfReader(caminho_pdf)
     paginas = [page.extract_text() or "" for page in reader.pages]
     return "\n".join(paginas)
-
  
 def carregar_contexto() -> str:
     """Lê arquivos .txt e .pdf locais e devolve um único string com o conteúdo."""
