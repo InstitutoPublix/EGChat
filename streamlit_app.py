@@ -291,8 +291,7 @@ def carregar_contexto() -> str:
 
 contexto_inteiro = carregar_contexto()
 
-# Carregar o contexto ao iniciar o aplicativo
-contexto = carregar_contexto()
+
 
 # Função para dividir o texto em chunks
 def dividir_texto(texto, max_tokens=800):  # Chunks menores (800 tokens)
