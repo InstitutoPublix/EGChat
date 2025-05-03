@@ -471,3 +471,27 @@ Mentoria 2: 27/06
 
 Turma 10 – Sexta-feira – Tarde (14h às 18h)
 Mesmo cronograma da Turma 9, à tarde
+
+
+TEMPLATE DO APLICATIVO:
+
+Orientações preliminares:
+Este modelo deverá ser obrigatoriamente utilizado por todos os grupos participantes do Programa de Desenvolvimento de Gestores (PDG) do TJCE.
+A proposta deve conter no máximo 10 páginas, excluindo anexos complementares (caso utilizados).
+Cada grupo deverá desenvolver apenas uma proposta de solução, com foco em um desafio real enfrentado pela sua unidade ou pelo TJCE como um todo.
+A solução proposta deve envolver o uso de ferramentas digitais ou de inteligência artificial, aplicada de forma estratégica para a melhoria de processos, apoio à decisão ou inovação na gestão pública.
+O desafio tratado no projeto deve estar vinculado ao Plano de Trabalho da Unidade, no âmbito do Programa +Gestão, ou corresponder a uma nova demanda estratégica institucional.
+A proposta deverá ser desenvolvida de forma colaborativa pelos integrantes do grupo, e apresentada durante as mentorias, dentro dos prazos definidos.
+O preenchimento deve ser objetivo, claro e bem estruturado, utilizando os campos do modelo e seguindo as orientações explicativas presentes no documento.
+Ao final, os grupos devem estar preparados para apresentar e justificar sua proposta com base nos conteúdos abordados nos quatro módulos do curso.
+Você poderá contar com o apoio do Mentor TJCE, uma ferramenta de inteligência artificial desenvolvida especialmente para este curso. Utilize o Mentor para tirar dúvidas, revisar conceitos, estruturar ideias e avançar na elaboração da proposta. Acesse pelo link: [inserir link do Mentor TJCE aqui].
+Participantes
+Descreva o nome de todos os participantes e suas respectivas áreas de atuação
+Nome do Projeto
+Informe um título claro, objetivo e representativo da proposta. Deve refletir a essência da solução desenvolvida.
+Objetivo
+Explique de forma concisa o propósito da proposta. O foco deve estar na solução de um desafio real com o uso de ferramentas digitais.
+Identificação do Desafio
+Descreva de forma clara o desafio real enfrentado por uma unidade ou pelo TJCE. Indique se a demanda está vinculada ao Plano de Trabalho da Unidade (Programa +Gestão) ou se se trata de uma nova demanda estratégica. Além disso, relacione a proposta com os objetivos estratégicos do TJCE e do Programa +Gestão, explicando o alinhamento institucional.
+Análise de Dados e Evidências
+Apresente dados, indicadores e informações que justifiquem a necessidade de intervenção. Explique as fontes utilizadas, os sinais de desempenho insatisfatório e analise o potencial de uso da inteligência artificial para apoiar a superação do desafio. Considere também os riscos, aspectos éticos, de segurança da informação e conformidade com a LGPD.
