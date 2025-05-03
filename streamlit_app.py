@@ -10,6 +10,16 @@ import speech_recognition as sr
 from pathlib import Path # para percorrer diretórios
 from pypdf import PdfReader
 
+def dividir_texto(texto: str, max_tokens: int = 800) -> list[str]:
+    palavras, chunk, chunks = texto.split(), "", []
+    for p in palavras:
+        if len(chunk.split()) + 1 <= max_tokens:
+            chunk += p + " "
+        else:
+            chunks.append(chunk.strip()); chunk = p + " "
+    if chunk:
+        chunks.append(chunk.strip())
+    return chunks
 
 
 # Configurações iniciais
