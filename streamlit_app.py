@@ -336,21 +336,21 @@ def gerar_resposta(texto_usuario: str, claude_api_key: str) -> str:
 
     client = anthropic.Anthropic(api_key=claude_api_key)
 
-    for _ in range(3):          # até 3 tentativas
-        try:
-            resp = client.messages.create(
-                model="claude-3-haiku-20240307",
-                max_tokens=800,
-                temperature=0.3,
-                messages=[
-                    {"role": "system", "content": system_prompt},
-                    {"role": "user",   "content": texto_usuario}
-                ]
-            )
-            return resp.content[0].text.strip()
-        except Exception:
-           return f"⚠️ Erro detalhado: {e}"
+  for _ in range(3):
+    try:
+        resp = client.messages.create(
+            model="claude-3-haiku-20240307",
+            max_tokens=800,
+            temperature=0.3,
+            system=system_prompt,
+            messages=[{"role": "user", "content": texto_usuario}]
+        )
+        return resp.content[0].text.strip()
 
+    except Exception as e:
+        #                    ↑ e SÓ EXISTE aqui dentro
+        time.sleep(2)
+        return f"⚠️ Erro detalhado: {e}"   # ← deixe este return INDENTADO dentro do except
 # Adicionar a logo na sidebar
 if LOGO_BOT:
     st.sidebar.image(LOGO_BOT, width=300)
