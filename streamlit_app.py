@@ -283,6 +283,9 @@ def extrair_texto_pdf(caminho_pdf: str) -> str:
     return "\n".join(paginas)
 
  
+CAMINHO_CONTEXTO = "contexto1.txt"
+
+
 def carregar_contexto() -> str:
     """Lê o arquivo inteiro e devolve como string."""
     if Path(CAMINHO_CONTEXTO).exists():
