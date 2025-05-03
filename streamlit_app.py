@@ -282,12 +282,8 @@ def extrair_texto_pdf(caminho_pdf: str) -> str:
     paginas = [page.extract_text() or "" for page in reader.pages]
     return "\n".join(paginas)
 
- 
-
-
 
 chunks, embeds_chunks, modelo_sbert = carregar_contexto_e_embeddings()
-
 
 # Função para dividir o texto em chunks
 def dividir_texto(texto, max_tokens=800):  # Chunks menores (800 tokens)
