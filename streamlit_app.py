@@ -284,21 +284,12 @@ def extrair_texto_pdf(caminho_pdf: str) -> str:
 
  
 def carregar_contexto() -> str:
-    """Lê arquivos .txt e .pdf locais e devolve um único string com o conteúdo."""
-    contexto = ""
+    """Lê o arquivo inteiro e devolve como string."""
+    if Path(CAMINHO_CONTEXTO).exists():
+        return Path(CAMINHO_CONTEXTO).read_text(encoding="utf-8")
+    return ""
 
-    # 1) Arquivos .txt que já eram usados
-    txts_contexto = ["contexto1.txt"]
-    for arquivo in txts_contexto:
-        if Path(arquivo).exists():
-            with open(arquivo, "r", encoding="utf-8") as f:
-                contexto += f.read() + "\n\n"
-        else:
-            st.error(f"Arquivo de contexto não encontrado: {arquivo}")
-
-
-
-    return contexto
+contexto_inteiro = carregar_contexto()
 
 # Carregar o contexto ao iniciar o aplicativo
 contexto = carregar_contexto()
@@ -329,31 +320,35 @@ def selecionar_chunks_relevantes(pergunta, chunks):
     return chunks_relevantes[:2]  # Limita a 2 chunks para evitar excesso de tokens
 
 # Função para gerar resposta com OpenAI usando GPT-3.5 ou Claude Haiku
-def gerar_resposta(texto_usuario, contexto_base, openai_api_key=None, claude_api_key=None):
-    chunks = dividir_texto(contexto_base)
-    chunks_relevantes = selecionar_chunks_relevantes(texto_usuario, chunks)
+def gerar_resposta(texto_usuario: str, claude_api_key: str) -> str:
+    if not contexto_inteiro:
+        return "Erro: contexto vazio."
 
-    # Montar contexto para prompt
-    contexto_prompt = "Você é um assistente virtual educacional do TJCE, desenvolvido com o apoio do Instituto Publix. Ajude o aluno a compreender melhor seu curso de transformação digital. Use uma linguagem simples, clara e amigável.\n\n"
-    for i, chunk in enumerate(chunks_relevantes):
-        contexto_prompt += f"--- Parte {i+1} do Contexto ---\n{chunk}\n\n"
+    system_prompt = (
+        "Você é o Professor Virtual do TJCE. "
+        "Use somente o contexto a seguir para responder. "
+        "Se não encontrar a informação, diga: "
+        "\"Informação não disponível no material de apoio.\"\n\n"
+        f"{contexto_inteiro}"
+    )
 
-    prompt_completo = contexto_prompt + f"Pergunta do aluno: {texto_usuario}"
+    client = anthropic.Anthropic(api_key=claude_api_key)
 
-    if claude_api_key:
-        client = anthropic.Anthropic(api_key=claude_api_key)
-        resposta = client.messages.create(
-            model="claude-3-haiku-20240307",
-            max_tokens=800,
-            temperature=0.3,
-            messages=[
-                {"role": "user", "content": prompt_completo.strip()}
-            ]
-        )
-        return resposta.content[0].text.strip()
-
-    else:
-        return "Erro: nenhuma chave de API fornecida."
+    for _ in range(3):          # até 3 tentativas
+        try:
+            resp = client.messages.create(
+                model="claude-3-haiku-20240307",
+                max_tokens=800,
+                temperature=0.3,
+                messages=[
+                    {"role": "system", "content": system_prompt},
+                    {"role": "user",   "content": texto_usuario}
+                ]
+            )
+            return resp.content[0].text.strip()
+        except Exception:
+            time.sleep(2)
+    return "Erro ao gerar a resposta."
 
 # Adicionar a logo na sidebar
 if LOGO_BOT:
@@ -375,7 +370,7 @@ else:
 user_input = st.chat_input("💬 Sua pergunta:")
 if user_input and user_input.strip():
     st.session_state.mensagens_chat.append({"user": user_input, "bot": None})
-    resposta = gerar_resposta(user_input, contexto, api_key, claude_api_key)
+    resposta = gerar_resposta(user_input, claude_api_key)
     st.session_state.mensagens_chat[-1]["bot"] = resposta
 
 with st.container():
