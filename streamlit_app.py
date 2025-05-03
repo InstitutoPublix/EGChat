@@ -283,24 +283,37 @@ def extrair_texto_pdf(caminho_pdf: str) -> str:
     return "\n".join(paginas)
 
  
-def carregar_contexto() -> str:
-    """Lê arquivos .txt e .pdf locais e devolve um único string com o conteúdo."""
+@st.cache_resource(show_spinner=False, persist=True)
+def carregar_contexto_e_embeddings():
+    """
+    1) Lê .txt e .pdf locais.
+    2) Gera chunks.
+    3) Calcula embedding de cada chunk.
+    Retorna (chunks, embeddings_tensor).
+    """
+    # ---- 1. ler arquivos ----
     contexto = ""
+    # seus .txt
+    for arq in ["contexto1.txt"]:
+        with open(arq, "r", encoding="utf-8") as f:
+            contexto += f.read() + "\n\n"
 
-    # 1) Arquivos .txt que já eram usados
-    txts_contexto = ["contexto1.txt"]
-    for arquivo in txts_contexto:
-        if Path(arquivo).exists():
-            with open(arquivo, "r", encoding="utf-8") as f:
-                contexto += f.read() + "\n\n"
-        else:
-            st.error(f"Arquivo de contexto não encontrado: {arquivo}")
+    # pdfs (se houver) – reutilize a função extrair_texto_pdf()
+    # for pdf in Path("docs").glob("*.pdf"):
+    #     contexto += extrair_texto_pdf(pdf) + "\n\n"
+
+    # ---- 2. gerar chunks menores ----
+    chunks = dividir_texto(contexto, max_tokens=800)
+
+    # ---- 3. embeddings ----
+    modelo = SentenceTransformer("paraphrase-multilingual-MiniLM-L12-v2")
+    embeds = modelo.encode(chunks, convert_to_tensor=True, show_progress_bar=False)
+
+    return chunks, embeds, modelo
 
 
-    return contexto
+chunks, embeds_chunks, modelo_sbert = carregar_contexto_e_embeddings()
 
-# Carregar o contexto ao iniciar o aplicativo
-contexto = carregar_contexto()
 
 # Função para dividir o texto em chunks
 def dividir_texto(texto, max_tokens=800):  # Chunks menores (800 tokens)
@@ -317,15 +330,19 @@ def dividir_texto(texto, max_tokens=800):  # Chunks menores (800 tokens)
         chunks.append(chunk_atual.strip())
     return chunks
 
-# Função para selecionar chunks relevantes com base na pergunta
-def selecionar_chunks_relevantes(pergunta, chunks):
-    # Lógica simples para selecionar chunks com base em palavras-chave
-    palavras_chave = pergunta.lower().split()
-    chunks_relevantes = []
-    for chunk in chunks:
-        if any(palavra in chunk.lower() for palavra in palavras_chave):
-            chunks_relevantes.append(chunk)
-    return chunks_relevantes[:2]  # Limita a 2 chunks para evitar excesso de tokens
+def selecionar_chunks_semanticos(pergunta, k=3):
+    """Devolve os k chunks semanticamente mais próximos da pergunta."""
+    # gera embedding da pergunta
+    emb_pergunta = modelo_sbert.encode(
+        pergunta, convert_to_tensor=True, show_progress_bar=False
+    )
+    # similaridade cosseno
+    cos_scores = util.cos_sim(emb_pergunta, embeds_chunks)[0]
+    # índices ordenados por similaridade (maior → menor)
+    top_idx = torch.topk(cos_scores, k=k).indices
+    # devolve lista de textos
+    return [chunks[i] for i in top_idx]
+
 
 # Função para gerar resposta com OpenAI usando GPT-3.5 ou Claude Haiku
 def gerar_resposta(texto_usuario, contexto_base, openai_api_key=None, claude_api_key=None):

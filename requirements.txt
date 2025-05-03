@@ -17,3 +17,5 @@ speechrecognition
 anthropic
  pypdf 
  PdfReader
+sentence-transformers==2.6.1
+torch            # a versão CPU já é instalada como dependência
