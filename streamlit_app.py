@@ -292,8 +292,6 @@ def extrair_texto_pdf(caminho_pdf: str) -> str:
     paginas = [page.extract_text() or "" for page in reader.pages]
     return "\n".join(paginas)
 
-chunks = dividir_texto(texto_total, max_tokens=800)
-a
 @st.cache_resource(show_spinner=False)
 def carregar_contexto_e_embeddings():
     """
