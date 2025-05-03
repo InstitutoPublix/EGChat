@@ -365,7 +365,7 @@ else:
 
 claude_api_key = st.sidebar.text_input("🔑 Chave API Claude (Anthropic)", type="password", placeholder="sk-ant-...")
 
-if api_key or claude_api_key:
+if claude_api_key:
     if st.sidebar.button("🧹 Limpar Histórico do Chat", key="limpar_historico"):
         limpar_historico()
         st.sidebar.success("Histórico do chat limpo com sucesso!")
