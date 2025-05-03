@@ -340,27 +340,6 @@ def gerar_resposta(texto_usuario: str,
         )
         return resp.content[0].text.strip()
 
-    # OpenAI
-    if openai_api_key:
-        openai.api_key = openai_api_key
-        msgs = [{"role": "system", "content": system_prompt},
-                {"role": "user",   "content": user_prompt}]
-        for tentativa in range(3):
-            try:
-                time.sleep(1)
-                out = openai.ChatCompletion.create(
-                    model="gpt-3.5-turbo",
-                    messages=msgs, temperature=0.3, max_tokens=800
-                )
-                return out["choices"][0]["message"]["content"]
-            except Exception as e:
-                if tentativa < 2: time.sleep(2)
-                else: return f"Erro ao gerar resposta: {e}"
-
-    return "Erro: nenhuma chave de API fornecida."
-
-
-
 # Adicionar a logo na sidebar
 if LOGO_BOT:
     st.sidebar.image(LOGO_BOT, width=300)
