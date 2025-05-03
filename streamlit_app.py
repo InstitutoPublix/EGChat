@@ -321,41 +321,56 @@ def selecionar_chunks_relevantes(pergunta, chunks):
             chunks_relevantes.append(chunk)
     return chunks_relevantes[:4]  # Limita a 4 chunks para evitar excesso de tokens
 
-# Função para gerar resposta com OpenAI usando GPT-4o
-def gerar_resposta(texto_usuario):
+def gerar_resposta(texto_usuario: str,
+                   claude_api_key: str,
+                   tentativas: int = 3) -> str:
+    """
+    Usa Claude 3 Haiku para responder com base no contexto carregado.
+    """
     if not contexto:
         return "Erro: Nenhum contexto carregado."
 
-    chunks = dividir_texto(contexto)  # Divide o texto em chunks
-    chunks_relevantes = selecionar_chunks_relevantes(texto_usuario, chunks)  # Seleciona chunks relevantes
+    # 1) selecionar partes relevantes do contexto (mesmo fluxo antigo)
+    chunks = dividir_texto(contexto)                       # divide
+    chunks_relevantes = selecionar_chunks_relevantes(      # filtra
+        texto_usuario, chunks)
 
-    contexto_pergunta = "Você é um chatbot feito pelo Instituto Publix, uma consultoria em gestão pública, em parceria com o Tribunal Justiça do Ceára. Seu papel é ser um assistente virtual,que auxilia os alunos a conculírem com êxito os cursos e capacitações ofertadas.Responda com base no seguinte contexto:\n\n"
-    for i, chunk in enumerate(chunks_relevantes):
-        contexto_pergunta += f"--- Parte {i+1} do Contexto ---\n{chunk}\n\n"
+    # 2) montar prompt (system + trechos)
+    contexto_pergunta = (
+        "Você é um chatbot feito pelo Instituto Publix, uma consultoria em gestão pública, "
+        "em parceria com o Tribunal de Justiça do Ceará. Seu papel é ser um assistente virtual, "
+        "que auxilia os alunos a concluírem com êxito os cursos e capacitações ofertadas. "
+        "Responda com base no seguinte contexto:\n\n"
+    )
+    for i, chunk in enumerate(chunks_relevantes, 1):
+        contexto_pergunta += f"--- Parte {i} do Contexto ---\n{chunk}\n\n"
 
     mensagens = [
         {"role": "system", "content": contexto_pergunta},
-        {"role": "user", "content": texto_usuario}
+        {"role": "user",   "content": texto_usuario}
     ]
 
-    tentativas = 3  # Número de tentativas
+    # 3) cliente Anthropic
+    client = anthropic.Anthropic(api_key=claude_api_key)
+
+    # 4) tentativas com controle de taxa
     for tentativa in range(tentativas):
         try:
-            # Implementar controle de taxa
-            time.sleep(1)  # Adiciona um atraso de 1 segundo entre as solicitações
-            resposta = openai.ChatCompletion.create(
-                model="gpt-4o",  # Usando o GPT-4o
-                messages=mensagens,
+            time.sleep(1)   # espaça requisições
+            resp = client.messages.create(
+                model="claude-3-haiku-20240307",   # Haiku 3
+                max_tokens=800,
                 temperature=0.3,
-                max_tokens=800  # Limita a resposta a 800 tokens
+                messages=mensagens
             )
-            return resposta["choices"][0]["message"]["content"]
+            # retorno em Claude → lista content[n].text
+            return resp.content[0].text.strip()
+
         except Exception as e:
-            if tentativa < tentativas - 1:  # Se não for a última tentativa
-                time.sleep(2)  # Aguarda 2 segundos antes de tentar novamente
-                continue
+            if tentativa < tentativas - 1:
+                time.sleep(2)       # aguarda e tenta de novo
             else:
-                return f"Erro ao gerar a resposta: {str(e)}"
+                return f"Erro ao gerar a resposta: {e}"
 
 # Adicionar a logo na sidebar
 if LOGO_BOT:
