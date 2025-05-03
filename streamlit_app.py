@@ -349,8 +349,7 @@ def gerar_resposta(texto_usuario: str, claude_api_key: str) -> str:
             )
             return resp.content[0].text.strip()
         except Exception:
-            time.sleep(2)
-    return "Erro ao gerar a resposta."
+           return f"⚠️ Erro detalhado: {e}"
 
 # Adicionar a logo na sidebar
 if LOGO_BOT:
