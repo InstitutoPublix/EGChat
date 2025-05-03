@@ -296,7 +296,7 @@ def carregar_contexto_e_embeddings():
         if Path(arq).exists():
             texto_total += Path(arq).read_text(encoding="utf-8") + "\n\n"
 
-    chunks = dividir_texto(texto_total, max_tokens=800)
+
 
     modelo = SentenceTransformer("paraphrase-multilingual-MiniLM-L12-v2")
     embeds = modelo.encode(chunks, convert_to_tensor=True,
@@ -357,6 +357,7 @@ def gerar_resposta(texto_usuario: str,
 
     return "Erro: nenhuma chave de API fornecida."
 
+chunks = dividir_texto(texto_total, max_tokens=800)
 
 chunks, embeds_chunks, modelo_sbert = carregar_contexto_e_embeddings()
 
