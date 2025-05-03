@@ -304,8 +304,6 @@ def carregar_contexto_e_embeddings():
                            show_progress_bar=False)
     return chunks, embeds, modelo
 
-chunks, embeds_chunks, modelo_sbert = carregar_contexto_e_embeddings()
-
 def selecionar_chunks_semanticos(pergunta: str, k: int = 3) -> list[str]:
     emb_q = modelo_sbert.encode(pergunta, convert_to_tensor=True,
                                 show_progress_bar=False)
