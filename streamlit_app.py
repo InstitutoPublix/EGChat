@@ -321,8 +321,12 @@ def selecionar_chunks_relevantes(pergunta, chunks):
             chunks_relevantes.append(chunk)
     return chunks_relevantes[:2]  # Limita a 2 chunks para evitar excesso de tokens
 
-# Função para gerar resposta com OpenAI usando GPT-3.5 ou Claude Haiku
-def gerar_resposta(texto_usuario: str, claude_api_key: str) -> str:
+def gerar_resposta(texto_usuario: str,
+                   claude_api_key: str,
+                   temperatura: float = 0.3,
+                   max_tokens: int = 800) -> str:
+    """Gera resposta usando Claude 3 Haiku e TODO o contexto."""
+
     if not contexto_inteiro:
         return "Erro: contexto vazio."
 
@@ -336,21 +340,24 @@ def gerar_resposta(texto_usuario: str, claude_api_key: str) -> str:
 
     client = anthropic.Anthropic(api_key=claude_api_key)
 
-  for _ in range(3):
-    try:
-        resp = client.messages.create(
-            model="claude-3-haiku-20240307",
-            max_tokens=800,
-            temperature=0.3,
-            system=system_prompt,
-            messages=[{"role": "user", "content": texto_usuario}]
-        )
-        return resp.content[0].text.strip()
+    for _ in range(3):
+        try:
+            resp = client.messages.create(
+                model="claude-3-haiku-20240307",
+                max_tokens=max_tokens,
+                temperature=temperatura,
+                system=system_prompt,
+                messages=[{"role": "user", "content": texto_usuario}]
+            )
+            return resp.content[0].text.strip()
 
-    except Exception as e:
-        #                    ↑ e SÓ EXISTE aqui dentro
-        time.sleep(2)
-        return f"⚠️ Erro detalhado: {e}"   # ← deixe este return INDENTADO dentro do except
+        except Exception as e:
+            time.sleep(2)
+            return f"⚠️ Erro detalhado: {e}"
+
+    # Só chega aqui se não retornou (improvável)
+    return "Erro ao gerar a resposta (tentativas esgotadas)."
+
 # Adicionar a logo na sidebar
 if LOGO_BOT:
     st.sidebar.image(LOGO_BOT, width=300)
