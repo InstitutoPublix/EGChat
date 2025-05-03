@@ -282,7 +282,9 @@ def extrair_texto_pdf(caminho_pdf: str) -> str:
     paginas = [page.extract_text() or "" for page in reader.pages]
     return "\n".join(paginas)
 
+chunks = dividir_texto(texto_total, max_tokens=800)
 
+chunks, embeds_chunks, modelo_sbert = carregar_contexto_e_embeddings()
 
 @st.cache_resource(show_spinner=False)
 def carregar_contexto_e_embeddings():
@@ -357,9 +359,7 @@ def gerar_resposta(texto_usuario: str,
 
     return "Erro: nenhuma chave de API fornecida."
 
-chunks = dividir_texto(texto_total, max_tokens=800)
 
-chunks, embeds_chunks, modelo_sbert = carregar_contexto_e_embeddings()
 
 # Adicionar a logo na sidebar
 if LOGO_BOT:
