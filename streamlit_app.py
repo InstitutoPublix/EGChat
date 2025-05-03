@@ -352,28 +352,6 @@ def gerar_resposta(texto_usuario, contexto_base, openai_api_key=None, claude_api
         )
         return resposta.content[0].text.strip()
 
-    elif openai_api_key:
-        openai.api_key = openai_api_key
-        mensagens = [
-            {"role": "system", "content": contexto_prompt},
-            {"role": "user", "content": texto_usuario}
-        ]
-        for tentativa in range(3):
-            try:
-                time.sleep(1)
-                resposta = openai.ChatCompletion.create(
-                    model="gpt-3.5-turbo",
-                    messages=mensagens,
-                    temperature=0.3,
-                    max_tokens=800
-                )
-                return resposta["choices"][0]["message"]["content"]
-            except Exception as e:
-                if tentativa < 2:
-                    time.sleep(2)
-                    continue
-                else:
-                    return f"Erro ao gerar a resposta: {str(e)}"
     else:
         return "Erro: nenhuma chave de API fornecida."
 
