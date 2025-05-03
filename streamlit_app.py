@@ -285,83 +285,80 @@ def extrair_texto_pdf(caminho_pdf: str) -> str:
 
 chunks, embeds_chunks, modelo_sbert = carregar_contexto_e_embeddings()
 
-# Função para dividir o texto em chunks
-def dividir_texto(texto, max_tokens=800):  # Chunks menores (800 tokens)
-    palavras = texto.split()
-    chunks = []
-    chunk_atual = ""
-    for palavra in palavras:
-        if len(chunk_atual.split()) + len(palavra.split()) <= max_tokens:
-            chunk_atual += palavra + " "
-        else:
-            chunks.append(chunk_atual.strip())
-            chunk_atual = palavra + " "
-    if chunk_atual:
-        chunks.append(chunk_atual.strip())
-    return chunks
+@st.cache_resource(show_spinner=False)
+def carregar_contexto_e_embeddings():
+    """
+    1) Lê arquivos .txt fixos
+    2) Divide em chunks
+    3) Calcula embeddings
+    """
+    texto_total = ""
+    for arq in ["contexto1.txt"]:
+        if Path(arq).exists():
+            texto_total += Path(arq).read_text(encoding="utf-8") + "\n\n"
 
-def selecionar_chunks_semanticos(pergunta, k=3):
-    """Devolve os k chunks semanticamente mais próximos da pergunta."""
-    # gera embedding da pergunta
-    emb_pergunta = modelo_sbert.encode(
-        pergunta, convert_to_tensor=True, show_progress_bar=False
+    chunks = dividir_texto(texto_total, max_tokens=800)
+
+    modelo = SentenceTransformer("paraphrase-multilingual-MiniLM-L12-v2")
+    embeds = modelo.encode(chunks, convert_to_tensor=True,
+                           show_progress_bar=False)
+    return chunks, embeds, modelo
+
+chunks, embeds_chunks, modelo_sbert = carregar_contexto_e_embeddings()
+
+def selecionar_chunks_semanticos(pergunta: str, k: int = 3) -> list[str]:
+    emb_q = modelo_sbert.encode(pergunta, convert_to_tensor=True,
+                                show_progress_bar=False)
+    scores = util.cos_sim(emb_q, embeds_chunks)[0]
+    idx = torch.topk(scores, k=k).indices
+    return [chunks[i] for i in idx]
+
+def gerar_resposta(texto_usuario: str,
+                   openai_api_key: str | None = None,
+                   claude_api_key: str | None = None) -> str:
+
+    trechos = selecionar_chunks_semanticos(texto_usuario, k=3)
+
+    system_prompt = (
+        "Você é o Professor Virtual do TJCE. "
+        "Responda SOMENTE com base nos trechos de contexto fornecidos. "
+        "Se a informação não estiver neles, diga exatamente: "
+        "\"Informação não disponível no material de apoio.\""
     )
-    # similaridade cosseno
-    cos_scores = util.cos_sim(emb_pergunta, embeds_chunks)[0]
-    # índices ordenados por similaridade (maior → menor)
-    top_idx = torch.topk(cos_scores, k=k).indices
-    # devolve lista de textos
-    return [chunks[i] for i in top_idx]
 
+    user_prompt = "".join(f"--- Trecho {i+1} ---\n{t}\n\n"
+                          for i, t in enumerate(trechos))
+    user_prompt += f"--- PERGUNTA ---\n{texto_usuario}"
 
-# Função para gerar resposta com OpenAI usando GPT-3.5 ou Claude Haiku
-def gerar_resposta(texto_usuario, contexto_base, openai_api_key=None, claude_api_key=None):
-    chunks = dividir_texto(contexto_base)
-    chunks_relevantes = selecionar_chunks_relevantes(texto_usuario, chunks)
-
-    # Montar contexto para prompt
-    contexto_prompt = "Você é um assistente virtual educacional do TJCE, desenvolvido com o apoio do Instituto Publix. Ajude o aluno a compreender melhor seu curso de transformação digital. Use uma linguagem simples, clara e amigável.\n\n"
-    for i, chunk in enumerate(chunks_relevantes):
-        contexto_prompt += f"--- Parte {i+1} do Contexto ---\n{chunk}\n\n"
-
-    prompt_completo = contexto_prompt + f"Pergunta do aluno: {texto_usuario}"
-
+    # Claude
     if claude_api_key:
         client = anthropic.Anthropic(api_key=claude_api_key)
-        resposta = client.messages.create(
+        resp = client.messages.create(
             model="claude-3-haiku-20240307",
-            max_tokens=800,
-            temperature=0.3,
-            messages=[
-                {"role": "user", "content": prompt_completo.strip()}
-            ]
+            max_tokens=800, temperature=0.3,
+            messages=[{"role": "system", "content": system_prompt},
+                      {"role": "user",   "content": user_prompt}]
         )
-        return resposta.content[0].text.strip()
+        return resp.content[0].text.strip()
 
-    elif openai_api_key:
+    # OpenAI
+    if openai_api_key:
         openai.api_key = openai_api_key
-        mensagens = [
-            {"role": "system", "content": contexto_prompt},
-            {"role": "user", "content": texto_usuario}
-        ]
+        msgs = [{"role": "system", "content": system_prompt},
+                {"role": "user",   "content": user_prompt}]
         for tentativa in range(3):
             try:
                 time.sleep(1)
-                resposta = openai.ChatCompletion.create(
+                out = openai.ChatCompletion.create(
                     model="gpt-3.5-turbo",
-                    messages=mensagens,
-                    temperature=0.3,
-                    max_tokens=800
+                    messages=msgs, temperature=0.3, max_tokens=800
                 )
-                return resposta["choices"][0]["message"]["content"]
+                return out["choices"][0]["message"]["content"]
             except Exception as e:
-                if tentativa < 2:
-                    time.sleep(2)
-                    continue
-                else:
-                    return f"Erro ao gerar a resposta: {str(e)}"
-    else:
-        return "Erro: nenhuma chave de API fornecida."
+                if tentativa < 2: time.sleep(2)
+                else: return f"Erro ao gerar resposta: {e}"
+
+    return "Erro: nenhuma chave de API fornecida."
 
 # Adicionar a logo na sidebar
 if LOGO_BOT:
