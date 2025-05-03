@@ -1,4 +1,5 @@
 import streamlit as st
+import anthropic
 import openai
 import os
 from PIL import Image
@@ -6,6 +7,8 @@ import time
 import json
 import streamlit.components.v1 as components
 import speech_recognition as sr
+from pathlib import Path # para percorrer diretórios
+from pypdf import PdfReader
 
 
 
@@ -213,7 +216,7 @@ div.stChatInput textarea::placeholder {
 )
 
 # Caminho para a logo do bot
-LOGO_BOT_PATH = "assets/icon_tjce.jpg"
+LOGO_BOT_PATH = "assets/icon_tjce_branco.png"
 
 # Verificar se o arquivo da logo existe
 if os.path.exists(LOGO_BOT_PATH):
@@ -244,7 +247,7 @@ else:
 
 # Subtítulo com fonte reduzida e texto preto
 st.markdown(
-    '<cp class="subtitulo">Olá, tudo bem? Sou um assistente virtual feito pelo TJCE em parceria com o Instituto Publix para te auxiliar e te dar apoio na realização dos cursos e capacitações ofertados. Eu posso te dar dicas de caminhos a seguir, quais cursos escolher, e muito mais! Pra iniciar, é só mandar uma mensagem na caixa de perguntas aqui embaixo!</p>',
+    '<cp class="subtitulo">Olá, tudo bem? Sou o assistente virtual do curso de Transformação Digital [nome do curso aqui].Fui feito pelo TJCE em parceria com o Instituto Publix, posso te dar dicas de caminhos a seguir, tirar dúvidas, e muito mais! Pra iniciar, é só mandar uma mensagem na caixa de perguntas aqui embaixo!</p>',
     unsafe_allow_html=True
 )
 
@@ -252,45 +255,58 @@ st.markdown(
 if "mensagens_chat" not in st.session_state:
     st.session_state.mensagens_chat = []
 
-# Função para salvar o estado em um arquivo JSON
-def salvar_estado():
-    estado = {
-        "mensagens_chat": st.session_state.mensagens_chat
-    }
-    with open("estado_bot.json", "w") as f:
-        json.dump(estado, f)
+# Mensagem inicial automática
+if not st.session_state.mensagens_chat:
+    mensagem_inicial = """Olá! 👋  
+Sou o **Professor Virtual TJCE** e estou aqui para te ajudar com o curso de Transformação Digital.
 
-# Função para carregar o estado de um arquivo JSON
-def carregar_estado():
-    if os.path.exists("estado_bot.json"):
-        with open("estado_bot.json", "r") as f:
-            estado = json.load(f)
-            st.session_state.mensagens_chat = estado.get("mensagens_chat", [])
+Você pode me perguntar, por exemplo:
+- 📌 O que é transformação digital?
+- 🧩 Como a cultura da inovação se aplica ao setor público?
+- 🗂️ Como acessar os materiais e atividades?
+- 📝 O que é esperado no projeto final?
 
-# Carregar o estado ao iniciar o aplicativo
-carregar_estado()
+Fique à vontade para perguntar o que quiser. Vamos nessa! 🚀"""
+    st.session_state.mensagens_chat.append({"user": None, "bot": mensagem_inicial})
 
 # Função para limpar o histórico do chat
 def limpar_historico():
     st.session_state.mensagens_chat = []
-    salvar_estado()
 
-# Carregar arquivos de texto nativos como contexto
-def carregar_contexto():
+def extrair_texto_pdf(caminho_pdf: str) -> str:
+    """Devolve todo o texto de um PDF localizado em `caminho_pdf`."""
+    if not Path(caminho_pdf).exists():
+        return ""
+
+    reader = PdfReader(caminho_pdf)
+    paginas = [page.extract_text() or "" for page in reader.pages]
+    return "\n".join(paginas)
+
+ 
+def carregar_contexto() -> str:
+    """Lê arquivos .txt e .pdf locais e devolve um único string com o conteúdo."""
     contexto = ""
-    # Adicione aqui os arquivos de texto que você deseja usar como contexto
-    arquivos_contexto = [
-        "contexto1.txt",
-   
-    ]
 
-    for arquivo in arquivos_contexto:
-        if os.path.exists(arquivo):
+    # 1) Arquivos .txt que já eram usados
+    txts_contexto = ["contexto1.txt"]
+    for arquivo in txts_contexto:
+        if Path(arquivo).exists():
             with open(arquivo, "r", encoding="utf-8") as f:
                 contexto += f.read() + "\n\n"
         else:
             st.error(f"Arquivo de contexto não encontrado: {arquivo}")
-    
+
+    # 2) PDFs que você quer carregar automaticamente
+    pdfs_contexto = [
+        "docs/guia_transformacao_digital.pdf",
+        "docs/manual_avaliacao.pdf",
+    ]
+    for pdf in pdfs_contexto:
+        if Path(pdf).exists():
+            contexto += extrair_texto_pdf(pdf) + "\n\n"
+        else:
+            st.error(f"Arquivo PDF não encontrado: {pdf}")
+
     return contexto
 
 # Carregar o contexto ao iniciar o aplicativo
@@ -319,71 +335,68 @@ def selecionar_chunks_relevantes(pergunta, chunks):
     for chunk in chunks:
         if any(palavra in chunk.lower() for palavra in palavras_chave):
             chunks_relevantes.append(chunk)
-    return chunks_relevantes[:4]  # Limita a 4 chunks para evitar excesso de tokens
+    return chunks_relevantes[:2]  # Limita a 2 chunks para evitar excesso de tokens
 
-def gerar_resposta(texto_usuario: str,
-                   claude_api_key: str,
-                   tentativas: int = 3) -> str:
-    """
-    Usa Claude 3 Haiku para responder com base no contexto carregado.
-    """
-    if not contexto:
-        return "Erro: Nenhum contexto carregado."
+# Função para gerar resposta com OpenAI usando GPT-3.5 ou Claude Haiku
+def gerar_resposta(texto_usuario, contexto_base, openai_api_key=None, claude_api_key=None):
+    chunks = dividir_texto(contexto_base)
+    chunks_relevantes = selecionar_chunks_relevantes(texto_usuario, chunks)
 
-    # 1) selecionar partes relevantes do contexto (mesmo fluxo antigo)
-    chunks = dividir_texto(contexto)                       # divide
-    chunks_relevantes = selecionar_chunks_relevantes(      # filtra
-        texto_usuario, chunks)
+    # Montar contexto para prompt
+    contexto_prompt = "Você é um assistente virtual educacional do TJCE, desenvolvido com o apoio do Instituto Publix. Ajude o aluno a compreender melhor seu curso de transformação digital. Use uma linguagem simples, clara e amigável.\n\n"
+    for i, chunk in enumerate(chunks_relevantes):
+        contexto_prompt += f"--- Parte {i+1} do Contexto ---\n{chunk}\n\n"
 
-    # 2) montar prompt (system + trechos)
-    contexto_pergunta = (
-        "Você é um chatbot feito pelo Instituto Publix, uma consultoria em gestão pública, "
-        "em parceria com o Tribunal de Justiça do Ceará. Seu papel é ser um assistente virtual, "
-        "que auxilia os alunos a concluírem com êxito os cursos e capacitações ofertadas. "
-        "Responda com base no seguinte contexto:\n\n"
-    )
-    for i, chunk in enumerate(chunks_relevantes, 1):
-        contexto_pergunta += f"--- Parte {i} do Contexto ---\n{chunk}\n\n"
+    prompt_completo = contexto_prompt + f"Pergunta do aluno: {texto_usuario}"
 
-    mensagens = [
-        {"role": "system", "content": contexto_pergunta},
-        {"role": "user",   "content": texto_usuario}
-    ]
+    if claude_api_key:
+        client = anthropic.Anthropic(api_key=claude_api_key)
+        resposta = client.messages.create(
+            model="claude-3-haiku-20240307",
+            max_tokens=800,
+            temperature=0.3,
+            messages=[
+                {"role": "user", "content": prompt_completo.strip()}
+            ]
+        )
+        return resposta.content[0].text.strip()
 
-    # 3) cliente Anthropic
-    client = anthropic.Anthropic(api_key=claude_api_key)
-
-    # 4) tentativas com controle de taxa
-    for tentativa in range(tentativas):
-        try:
-            time.sleep(1)   # espaça requisições
-            resp = client.messages.create(
-                model="claude-3-haiku-20240307",   # Haiku 3
-                max_tokens=800,
-                temperature=0.3,
-                messages=mensagens
-            )
-            # retorno em Claude → lista content[n].text
-            return resp.content[0].text.strip()
-
-        except Exception as e:
-            if tentativa < tentativas - 1:
-                time.sleep(2)       # aguarda e tenta de novo
-            else:
-                return f"Erro ao gerar a resposta: {e}"
+    elif openai_api_key:
+        openai.api_key = openai_api_key
+        mensagens = [
+            {"role": "system", "content": contexto_prompt},
+            {"role": "user", "content": texto_usuario}
+        ]
+        for tentativa in range(3):
+            try:
+                time.sleep(1)
+                resposta = openai.ChatCompletion.create(
+                    model="gpt-3.5-turbo",
+                    messages=mensagens,
+                    temperature=0.3,
+                    max_tokens=800
+                )
+                return resposta["choices"][0]["message"]["content"]
+            except Exception as e:
+                if tentativa < 2:
+                    time.sleep(2)
+                    continue
+                else:
+                    return f"Erro ao gerar a resposta: {str(e)}"
+    else:
+        return "Erro: nenhuma chave de API fornecida."
 
 # Adicionar a logo na sidebar
 if LOGO_BOT:
-    st.sidebar.image(LOGO_BOT, width=300)  # Ajuste o tamanho conforme necessário
+    st.sidebar.image(LOGO_BOT, width=300)
 else:
     st.sidebar.markdown("**Logo não encontrada**")
 
 # Interface do Streamlit
 api_key = st.sidebar.text_input("🔑 Chave API OpenAI", type="password", placeholder="Insira sua chave API")
-if api_key:
-    openai.api_key = api_key
+claude_api_key = st.sidebar.text_input("🔑 Chave API Claude (Anthropic)", type="password", placeholder="sk-ant-...")
 
-    # Botão para limpar o histórico do chat
+if api_key or claude_api_key:
     if st.sidebar.button("🧹 Limpar Histórico do Chat", key="limpar_historico"):
         limpar_historico()
         st.sidebar.success("Histórico do chat limpo com sucesso!")
@@ -393,9 +406,8 @@ else:
 user_input = st.chat_input("💬 Sua pergunta:")
 if user_input and user_input.strip():
     st.session_state.mensagens_chat.append({"user": user_input, "bot": None})
-    resposta = gerar_resposta(user_input)
+    resposta = gerar_resposta(user_input, contexto, api_key, claude_api_key)
     st.session_state.mensagens_chat[-1]["bot"] = resposta
-    salvar_estado()  # Salva o estado após cada interação
 
 with st.container():
     if st.session_state.mensagens_chat:
@@ -405,7 +417,7 @@ with st.container():
                     st.markdown(f"**Você:** {mensagem['user']}", unsafe_allow_html=True)
             if mensagem["bot"]:
                 with st.chat_message("assistant"):
-                    st.markdown(f"**Professor Virtual TJCE:**\n\n{mensagem['bot']}", unsafe_allow_html=True)  # Permite Markdown
+                    st.markdown(f"**Professor Virtual TJCE:**\n\n{mensagem['bot']}", unsafe_allow_html=True)
     else:
         with st.chat_message("assistant"):
             st.markdown("*Professor Virtual TJCE:* Nenhuma mensagem ainda.", unsafe_allow_html=True)
