@@ -362,7 +362,7 @@ else:
     st.sidebar.markdown("**Logo não encontrada**")
 
 # Interface do Streamlit
-api_key = st.sidebar.text_input("🔑 Chave API OpenAI", type="password", placeholder="Insira sua chave API")
+
 claude_api_key = st.sidebar.text_input("🔑 Chave API Claude (Anthropic)", type="password", placeholder="sk-ant-...")
 
 if api_key or claude_api_key:
