@@ -333,7 +333,7 @@ def gerar_resposta(pergunta: str) -> str:
         
         "Responda SÓ com base no contexto abaixo — se faltar informação, diga: "
         "\"Informação não disponível no material de apoio.\" "
-        "Responda de forma direta, começando já com a informação pedida.""
+        "Responda de forma direta, começando já com a informação pedida."
         "Nunca use expressões como 'De acordo com as informações...'.\n\n"
         f"{contexto_inteiro}"
     )
