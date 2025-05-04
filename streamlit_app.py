@@ -17,7 +17,7 @@ if not claude_api_key:
 
 # Configurações iniciais
 st.set_page_config(
-    page_title=" TJCE Professor Virtual",
+    page_title=" Mentor Virtual TJCE",
     page_icon="🏛️",
     layout="wide",
 )
@@ -250,7 +250,7 @@ else:
 
 # Subtítulo com fonte reduzida e texto preto
 st.markdown(
-    '<cp class="subtitulo">Olá, tudo bem? Sou a mentora virtual do curso de Transformação Digital. Fui feito pelo TJCE em parceria com o Instituto Publix, posso te dar dicas de caminhos a seguir, tirar dúvidas, e muito mais! Pra iniciar, é só mandar uma mensagem na caixa de perguntas aqui embaixo!</p>',
+    '<cp class="subtitulo">Olá, tudo bem? Sou o Mentor Virtual do curso de Transformação Digital. Fui feito pelo TJCE em parceria com o Instituto Publix, posso te dar dicas de caminhos a seguir, tirar dúvidas, e muito mais! Pra iniciar, é só mandar uma mensagem na caixa de perguntas aqui embaixo!</p>',
     unsafe_allow_html=True
 )
 
@@ -261,7 +261,7 @@ if "mensagens_chat" not in st.session_state:
 # Mensagem inicial automática
 if not st.session_state.mensagens_chat:
     mensagem_inicial = """Olá! 👋  
-Sou a **Professora Justina** e estou aqui para te ajudar com o curso de Transformação Digital.
+Sou o **Mentor Virtual** e estou aqui para te ajudar com o curso de Transformação Digital.
 
 Você pode me perguntar, por exemplo:
 - 📌 O que é o curso e como ele funciona?
@@ -351,8 +351,10 @@ if LOGO_BOT:
     st.sidebar.image(LOGO_BOT, width=300)
 else:
     st.sidebar.markdown("**Logo não encontrada**")
-st.sidebar.image("assets/logo_publix.png", use_container_width=True)
+
 st.sidebar.image("assets/logo_escola.png", use_container_width=True)
+st.sidebar.image("assets/logo_publix.png", use_container_width=True)
+
 
 
 # Interface do Streamlit
