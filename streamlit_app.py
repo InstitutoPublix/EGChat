@@ -9,8 +9,11 @@ import streamlit.components.v1 as components
 import speech_recognition as sr
 from pathlib import Path # para percorrer diretórios
 from pypdf import PdfReader
+claude_api_key = os.getenv("CLAUDE_API_KEY")  # Streamlit Cloud injeta essa va
 
-
+if not claude_api_key:
+    st.error("Chave CLAUDE_API_KEY não configurada no servidor.")
+    st.stop()
 
 # Configurações iniciais
 st.set_page_config(
@@ -321,14 +324,27 @@ def selecionar_chunks_relevantes(pergunta, chunks):
             chunks_relevantes.append(chunk)
     return chunks_relevantes[:2]  # Limita a 2 chunks para evitar excesso de tokens
 
-def gerar_resposta(texto_usuario: str,
-                   claude_api_key: str,
-                   temperatura: float = 0.3,
-                   max_tokens: int = 800) -> str:
-    """Gera resposta usando Claude 3 Haiku e TODO o contexto."""
+def gerar_resposta(pergunta: str) -> str:
+    client = anthropic.Anthropic(api_key=claude_api_key)
 
-    if not contexto_inteiro:
-        return "Erro: contexto vazio."
+    # ------- prompt completo (dentro da função) -------
+    system_prompt = (
+        "Você é o Professor Virtual do TJCE. "
+        "Responda SÓ com base no contexto abaixo — se faltar informação, diga: "
+        "\"Informação não disponível no material de apoio.\" "
+        "Não use expressões como 'De acordo com as informações...'.\n\n"
+        f"{contexto_inteiro}"
+    )
+
+    resp = client.messages.create(
+        model="claude-3-haiku-20240307",
+        max_tokens=400,
+        temperature=0.1,
+        system=system_prompt,                     # ← usa a variável
+        messages=[{"role": "user", "content": pergunta}]
+    )
+
+    return resp.content[0].text.strip()
 
     system_prompt = (
        "Você é o Professor Virtual do TJCE. "
@@ -369,14 +385,11 @@ else:
 
 # Interface do Streamlit
 
-claude_api_key = st.sidebar.text_input("🔑 Chave API Claude (Anthropic)", type="password", placeholder="sk-ant-...")
-
 if claude_api_key:
     if st.sidebar.button("🧹 Limpar Histórico do Chat", key="limpar_historico"):
         limpar_historico()
         st.sidebar.success("Histórico do chat limpo com sucesso!")
-else:
-    st.warning("Por favor, insira sua chave de API para continuar.")
+
 
 user_input = st.chat_input("💬 Sua pergunta:")
 if user_input and user_input.strip():
