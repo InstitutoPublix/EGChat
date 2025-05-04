@@ -2,6 +2,7 @@ import streamlit as st
 import anthropic
 import openai
 import os
+import re
 from PIL import Image
 import time
 import json
@@ -323,6 +324,19 @@ def selecionar_chunks_relevantes(pergunta, chunks):
         if any(palavra in chunk.lower() for palavra in palavras_chave):
             chunks_relevantes.append(chunk)
     return chunks_relevantes[:2]  # Limita a 2 chunks para evitar excesso de tokens
+
+# frases que não queremos exibir
+_PADROES_INDESEJADOS = [
+    r"de acordo com as informações[^.]*\.?\s*",   # remove frase + até o ponto
+    r"de acordo com o guia[^.]*\.?\s*",
+    r"conforme (o|a) material[^.]*\.?\s*"
+]
+
+def limpar_frases_indesejadas(texto: str) -> str:
+    """Remove qualquer ocorrência das frases proibidas (case-insensitive)."""
+    for padrao in _PADROES_INDESEJADOS:
+        texto = re.sub(padrao, "", texto, flags=re.I)
+    return texto.strip()
 
 def gerar_resposta(pergunta: str) -> str:
     client = anthropic.Anthropic(api_key=claude_api_key)
