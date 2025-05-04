@@ -352,6 +352,10 @@ if LOGO_BOT:
 else:
     st.sidebar.markdown("**Logo não encontrada**")
 
+st.sidebar.image("assets/logo_publix.png", use_column_width=True)
+
+st.sidebar.image("assets/logo_escola.png", use_column_width=True)
+
 # Interface do Streamlit
 
 if claude_api_key:
