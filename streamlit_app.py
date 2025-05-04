@@ -332,6 +332,8 @@ def gerar_resposta(pergunta: str) -> str:
         "Você é o Professor Virtual do TJCE. "
         "Responda SÓ com base no contexto abaixo — se faltar informação, diga: "
         "\"Informação não disponível no material de apoio.\" "
+          NÃO use as expressões: "De acordo com as informações fornecidas""De acordo com o guia""Conforme o material"
+          "Responda de forma direta, começando já com a informação pedida."
         "Não use expressões como 'De acordo com as informações...'.\n\n"
         f"{contexto_inteiro}"
     )
