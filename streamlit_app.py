@@ -246,7 +246,7 @@ if os.path.exists(ICON_PATH):
     except Exception as e:
         st.error(f"Erro ao carregar o ícone: {e}")
 else:
-    st.title("Professora Justina")  # Fallback se o ícone não existir
+    st.title("Mentor Virtual TJCE")  # Fallback se o ícone não existir
 
 # Subtítulo com fonte reduzida e texto preto
 st.markdown(
