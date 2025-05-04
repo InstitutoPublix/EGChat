@@ -242,7 +242,7 @@ if os.path.exists(ICON_PATH):
         with col1:
             st.image(ICON_PATH, width=10000000)  # Exibe o ícone com largura de 30px
         with col2:
-            st.title("Professor Virtual TJCE")  # Exibe o título
+            st.title("Mentor Virtual TJCE")  # Exibe o título
     except Exception as e:
         st.error(f"Erro ao carregar o ícone: {e}")
 else:
@@ -379,7 +379,7 @@ with st.container():
                     st.markdown(f"**Você:** {mensagem['user']}", unsafe_allow_html=True)
             if mensagem["bot"]:
                 with st.chat_message("assistant"):
-                    st.markdown(f"**Professor Virtual TJCE:**\n\n{mensagem['bot']}", unsafe_allow_html=True)
+                    st.markdown(f"**Mentor Virtual TJCE:**\n\n{mensagem['bot']}", unsafe_allow_html=True)
     else:
         with st.chat_message("assistant"):
-            st.markdown("*Professor Virtual TJCE:* Nenhuma mensagem ainda.", unsafe_allow_html=True)
+            st.markdown("*Mentor Virtual TJCE:* Nenhuma mensagem ainda.", unsafe_allow_html=True)
