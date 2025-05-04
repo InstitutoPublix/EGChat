@@ -359,7 +359,9 @@ def gerar_resposta(pergunta: str) -> str:
         messages=[{"role": "user", "content": pergunta}]
     )
 
-    return resp.content[0].text.strip()
+    resposta_bruta = resp.content[0].text.strip()
+    resposta_final = limpar_frases_indesejadas(resposta_bruta)
+    return resposta_final
 
 # Adicionar a logo na sidebar
 if LOGO_BOT:
