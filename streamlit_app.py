@@ -330,11 +330,10 @@ def gerar_resposta(pergunta: str) -> str:
     # ------- prompt completo (dentro da função) -------
     system_prompt = (
         "Você é o Professor Virtual do TJCE. "
-        
         "Responda SÓ com base no contexto abaixo — se faltar informação, diga: "
         "\"Informação não disponível no material de apoio.\" "
         "Responda de forma direta, começando já com a informação pedida."
-        "Nunca use expressões como 'De acordo com as informações...'.\n\n"
+        "REGRA OBRIGATÓRIA: Nunca use expressões como 'De acordo com as informações...'.\n\n"
         f"{contexto_inteiro}"
     )
 
