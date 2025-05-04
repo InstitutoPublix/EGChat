@@ -246,11 +246,11 @@ if os.path.exists(ICON_PATH):
     except Exception as e:
         st.error(f"Erro ao carregar o ícone: {e}")
 else:
-    st.title("Professor Virtual TJCE")  # Fallback se o ícone não existir
+    st.title("Professora Justina")  # Fallback se o ícone não existir
 
 # Subtítulo com fonte reduzida e texto preto
 st.markdown(
-    '<cp class="subtitulo">Olá, tudo bem? Sou o assistente virtual do curso de Transformação Digital [nome do curso aqui].Fui feito pelo TJCE em parceria com o Instituto Publix, posso te dar dicas de caminhos a seguir, tirar dúvidas, e muito mais! Pra iniciar, é só mandar uma mensagem na caixa de perguntas aqui embaixo!</p>',
+    '<cp class="subtitulo">Olá, tudo bem? Sou a mentora virtual do curso de Transformação Digital. Fui feito pelo TJCE em parceria com o Instituto Publix, posso te dar dicas de caminhos a seguir, tirar dúvidas, e muito mais! Pra iniciar, é só mandar uma mensagem na caixa de perguntas aqui embaixo!</p>',
     unsafe_allow_html=True
 )
 
@@ -261,15 +261,15 @@ if "mensagens_chat" not in st.session_state:
 # Mensagem inicial automática
 if not st.session_state.mensagens_chat:
     mensagem_inicial = """Olá! 👋  
-Sou o **Professor Virtual TJCE** e estou aqui para te ajudar com o curso de Transformação Digital.
+Sou a **Professora Justina** e estou aqui para te ajudar com o curso de Transformação Digital.
 
 Você pode me perguntar, por exemplo:
-- 📌 O que é transformação digital?
-- 🧩 Como a cultura da inovação se aplica ao setor público?
-- 🗂️ Como acessar os materiais e atividades?
+- 📌 O que é o curso e como ele funciona?
+- 🧩 Quais os principais assuntos das aulas?
+- 🗂️ Quais os dias e horários das atividades?
 - 📝 O que é esperado no projeto final?
 
-Fique à vontade para perguntar o que quiser. Vamos nessa! 🚀"""
+Fique à vontade para perguntar o que quiser."""
     st.session_state.mensagens_chat.append({"user": None, "bot": mensagem_inicial})
 
 # Função para limpar o histórico do chat
