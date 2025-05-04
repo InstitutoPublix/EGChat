@@ -346,37 +346,6 @@ def gerar_resposta(pergunta: str) -> str:
 
     return resp.content[0].text.strip()
 
-    system_prompt = (
-       "Você é o Professor Virtual do TJCE. "
-    "Responda SÓ com base no contexto abaixo — se faltar informação, diga: "
-    "\"Informação não disponível no material de apoio.\" "
-    "Use linguagem direta e natural, como num bate-papo: "
-    "• evite frases como “De acordo com as informações fornecidas” ou “Conforme o contexto”. "
-    "• se a resposta for uma lista de aulas/datas, apresente em tabela markdown com colunas "
-    "[Data] | [Horário] | [Formato] | [Observação].\n\n"
-    f"{contexto_inteiro}"
-    )
-
-    client = anthropic.Anthropic(api_key=claude_api_key)
-
-    for _ in range(3):
-        try:
-            resp = client.messages.create(
-                model="claude-3-haiku-20240307",
-                max_tokens=max_tokens,
-                temperature=temperatura,
-                system=system_prompt,
-                messages=[{"role": "user", "content": texto_usuario}]
-            )
-            return resp.content[0].text.strip()
-
-        except Exception as e:
-            time.sleep(2)
-            return f"⚠️ Erro detalhado: {e}"
-
-    # Só chega aqui se não retornou (improvável)
-    return "Erro ao gerar a resposta (tentativas esgotadas)."
-
 # Adicionar a logo na sidebar
 if LOGO_BOT:
     st.sidebar.image(LOGO_BOT, width=300)
