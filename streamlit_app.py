@@ -266,8 +266,7 @@ Sou o **Mentor Virtual** e estou aqui para te ajudar com o curso de Transformaç
 
 Você pode me perguntar, por exemplo:
 - 📌 O que é o curso e como ele funciona?
-- 🧩 Quais os principais assuntos das aulas?
-- 🗂️ Quais os dias e horários das atividades?
+- 🗂️ Quais os dias e horários das aulas?
 - 📝 O que é esperado no projeto final?
 
 Fique à vontade para perguntar o que quiser."""
