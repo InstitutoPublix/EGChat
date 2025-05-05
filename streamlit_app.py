@@ -353,7 +353,7 @@ def gerar_resposta(pergunta: str) -> str:
 
     resp = client.messages.create(
         model="claude-3-haiku-20240307",
-        max_tokens=400,
+        max_tokens=800,
         temperature=0.1,
         system=system_prompt,                     # ← usa a variável
         messages=[{"role": "user", "content": pergunta}]
