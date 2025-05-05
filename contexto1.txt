@@ -495,3 +495,104 @@ Identificação do Desafio
 Descreva de forma clara o desafio real enfrentado por uma unidade ou pelo TJCE. Indique se a demanda está vinculada ao Plano de Trabalho da Unidade (Programa +Gestão) ou se se trata de uma nova demanda estratégica. Além disso, relacione a proposta com os objetivos estratégicos do TJCE e do Programa +Gestão, explicando o alinhamento institucional.
 Análise de Dados e Evidências
 Apresente dados, indicadores e informações que justifiquem a necessidade de intervenção. Explique as fontes utilizadas, os sinais de desempenho insatisfatório e analise o potencial de uso da inteligência artificial para apoiar a superação do desafio. Considere também os riscos, aspectos éticos, de segurança da informação e conformidade com a LGPD.
+
+
+📜 RESUMO — LEI Nº 14.129, DE 29 DE MARÇO DE 2021
+Lei do Governo Digital e Eficiência Pública
+
+A Lei nº 14.129/2021 estabelece princípios, regras e instrumentos para a prestação digital de serviços públicos, visando ampliar a eficiência, a transparência e o acesso do cidadão aos serviços da Administração Pública.
+
+🧭 PRINCÍPIOS FUNDAMENTAIS
+Governo como plataforma: a Administração deve atuar como facilitadora para que cidadãos e empresas acessem serviços públicos de forma digital.
+
+Serviço centrado no usuário: foco na experiência e nas necessidades do cidadão.
+
+Transparência e controle social: incentivo à abertura de dados e à prestação de contas.
+
+Segurança da informação e privacidade de dados.
+
+Eficiência administrativa: com uso de tecnologias que eliminem burocracias desnecessárias.
+
+💡 DIRETRIZES E INSTRUMENTOS
+Digitalização dos serviços públicos: todo serviço deve ser preferencialmente prestado por meio digital.
+
+Integração de sistemas e bases de dados: para evitar que o cidadão tenha que fornecer as mesmas informações várias vezes (princípio do "uma só vez").
+
+Automação de processos: com uso de tecnologias como inteligência artificial e análise de dados.
+
+Adoção de linguagem simples: acessível e clara para todos os cidadãos.
+
+Acesso digital a documentos: inclusive para assinaturas eletrônicas.
+
+Infraestrutura pública de dados e interoperabilidade entre órgãos.
+
+🧰 FERRAMENTAS PREVISTAS
+Identidade digital do cidadão.
+
+Assinaturas eletrônicas (inclusive com validação simplificada).
+
+Plataformas integradas de serviços públicos digitais (como gov.br).
+
+Painéis de indicadores e avaliação dos serviços.
+
+🏛️ ÂMBITO DE APLICAÇÃO
+Aplica-se à Administração Pública direta, autárquica e fundacional dos poderes Executivo, Legislativo e Judiciário da União, dos Estados, do DF e dos Municípios — no que couber.
+
+📜 RESUMO — RESOLUÇÃO CNJ Nº 615, DE 11 DE MARÇO DE 2025
+Diretrizes para o uso de Inteligência Artificial no Poder Judiciário
+
+A Resolução CNJ nº 615/2025 estabelece princípios e diretrizes para o desenvolvimento, utilização e governança de soluções de inteligência artificial (IA) no âmbito do Poder Judiciário, visando garantir a ética, a transparência e a eficiência na aplicação dessas tecnologias.
+
+🧭 PRINCÍPIOS FUNDAMENTAIS
+Ética e responsabilidade: As soluções de IA devem respeitar os direitos fundamentais, promovendo decisões justas e imparciais.
+
+Transparência: Os sistemas de IA devem ser compreensíveis e auditáveis, permitindo o entendimento de seu funcionamento e decisões.
+
+Segurança e privacidade: As soluções devem assegurar a proteção de dados pessoais e a segurança das informações processadas.
+
+Eficiência e inovação: A utilização de IA deve buscar a melhoria contínua dos serviços judiciais, promovendo a inovação e a eficiência operacional.
+
+🛠️ DIRETRIZES OPERACIONAIS
+Desenvolvimento e implementação: As soluções de IA devem ser desenvolvidas com base em dados de qualidade, representativos e atualizados, evitando vieses e discriminações.
+
+Governança: É necessário estabelecer mecanismos de supervisão e controle das soluções de IA, incluindo a definição de responsabilidades e a realização de auditorias periódicas.
+
+Capacitação: Os profissionais envolvidos devem receber treinamento adequado para o uso e supervisão das tecnologias de IA.
+
+Colaboração: Incentiva-se a cooperação entre os órgãos do Judiciário, instituições de pesquisa e outros parceiros para o desenvolvimento e aprimoramento das soluções de IA.
+
+🏛️ ÂMBITO DE APLICAÇÃO
+Aplica-se a todos os órgãos do Poder Judiciário brasileiro, incluindo tribunais e conselhos, no desenvolvimento e uso de soluções de inteligência artificial.
+
+📜 RESUMO — RESOLUÇÃO CNJ Nº 370, DE 28 DE JANEIRO DE 2021
+Estratégia Nacional de Tecnologia da Informação e Comunicação do Poder Judiciário (ENTIC-JUD)
+
+A Resolução CNJ nº 370/2021 estabelece a ENTIC-JUD, visando promover a governança ágil e a transformação digital no Poder Judiciário por meio de serviços e soluções digitais inovadoras.
+
+🎯 OBJETIVO PRINCIPAL
+Constituir o principal instrumento de promoção da governança ágil e da transformação digital do Poder Judiciário, por meio de serviços e soluções digitais inovadoras que impulsionem a evolução tecnológica do Judiciário. 
+
+🧭 OBJETIVOS ESTRATÉGICOS
+Organizados em três perspectivas:
+
+Sociedade:
+
+Aumentar a satisfação dos usuários do sistema judiciário.
+
+Promover a transformação digital.
+
+Aprendizado e Crescimento:
+
+Reconhecer e desenvolver as competências dos colaboradores.
+
+Buscar a inovação de forma colaborativa.
+
+Processos Internos:
+
+Aperfeiçoar a governança e a gestão.
+
+Aprimorar as aquisições e contratações.
+
+Aprimorar a segurança da informação e a gestão de dados.
+
+Promover serviços de infraestrutura e soluções corporativas.
