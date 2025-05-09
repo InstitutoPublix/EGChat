@@ -356,25 +356,32 @@ def limpar_frases_indesejadas(texto: str) -> str:
 def gerar_resposta(pergunta: str) -> str:
     """
     Gera a resposta do Mentor Virtual chamando a API da Anthropic.
-    • Filtra apenas os trechos mais prováveis do contexto
-    • Monta um system prompt com regras de formatação
+    • Seleciona apenas os trechos mais prováveis do contexto
+    • Monta um system-prompt com regras de formatação
     • Chama o modelo Claude-3-Haiku (2024-03-07)
     """
+    # ▌0  ────────────────────────────────────────────────────────────
+    # verificação rápida: se o arquivo de contexto não foi carregado
+    if not contexto_inteiro.strip():
+        return "⚠️ O material de apoio ainda não foi carregado."
+
     client = anthropic.Anthropic(api_key=claude_api_key)
 
-    # 1 ▌ selecione até 12 blocos de 80 tokens que parecem relevantes
+    # ▌1  Divide o contexto em blocos de ~80 tokens
+    chunks = dividir_texto(contexto_inteiro, 80)
+
+    # Seleciona até 12 blocos que coincidam com a pergunta
     trechos_ctx = "\n".join(
-        selecionar_chunks_relevantes(
-            pergunta,
-            dividir_texto(contexto_inteiro, 80),
-            k=12
-        )
+        selecionar_chunks_relevantes(pergunta, chunks, k=12)
     ) or "Informação não disponível no material de apoio."
 
-    # 2 ▌ system prompt que orienta o modelo
+    # (Opcional) — debug para ver quais blocos foram enviados
+    # st.write("🛠️ DEBUG – trechos enviados:", trechos_ctx[:600])
+
+    # ▌2  System-prompt
     system_prompt = (
         "Você é o Mentor Virtual do TJCE, um chatbot que responde SÓ com base no "
-        "material a seguir.  Se faltar informação, responda exatamente:\n"
+        "material a seguir. Se faltar informação, responda exatamente:\n"
         "\"Informação não disponível no material de apoio.\"\n"
         "Quando a pergunta mencionar turma, aula ou mentoria, consulte a tabela. "
         "NUNCA use expressões como \"De acordo com as informações…\".\n\n"
@@ -383,20 +390,20 @@ def gerar_resposta(pergunta: str) -> str:
         "—— FIM DO CONTEXTO ——"
     )
 
+    # ▌3  Chamada à API
     try:
         resp = client.messages.create(
             model="claude-3-haiku-20240307",
             max_tokens=1000,
             temperature=0.1,
-            system=system_prompt,          # ← prompt de sistema
-            messages=[                     # ← apenas a mensagem do usuário
-                {"role": "user", "content": pergunta}
-            ]
+            system=system_prompt,              # ✅ prompt de sistema
+            messages=[{"role": "user", "content": pergunta}]
         )
-        resposta_bruta = resp.content[0].text.strip()
-        return limpar_frases_indesejadas(resposta_bruta)
+        bruto = resp.content[0].text.strip()
+        return limpar_frases_indesejadas(bruto)
 
     except Exception as e:
+        # Mostra o erro na tela, mas devolve mensagem legível ao usuário
         st.error(f"Erro da API: {e}")
         return "⚠️ Erro ao gerar a resposta."
 
