@@ -304,10 +304,14 @@ def extrair_texto_pdf(caminho_pdf: str) -> str:
 
 contexto_inteiro = ler_contexto("contexto1.txt")
 
-def dividir_texto(texto: str) -> list[str]:
+def dividir_texto(texto: str, max_tokens: int = 80) -> list[str]:
     """
-    Devolve uma lista com *cada linha* não-vazia do arquivo.
-    Isso garante que “Entrega final: …” fique isolada num chunk.
+    Divide o texto‐fonte em “chunks”:
+    • Cada linha não vazia vira um chunk isolado – isso garante que
+      itens como “Entrega final: …” fiquem sozinhos.
+    • O parâmetro max_tokens existe apenas para compatibilidade com
+      chamadas que enviam dois argumentos.  Se, no futuro, quiser fazer
+      corte real por tamanho, já está no lugar.
     """
     return [ln.strip() for ln in texto.splitlines() if ln.strip()]
 
