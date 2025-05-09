@@ -314,15 +314,23 @@ def dividir_texto(texto, max_tokens=800):  # Chunks menores (800 tokens)
         chunks.append(chunk_atual.strip())
     return chunks
 
-# Função para selecionar chunks relevantes com base na pergunta
-def selecionar_chunks_relevantes(pergunta, chunks):
-    # Lógica simples para selecionar chunks com base em palavras-chave
-    palavras_chave = pergunta.lower().split()
-    chunks_relevantes = []
+def selecionar_chunks_relevantes(pergunta: str, chunks: list[str], k: int = 12) -> list[str]:
+    p_lower = pergunta.lower()
+    # expressões que sempre queremos
+    gatilhos = [
+        r"entrega\s+final",
+        r"data\s+de\s+entrega"
+    ]
+    relevantes = []
     for chunk in chunks:
-        if any(palavra in chunk.lower() for palavra in palavras_chave):
-            chunks_relevantes.append(chunk)
-    return chunks_relevantes[:24]  # Limita a 8 chunks para evitar excesso de tokens
+        chunk_l = chunk.lower()
+        # 1) regex especial
+        if any(re.search(g, chunk_l) for g in gatilhos):
+            relevantes.append(chunk);  continue
+        # 2) intersecção de palavras-chave
+        if any(p in chunk_l for p in p_lower.split()):
+            relevantes.append(chunk)
+    return relevantes[:k]            # devolve máx. k blocos
 
 # frases que não queremos exibir
 _PADROES_INDESEJADOS = [
@@ -338,44 +346,40 @@ def limpar_frases_indesejadas(texto: str) -> str:
     return texto.strip()
 
 def gerar_resposta(pergunta: str) -> str:
-    """Gera resposta usando Claude-3-Haiku, apenas com trechos relevantes
-    do arquivo de contexto."""
     client = anthropic.Anthropic(api_key=claude_api_key)
 
-    # 1 ── divide o contexto em blocos de 400 tokens e pega os 8 mais prováveis
+    # blocos de 120 tokens
     trechos_ctx = "\n".join(
-        selecionar_chunks_relevantes(                   # → sua função
+        selecionar_chunks_relevantes(
             pergunta,
-            dividir_texto(contexto_inteiro, 400)        # chunks de 400 tokens
+            dividir_texto(contexto_inteiro, 120)
         )
     ) or "Informação não disponível no material de apoio."
 
-    st.write("🛠️ DEBUG – trechos enviados:", trechos_ctx[:1000])
-
-    # 2 ── prompt final (só os trechos)
     system_prompt = (
         "Você é o Mentor Virtual do TJCE. "
         "Responda SÓ com base no contexto abaixo — se faltar informação, diga: "
         "\"Informação não disponível no material de apoio.\" "
-        "Quando a pergunta mencionar turma, aula ou mentoria, use a tabela. "
+        "Quando a pergunta mencionar turma, aula ou mentoria, consulte a tabela. "
         "REGRA: nunca use 'De acordo com as informações…'.\n\n"
         "—— CONTEXTO ——\n"
         f"{trechos_ctx}\n"
         "—— FIM DO CONTEXTO ——"
     )
 
-    # 3 ── chamada à API
-    resp = client.messages.create(
-        model="claude-3-haiku-20240307",
-        max_tokens=1000,           # mais espaço para resposta
-        temperature=0.1,
-        system=system_prompt,
-        messages=[{"role": "user", "content": pergunta}]
-    )
-
-    resposta_bruta = resp.content[0].text.strip()
-    return limpar_frases_indesejadas(resposta_bruta)
-
+    try:
+        resp = client.messages.create(
+            model="claude-3-haiku-20240307",
+            max_tokens=1000,
+            temperature=0.1,
+            system=system_prompt,
+            messages=[{"role": "user", "content": pergunta}]
+        )
+        resposta = resp.content[0].text.strip()
+        return limpar_frases_indesejadas(resposta)
+    except Exception as e:
+        st.error(f"Erro da API: {e}")
+        return "⚠️ Erro ao gerar a resposta."
 
 # Adicionar a logo na sidebar
 if LOGO_BOT:
