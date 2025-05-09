@@ -290,15 +290,19 @@ def extrair_texto_pdf(caminho_pdf: str) -> str:
 CAMINHO_CONTEXTO = "contexto1.txt"
 
 
-def carregar_contexto() -> str:
-    """Lê o arquivo inteiro e devolve como string."""
-    if Path(CAMINHO_CONTEXTO).exists():
-        return Path(CAMINHO_CONTEXTO).read_text(encoding="utf-8")
-    return ""
+contexto_inteiro = ler_contexto("contexto1.txt")
 
-contexto_inteiro = carregar_contexto()
-
-
+# FUNÇÃO ROBUSTA PARA LER O ARQUIVO DE CONTEXTO
+def ler_contexto(path: str) -> str:
+    """Devolve o conteúdo inteiro do arquivo; devolve '' em caso de erro."""
+    try:
+        return Path(path).read_text(encoding="utf-8")
+    except FileNotFoundError:
+        st.warning(f"⚠️ Arquivo {path} não encontrado.")
+        return ""
+    except Exception as e:
+        st.error(f"Erro ao ler {path}: {e}")
+        return ""
 
 def dividir_texto(texto: str) -> list[str]:
     """
@@ -354,56 +358,41 @@ def limpar_frases_indesejadas(texto: str) -> str:
     return texto.strip()
 
 def gerar_resposta(pergunta: str) -> str:
-    """
-    Gera a resposta do Mentor Virtual chamando a API da Anthropic.
-    • Seleciona apenas os trechos mais prováveis do contexto
-    • Monta um system-prompt com regras de formatação
-    • Chama o modelo Claude-3-Haiku (2024-03-07)
-    """
-    # ▌0  ────────────────────────────────────────────────────────────
-    # verificação rápida: se o arquivo de contexto não foi carregado
-    if not contexto_inteiro.strip():
-        return "⚠️ O material de apoio ainda não foi carregado."
-
     client = anthropic.Anthropic(api_key=claude_api_key)
 
-    # ▌1  Divide o contexto em blocos de ~80 tokens
-    chunks = dividir_texto(contexto_inteiro, 80)
+    # 0 ▌ se o contexto está vazio → devolve aviso amigável
+    if not contexto_inteiro:
+        return "⚠️ O material de apoio não foi encontrado no servidor."
 
-    # Seleciona até 12 blocos que coincidam com a pergunta
+    # 1 ▌ divide e filtra
+    chunks = dividir_texto(contexto_inteiro, 80)
     trechos_ctx = "\n".join(
         selecionar_chunks_relevantes(pergunta, chunks, k=12)
     ) or "Informação não disponível no material de apoio."
 
-    # (Opcional) — debug para ver quais blocos foram enviados
-    # st.write("🛠️ DEBUG – trechos enviados:", trechos_ctx[:600])
-
-    # ▌2  System-prompt
+    # 2 ▌ monta o system-prompt
     system_prompt = (
-        "Você é o Mentor Virtual do TJCE, um chatbot que responde SÓ com base no "
-        "material a seguir. Se faltar informação, responda exatamente:\n"
-        "\"Informação não disponível no material de apoio.\"\n"
-        "Quando a pergunta mencionar turma, aula ou mentoria, consulte a tabela. "
-        "NUNCA use expressões como \"De acordo com as informações…\".\n\n"
+        "Você é o Mentor Virtual do TJCE, responde **apenas** com base no contexto. "
+        'Caso falte informação, diga: "Informação não disponível no material de apoio." '
+        "Nunca inicie com frases como “De acordo com…”.\n\n"
         "—— CONTEXTO ——\n"
         f"{trechos_ctx}\n"
         "—— FIM DO CONTEXTO ——"
     )
 
-    # ▌3  Chamada à API
+    # 3 ▌ chamada à API
     try:
         resp = client.messages.create(
             model="claude-3-haiku-20240307",
             max_tokens=1000,
             temperature=0.1,
-            system=system_prompt,              # ✅ prompt de sistema
+            system=system_prompt,
             messages=[{"role": "user", "content": pergunta}]
         )
         bruto = resp.content[0].text.strip()
         return limpar_frases_indesejadas(bruto)
 
     except Exception as e:
-        # Mostra o erro na tela, mas devolve mensagem legível ao usuário
         st.error(f"Erro da API: {e}")
         return "⚠️ Erro ao gerar a resposta."
 
