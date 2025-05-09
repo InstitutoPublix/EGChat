@@ -300,20 +300,12 @@ contexto_inteiro = carregar_contexto()
 
 
 
-# Função para dividir o texto em chunks
-def dividir_texto(texto, max_tokens=800):  # Chunks menores (800 tokens)
-    palavras = texto.split()
-    chunks = []
-    chunk_atual = ""
-    for palavra in palavras:
-        if len(chunk_atual.split()) + len(palavra.split()) <= max_tokens:
-            chunk_atual += palavra + " "
-        else:
-            chunks.append(chunk_atual.strip())
-            chunk_atual = palavra + " "
-    if chunk_atual:
-        chunks.append(chunk_atual.strip())
-    return chunks
+def dividir_texto(texto: str) -> list[str]:
+    """
+    Devolve uma lista com *cada linha* não-vazia do arquivo.
+    Isso garante que “Entrega final: …” fique isolada num chunk.
+    """
+    return [ln.strip() for ln in texto.splitlines() if ln.strip()]
 
 def normalizar(txt: str) -> str:
     # remove acentos → “entrega” == “entrega”
@@ -364,13 +356,12 @@ def limpar_frases_indesejadas(texto: str) -> str:
 def gerar_resposta(pergunta: str) -> str:
     client = anthropic.Anthropic(api_key=claude_api_key)
 
-    # blocos de 120 tokens
     trechos_ctx = "\n".join(
         selecionar_chunks_relevantes(
             pergunta,
-            dividir_texto(contexto_inteiro, 20)
+            dividir_texto(contexto_inteiro)      # ← sem max_tokens
         )
-    ) or "Informação não disponível no material de apoio."
+) or "Informação não disponível no material de apoio."
 
     st.write("🛠️ DEBUG – trechos enviados:", trechos_ctx[:1000])
 
@@ -388,7 +379,6 @@ def gerar_resposta(pergunta: str) -> str:
     try:
         resp = client.messages.create(
             model="claude-3-haiku-20240307",
-            max_tokens=1000,
             temperature=0.1,
             system=system_prompt,
             messages=[{"role": "user", "content": pergunta}]
