@@ -356,6 +356,8 @@ def gerar_resposta(pergunta: str) -> str:
         )
     ) or "Informação não disponível no material de apoio."
 
+    st.write("🛠️ DEBUG – trechos enviados:", trechos_ctx[:1000])
+
     system_prompt = (
         "Você é o Mentor Virtual do TJCE. "
         "Responda SÓ com base no contexto abaixo — se faltar informação, diga: "
