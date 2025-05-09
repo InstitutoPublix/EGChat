@@ -13,6 +13,20 @@ from pathlib import Path # para percorrer diretórios
 from pypdf import PdfReader
 claude_api_key = os.getenv("CLAUDE_API_KEY")  # Streamlit Cloud injeta essa va
 
+
+
+def ler_contexto(path: str) -> str:
+    """Devolve o conteúdo do arquivo de texto.
+       Se não existir, devolve '' e mostra aviso."""
+    try:
+        return Path(path).read_text(encoding="utf-8")
+    except FileNotFoundError:
+        st.warning(f"⚠️ Arquivo {path} não encontrado.")
+        return ""
+    except Exception as e:
+        st.error(f"Erro ao ler {path}: {e}")
+        return ""
+
 contexto_inteiro = ler_contexto("contexto1.txt")
 
 if not claude_api_key:
@@ -289,18 +303,6 @@ def extrair_texto_pdf(caminho_pdf: str) -> str:
     return "\n".join(paginas)
 
 contexto_inteiro = ler_contexto("contexto1.txt")
-
-# FUNÇÃO ROBUSTA PARA LER O ARQUIVO DE CONTEXTO
-def ler_contexto(path: str) -> str:
-    """Devolve o conteúdo inteiro do arquivo; devolve '' em caso de erro."""
-    try:
-        return Path(path).read_text(encoding="utf-8")
-    except FileNotFoundError:
-        st.warning(f"⚠️ Arquivo {path} não encontrado.")
-        return ""
-    except Exception as e:
-        st.error(f"Erro ao ler {path}: {e}")
-        return ""
 
 def dividir_texto(texto: str) -> list[str]:
     """
