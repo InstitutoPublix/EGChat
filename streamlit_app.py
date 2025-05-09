@@ -322,38 +322,26 @@ def normalizar(txt: str) -> str:
 def selecionar_chunks_relevantes(pergunta: str,
                                  chunks: list[str],
                                  k: int = 12) -> list[str]:
+    """
+    Seleciona até k linhas do contexto que parecem relevantes
+    para a pergunta.  Se alguma linha contiver 'Entrega final',
+    ela entra obrigatoriamente.
+    """
     p_norm = normalizar(pergunta)
 
-    # 1 ▌ gatilhos fortes para a data de entrega ----------------------------
-    gatilhos_regex = [
-        r"\bentrega\s+final\b",           # “entrega final”
-        r"\bdata\s+de\s+entrega\b",       # “data de entrega”
-        r"\bdata\s+limite\b"              # “data limite”
-    ]
+    obrigatorios = [c for c in chunks if normalizar(c).startswith("entrega final")]
+    if obrigatorios:
+        return obrigatorios[:k]          # já achamos exatamente o que precisamos
 
+    # --- resto igual ao seu filtro “interseção de ≥ 2 palavras” ------------
     relevantes = []
     for chunk in chunks:
-        c_norm = normalizar(chunk)
-
-        # (a) se bater em qualquer regex forte → entra
-        if any(re.search(r, c_norm) for r in gatilhos_regex):
-            relevantes.append(chunk)
-            continue
-
-        # (b) intersecção de pelo menos 2 palavras da pergunta -------------
-        inter = sum(1 for w in p_norm.split() if w in c_norm)
+        inter = sum(1 for w in p_norm.split() if w in normalizar(chunk))
         if inter >= 2:
             relevantes.append(chunk)
 
-    # devolve até k blocos
-    return relevantes[:k] if relevantes else chunks[:k]
+    return (relevantes + chunks)[:k]     # fallback se nada bater
 
-# frases que não queremos exibir
-_PADROES_INDESEJADOS = [
-    r"de acordo com as informações[^.]*\.?\s*",   # remove frase + até o ponto
-    r"de acordo com o guia[^.]*\.?\s*",
-    r"conforme (o|a) material[^.]*\.?\s*"
-]
 
 def limpar_frases_indesejadas(texto: str) -> str:
     """Remove qualquer ocorrência das frases proibidas (case-insensitive)."""
