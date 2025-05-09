@@ -13,6 +13,8 @@ from pathlib import Path # para percorrer diretórios
 from pypdf import PdfReader
 claude_api_key = os.getenv("CLAUDE_API_KEY")  # Streamlit Cloud injeta essa va
 
+contexto_inteiro = ler_contexto("contexto1.txt")
+
 if not claude_api_key:
     st.error("Chave CLAUDE_API_KEY não configurada no servidor.")
     st.stop()
