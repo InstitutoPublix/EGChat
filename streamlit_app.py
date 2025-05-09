@@ -322,7 +322,7 @@ def selecionar_chunks_relevantes(pergunta, chunks):
     for chunk in chunks:
         if any(palavra in chunk.lower() for palavra in palavras_chave):
             chunks_relevantes.append(chunk)
-    return chunks_relevantes[:2]  # Limita a 2 chunks para evitar excesso de tokens
+    return chunks_relevantes[:4]  # Limita a 2 chunks para evitar excesso de tokens
 
 # frases que não queremos exibir
 _PADROES_INDESEJADOS = [
