@@ -288,10 +288,6 @@ def extrair_texto_pdf(caminho_pdf: str) -> str:
     paginas = [page.extract_text() or "" for page in reader.pages]
     return "\n".join(paginas)
 
- 
-CAMINHO_CONTEXTO = "contexto1.txt"
-
-
 contexto_inteiro = ler_contexto("contexto1.txt")
 
 # FUNÇÃO ROBUSTA PARA LER O ARQUIVO DE CONTEXTO
