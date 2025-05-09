@@ -368,7 +368,7 @@ def gerar_resposta(pergunta: str) -> str:
     trechos_ctx = "\n".join(
         selecionar_chunks_relevantes(
             pergunta,
-            dividir_texto(contexto_inteiro, 120)
+            dividir_texto(contexto_inteiro, 80)
         )
     ) or "Informação não disponível no material de apoio."
 
