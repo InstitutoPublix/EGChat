@@ -378,11 +378,14 @@ def gerar_resposta(pergunta: str) -> str:
 
     try:
         resp = client.messages.create(
-            model="claude-3-haiku-20240307",
-            temperature=0.1,
-            system=system_prompt,
-            messages=[{"role": "user", "content": pergunta}]
-        )
+    model="claude-3-haiku-20240307",
+    max_tokens=1000,
+    temperature=0.1,
+    messages=[
+        {"role": "system", "content": system_prompt},   # ← system entra aqui
+        {"role": "user",   "content": pergunta}
+    ]
+)
         resposta = resp.content[0].text.strip()
         return limpar_frases_indesejadas(resposta)
     except Exception as e:
