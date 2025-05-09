@@ -3,6 +3,7 @@ import anthropic
 import openai
 import os
 import re
+import unicodedata, re
 from PIL import Image
 import time
 import json
@@ -314,23 +315,38 @@ def dividir_texto(texto, max_tokens=800):  # Chunks menores (800 tokens)
         chunks.append(chunk_atual.strip())
     return chunks
 
-def selecionar_chunks_relevantes(pergunta: str, chunks: list[str], k: int = 12) -> list[str]:
-    p_lower = pergunta.lower()
-    # expressões que sempre queremos
-    gatilhos = [
-        r"entrega\s+final",
-        r"data\s+de\s+entrega"
+def normalizar(txt: str) -> str:
+    # remove acentos → “entrega” == “entrega”
+    return unicodedata.normalize("NFKD", txt).encode("ascii", "ignore").decode().lower()
+
+def selecionar_chunks_relevantes(pergunta: str,
+                                 chunks: list[str],
+                                 k: int = 12) -> list[str]:
+    p_norm = normalizar(pergunta)
+
+    # 1 ▌ gatilhos fortes para a data de entrega ----------------------------
+    gatilhos_regex = [
+        r"\bentrega\s+final\b",           # “entrega final”
+        r"\bdata\s+de\s+entrega\b",       # “data de entrega”
+        r"\bdata\s+limite\b"              # “data limite”
     ]
+
     relevantes = []
     for chunk in chunks:
-        chunk_l = chunk.lower()
-        # 1) regex especial
-        if any(re.search(g, chunk_l) for g in gatilhos):
-            relevantes.append(chunk);  continue
-        # 2) intersecção de palavras-chave
-        if any(p in chunk_l for p in p_lower.split()):
+        c_norm = normalizar(chunk)
+
+        # (a) se bater em qualquer regex forte → entra
+        if any(re.search(r, c_norm) for r in gatilhos_regex):
             relevantes.append(chunk)
-    return relevantes[:k]            # devolve máx. k blocos
+            continue
+
+        # (b) intersecção de pelo menos 2 palavras da pergunta -------------
+        inter = sum(1 for w in p_norm.split() if w in c_norm)
+        if inter >= 2:
+            relevantes.append(chunk)
+
+    # devolve até k blocos
+    return relevantes[:k] if relevantes else chunks[:k]
 
 # frases que não queremos exibir
 _PADROES_INDESEJADOS = [
