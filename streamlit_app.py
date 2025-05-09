@@ -340,20 +340,26 @@ def limpar_frases_indesejadas(texto: str) -> str:
 def gerar_resposta(pergunta: str) -> str:
     client = anthropic.Anthropic(api_key=claude_api_key)
 
-    # ------- prompt completo (dentro da função) -------
+     # 1 ▌▌ divide o contexto e pega apenas os blocos mais prováveis
+    trechos_ctx = "\n".join(
+        selecionar_chunks_relevantes(pergunta, dividir_texto(contexto_inteiro, 400))
+    ) or "Informação não disponível no material de apoio."
+
+  # 2 ▌▌ constrói o prompt usando SÓ esses trechos
     system_prompt = (
-        "Você é o Professor Virtual do TJCE. "
+        "Você é o Mentor Virtual do TJCE. "
         "Responda SÓ com base no contexto abaixo — se faltar informação, diga: "
         "\"Informação não disponível no material de apoio.\" "
-        "Quando a pergunta mencionar turma, aula ou mentoria, consulte a tabela e responda exatamente com a(s) linha(s) correspondentes."
-        "Responda de forma direta, começando já com a informação pedida."
-        "REGRA OBRIGATÓRIA: Nunca use expressões como 'De acordo com as informações...', 'De acordo com as informações fornecidas'.\n\n"
-        f"{contexto_inteiro}"
+        "Quando a pergunta mencionar turma, aula ou mentoria, consulte a tabela. "
+        "REGRA: nunca use 'De acordo com as informações…'.\n\n"
+        "—— CONTEXTO ——\n"
+        f"{trechos_ctx}\n"
+        "—— FIM DO CONTEXTO ——"
     )
 
     resp = client.messages.create(
         model="claude-3-haiku-20240307",
-        max_tokens=800,
+        max_tokens=1000,
         temperature=0.1,
         system=system_prompt,                     # ← usa a variável
         messages=[{"role": "user", "content": pergunta}]
