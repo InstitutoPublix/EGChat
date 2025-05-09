@@ -356,41 +356,21 @@ def limpar_frases_indesejadas(texto: str) -> str:
 def gerar_resposta(pergunta: str) -> str:
     client = anthropic.Anthropic(api_key=claude_api_key)
 
-    trechos_ctx = "\n".join(
-        selecionar_chunks_relevantes(
-            pergunta,
-            dividir_texto(contexto_inteiro)      # ← sem max_tokens
-        )
-) or "Informação não disponível no material de apoio."
+    # … monte o system_prompt aqui …
 
-    st.write("🛠️ DEBUG – trechos enviados:", trechos_ctx[:1000])
-
-    system_prompt = (
-        "Você é o Mentor Virtual do TJCE. "
-        "Responda SÓ com base no contexto abaixo — se faltar informação, diga: "
-        "\"Informação não disponível no material de apoio.\" "
-        "Quando a pergunta mencionar turma, aula ou mentoria, consulte a tabela. "
-        "REGRA: nunca use 'De acordo com as informações…'.\n\n"
-        "—— CONTEXTO ——\n"
-        f"{trechos_ctx}\n"
-        "—— FIM DO CONTEXTO ——"
+    resp = client.messages.create(
+        model="claude-3-haiku-20240307",
+        max_tokens=1000,
+        temperature=0.1,
+        system=system_prompt,                 # ✅  system vai aqui
+        messages=[                            # ❌  NÃO coloque role "system"
+            {"role": "user", "content": pergunta}
+        ]
     )
 
-    try:
-        resp = client.messages.create(
-    model="claude-3-haiku-20240307",
-    max_tokens=1000,
-    temperature=0.1,
-    messages=[
-        {"role": "system", "content": system_prompt},   # ← system entra aqui
-        {"role": "user",   "content": pergunta}
-    ]
-)
-        resposta = resp.content[0].text.strip()
-        return limpar_frases_indesejadas(resposta)
-    except Exception as e:
-        st.error(f"Erro da API: {e}")
-        return "⚠️ Erro ao gerar a resposta."
+    resposta_bruta  = resp.content[0].text.strip()
+    resposta_final = limpar_frases_indesejadas(resposta_bruta)
+    return resposta_final
 
 # Adicionar a logo na sidebar
 if LOGO_BOT:
