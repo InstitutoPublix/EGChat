@@ -338,36 +338,42 @@ def limpar_frases_indesejadas(texto: str) -> str:
     return texto.strip()
 
 def gerar_resposta(pergunta: str) -> str:
+    """Gera resposta usando Claude-3-Haiku, apenas com trechos relevantes
+    do arquivo de contexto."""
     client = anthropic.Anthropic(api_key=claude_api_key)
 
-     # 1 ▌▌ divide o contexto e pega apenas os blocos mais prováveis
+    # 1 ── divide o contexto em blocos de 400 tokens e pega os 8 mais prováveis
     trechos_ctx = "\n".join(
-        selecionar_chunks_relevantes(pergunta, dividir_texto(contexto_inteiro, 400))
+        selecionar_chunks_relevantes(                   # → sua função
+            pergunta,
+            dividir_texto(contexto_inteiro, 400)        # chunks de 400 tokens
+        )
     ) or "Informação não disponível no material de apoio."
 
-  # 2 ▌▌ constrói o prompt usando SÓ esses trechos
+    # 2 ── prompt final (só os trechos)
     system_prompt = (
         "Você é o Mentor Virtual do TJCE. "
         "Responda SÓ com base no contexto abaixo — se faltar informação, diga: "
         "\"Informação não disponível no material de apoio.\" "
-        "Quando a pergunta mencionar turma, aula ou mentoria, consulte a tabela. "
+        "Quando a pergunta mencionar turma, aula ou mentoria, use a tabela. "
         "REGRA: nunca use 'De acordo com as informações…'.\n\n"
         "—— CONTEXTO ——\n"
         f"{trechos_ctx}\n"
         "—— FIM DO CONTEXTO ——"
     )
 
+    # 3 ── chamada à API
     resp = client.messages.create(
         model="claude-3-haiku-20240307",
-        max_tokens=1000,
+        max_tokens=1000,           # mais espaço para resposta
         temperature=0.1,
-        system=system_prompt,                     # ← usa a variável
+        system=system_prompt,
         messages=[{"role": "user", "content": pergunta}]
     )
 
     resposta_bruta = resp.content[0].text.strip()
-    resposta_final = limpar_frases_indesejadas(resposta_bruta)
-    return resposta_final
+    return limpar_frases_indesejadas(resposta_bruta)
+
 
 # Adicionar a logo na sidebar
 if LOGO_BOT:
