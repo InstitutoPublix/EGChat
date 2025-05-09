@@ -354,23 +354,51 @@ def limpar_frases_indesejadas(texto: str) -> str:
     return texto.strip()
 
 def gerar_resposta(pergunta: str) -> str:
+    """
+    Gera a resposta do Mentor Virtual chamando a API da Anthropic.
+    • Filtra apenas os trechos mais prováveis do contexto
+    • Monta um system prompt com regras de formatação
+    • Chama o modelo Claude-3-Haiku (2024-03-07)
+    """
     client = anthropic.Anthropic(api_key=claude_api_key)
 
-    # … monte o system_prompt aqui …
+    # 1 ▌ selecione até 12 blocos de 80 tokens que parecem relevantes
+    trechos_ctx = "\n".join(
+        selecionar_chunks_relevantes(
+            pergunta,
+            dividir_texto(contexto_inteiro, 80),
+            k=12
+        )
+    ) or "Informação não disponível no material de apoio."
 
-    resp = client.messages.create(
-        model="claude-3-haiku-20240307",
-        max_tokens=1000,
-        temperature=0.1,
-        system=system_prompt,                 # ✅  system vai aqui
-        messages=[                            # ❌  NÃO coloque role "system"
-            {"role": "user", "content": pergunta}
-        ]
+    # 2 ▌ system prompt que orienta o modelo
+    system_prompt = (
+        "Você é o Mentor Virtual do TJCE, um chatbot que responde SÓ com base no "
+        "material a seguir.  Se faltar informação, responda exatamente:\n"
+        "\"Informação não disponível no material de apoio.\"\n"
+        "Quando a pergunta mencionar turma, aula ou mentoria, consulte a tabela. "
+        "NUNCA use expressões como \"De acordo com as informações…\".\n\n"
+        "—— CONTEXTO ——\n"
+        f"{trechos_ctx}\n"
+        "—— FIM DO CONTEXTO ——"
     )
 
-    resposta_bruta  = resp.content[0].text.strip()
-    resposta_final = limpar_frases_indesejadas(resposta_bruta)
-    return resposta_final
+    try:
+        resp = client.messages.create(
+            model="claude-3-haiku-20240307",
+            max_tokens=1000,
+            temperature=0.1,
+            system=system_prompt,          # ← prompt de sistema
+            messages=[                     # ← apenas a mensagem do usuário
+                {"role": "user", "content": pergunta}
+            ]
+        )
+        resposta_bruta = resp.content[0].text.strip()
+        return limpar_frases_indesejadas(resposta_bruta)
+
+    except Exception as e:
+        st.error(f"Erro da API: {e}")
+        return "⚠️ Erro ao gerar a resposta."
 
 # Adicionar a logo na sidebar
 if LOGO_BOT:
