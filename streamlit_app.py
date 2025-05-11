@@ -376,7 +376,7 @@ def gerar_resposta(pergunta: str) -> str:
             messages=[{"role": "user", "content": pergunta}]
         )
         bruto = resp.content[0].text.strip()
-        return limpar_frases_indesejadas(bruto)
+    
 
     except Exception as e:
         st.error(f"Erro da API: {e}")
