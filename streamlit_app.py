@@ -13,7 +13,11 @@ from pathlib import Path # para percorrer diretórios
 from pypdf import PdfReader
 claude_api_key = os.getenv("CLAUDE_API_KEY")  # Streamlit Cloud injeta essa va
 
-
+PADROES_INDESEJADOS = [
+    r"de acordo com as informações[^.]*\.?\s*",
+    r"de acordo com o guia[^.]*\.?\s*",
+    r"conforme (o|a) material[^.]*\.?\s*"
+]
 
 def ler_contexto(path: str) -> str:
     """Devolve o conteúdo do arquivo de texto.
