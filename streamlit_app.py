@@ -13,11 +13,7 @@ from pathlib import Path # para percorrer diretórios
 from pypdf import PdfReader
 claude_api_key = os.getenv("CLAUDE_API_KEY")  # Streamlit Cloud injeta essa va
 
-PADROES_INDESEJADOS = [
-    r"de acordo com as informações[^.]*\.?\s*",
-    r"de acordo com o guia[^.]*\.?\s*",
-    r"conforme (o|a) material[^.]*\.?\s*"
-]
+
 
 def ler_contexto(path: str) -> str:
     """Devolve o conteúdo do arquivo de texto.
@@ -346,12 +342,6 @@ def selecionar_chunks_relevantes(pergunta: str,
 
     return (relevantes + chunks)[:k]     # fallback se nada bater
 
-
-def limpar_frases_indesejadas(texto: str) -> str:
-    """Remove qualquer ocorrência das frases proibidas (case-insensitive)."""
-    for padrao in _PADROES_INDESEJADOS:
-        texto = re.sub(padrao, "", texto, flags=re.I)
-    return texto.strip()
 
 def gerar_resposta(pergunta: str) -> str:
     client = anthropic.Anthropic(api_key=claude_api_key)
