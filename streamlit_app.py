@@ -266,7 +266,8 @@ Sou o **Mentor Virtual** e estou aqui para te ajudar com o curso de Transformaç
 
 Você pode me perguntar, por exemplo:
 - 📌 O que é o curso e como ele funciona?
-- 🗂️ Quais os dias e horários das aulas?
+- 🧩 Quais os principais assuntos das aulas?
+- 🗂️ Quais os dias e horários das atividades?
 - 📝 O que é esperado no projeto final?
 
 Fique à vontade para perguntar o que quiser."""
@@ -352,15 +353,13 @@ def gerar_resposta(pergunta: str) -> str:
 
     resp = client.messages.create(
         model="claude-3-haiku-20240307",
-        max_tokens=800,
+        max_tokens=400,
         temperature=0.1,
         system=system_prompt,                     # ← usa a variável
         messages=[{"role": "user", "content": pergunta}]
     )
 
-    resposta_bruta = resp.content[0].text.strip()
-    resposta_final = limpar_frases_indesejadas(resposta_bruta)
-    return resposta_final
+    return resp.content[0].text.strip()
 
 # Adicionar a logo na sidebar
 if LOGO_BOT:
