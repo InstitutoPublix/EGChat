@@ -3,7 +3,6 @@ import anthropic
 import openai
 import os
 import re
-import unicodedata, re
 from PIL import Image
 import time
 import json
@@ -12,22 +11,6 @@ import speech_recognition as sr
 from pathlib import Path # para percorrer diretórios
 from pypdf import PdfReader
 claude_api_key = os.getenv("CLAUDE_API_KEY")  # Streamlit Cloud injeta essa va
-
-
-
-def ler_contexto(path: str) -> str:
-    """Devolve o conteúdo do arquivo de texto.
-       Se não existir, devolve '' e mostra aviso."""
-    try:
-        return Path(path).read_text(encoding="utf-8")
-    except FileNotFoundError:
-        st.warning(f"⚠️ Arquivo {path} não encontrado.")
-        return ""
-    except Exception as e:
-        st.error(f"Erro ao ler {path}: {e}")
-        return ""
-
-contexto_inteiro = ler_contexto("contexto1.txt")
 
 if not claude_api_key:
     st.error("Chave CLAUDE_API_KEY não configurada no servidor.")
@@ -302,85 +285,82 @@ def extrair_texto_pdf(caminho_pdf: str) -> str:
     paginas = [page.extract_text() or "" for page in reader.pages]
     return "\n".join(paginas)
 
-contexto_inteiro = ler_contexto("contexto1.txt")
+ 
+CAMINHO_CONTEXTO = "contexto1.txt"
 
-def dividir_texto(texto: str, max_tokens: int = 80) -> list[str]:
-    """
-    Divide o texto‐fonte em “chunks”:
-    • Cada linha não vazia vira um chunk isolado – isso garante que
-      itens como “Entrega final: …” fiquem sozinhos.
-    • O parâmetro max_tokens existe apenas para compatibilidade com
-      chamadas que enviam dois argumentos.  Se, no futuro, quiser fazer
-      corte real por tamanho, já está no lugar.
-    """
-    return [ln.strip() for ln in texto.splitlines() if ln.strip()]
 
-def normalizar(txt: str) -> str:
-    # remove acentos → “entrega” == “entrega”
-    return unicodedata.normalize("NFKD", txt).encode("ascii", "ignore").decode().lower()
+def carregar_contexto() -> str:
+    """Lê o arquivo inteiro e devolve como string."""
+    if Path(CAMINHO_CONTEXTO).exists():
+        return Path(CAMINHO_CONTEXTO).read_text(encoding="utf-8")
+    return ""
 
-def selecionar_chunks_relevantes(pergunta: str,
-                                 chunks: list[str],
-                                 k: int = 12) -> list[str]:
-    """
-    Seleciona até k linhas do contexto que parecem relevantes
-    para a pergunta.  Se alguma linha contiver 'Entrega final',
-    ela entra obrigatoriamente.
-    """
-    p_norm = normalizar(pergunta)
+contexto_inteiro = carregar_contexto()
 
-    obrigatorios = [c for c in chunks if normalizar(c).startswith("entrega final")]
-    if obrigatorios:
-        return obrigatorios[:k]          # já achamos exatamente o que precisamos
 
-    # --- resto igual ao seu filtro “interseção de ≥ 2 palavras” ------------
-    relevantes = []
+
+# Função para dividir o texto em chunks
+def dividir_texto(texto, max_tokens=800):  # Chunks menores (800 tokens)
+    palavras = texto.split()
+    chunks = []
+    chunk_atual = ""
+    for palavra in palavras:
+        if len(chunk_atual.split()) + len(palavra.split()) <= max_tokens:
+            chunk_atual += palavra + " "
+        else:
+            chunks.append(chunk_atual.strip())
+            chunk_atual = palavra + " "
+    if chunk_atual:
+        chunks.append(chunk_atual.strip())
+    return chunks
+
+# Função para selecionar chunks relevantes com base na pergunta
+def selecionar_chunks_relevantes(pergunta, chunks):
+    # Lógica simples para selecionar chunks com base em palavras-chave
+    palavras_chave = pergunta.lower().split()
+    chunks_relevantes = []
     for chunk in chunks:
-        inter = sum(1 for w in p_norm.split() if w in normalizar(chunk))
-        if inter >= 2:
-            relevantes.append(chunk)
+        if any(palavra in chunk.lower() for palavra in palavras_chave):
+            chunks_relevantes.append(chunk)
+    return chunks_relevantes[:2]  # Limita a 2 chunks para evitar excesso de tokens
 
-    return (relevantes + chunks)[:k]     # fallback se nada bater
+# frases que não queremos exibir
+_PADROES_INDESEJADOS = [
+    r"de acordo com as informações[^.]*\.?\s*",   # remove frase + até o ponto
+    r"de acordo com o guia[^.]*\.?\s*",
+    r"conforme (o|a) material[^.]*\.?\s*"
+]
 
+def limpar_frases_indesejadas(texto: str) -> str:
+    """Remove qualquer ocorrência das frases proibidas (case-insensitive)."""
+    for padrao in _PADROES_INDESEJADOS:
+        texto = re.sub(padrao, "", texto, flags=re.I)
+    return texto.strip()
 
 def gerar_resposta(pergunta: str) -> str:
     client = anthropic.Anthropic(api_key=claude_api_key)
 
-    # 0 ▌ se o contexto está vazio → devolve aviso amigável
-    if not contexto_inteiro:
-        return "⚠️ O material de apoio não foi encontrado no servidor."
-
-    # 1 ▌ divide e filtra
-    chunks = dividir_texto(contexto_inteiro, 80)
-    trechos_ctx = "\n".join(
-        selecionar_chunks_relevantes(pergunta, chunks, k=12)
-    ) or "Informação não disponível no material de apoio."
-
-    # 2 ▌ monta o system-prompt
+    # ------- prompt completo (dentro da função) -------
     system_prompt = (
-        "Você é o Mentor Virtual do TJCE, responde **apenas** com base no contexto. "
-        'Caso falte informação, diga: "Informação não disponível no material de apoio." '
-        "Nunca inicie com frases como “De acordo com…”.\n\n"
-        "—— CONTEXTO ——\n"
-        f"{trechos_ctx}\n"
-        "—— FIM DO CONTEXTO ——"
+        "Você é o Professor Virtual do TJCE. "
+        "Responda SÓ com base no contexto abaixo — se faltar informação, diga: "
+        "\"Informação não disponível no material de apoio.\" "
+        "Responda de forma direta, começando já com a informação pedida."
+        "REGRA OBRIGATÓRIA: Nunca use expressões como 'De acordo com as informações...', 'De acordo com as informações fornecidas'.\n\n"
+        f"{contexto_inteiro}"
     )
 
-    # 3 ▌ chamada à API
-    try:
-        resp = client.messages.create(
-            model="claude-3-haiku-20240307",
-            max_tokens=1000,
-            temperature=0.1,
-            system=system_prompt,
-            messages=[{"role": "user", "content": pergunta}]
-        )
-        bruto = resp.content[0].text.strip()
-    
+    resp = client.messages.create(
+        model="claude-3-haiku-20240307",
+        max_tokens=800,
+        temperature=0.1,
+        system=system_prompt,                     # ← usa a variável
+        messages=[{"role": "user", "content": pergunta}]
+    )
 
-    except Exception as e:
-        st.error(f"Erro da API: {e}")
-        return "⚠️ Erro ao gerar a resposta."
+    resposta_bruta = resp.content[0].text.strip()
+    resposta_final = limpar_frases_indesejadas(resposta_bruta)
+    return resposta_final
 
 # Adicionar a logo na sidebar
 if LOGO_BOT:
