@@ -590,3 +590,36 @@ Por fim, os docentes reforçam que “a visão sem execução é um devaneio” 
 Síntese integradora.
 Ao longo das seis aulas, o curso costura um enredo único: inovação requer combinar normas atualizadas, estratégia institucional, governança de dados robusta, tecnologia adequada e, sobretudo, gestão da mudança. Os participantes são convidados a sair da condição de consumidores de sistemas e tornar-se designers de soluções, usando IA de forma ética e segura para acelerar o cumprimento das metas do Programa +Gestão 
 . O resultado pretendido é um TJCE capaz de entregar justiça mais célere, transparente e centrada no cidadão, sustentado por evidências analíticas, métodos ágeis e lideranças que pensem grande, comecem pequeno e cresçam rápido.
+
+O Canvas Ágil de Projetos é um quadro único que substitui cronogramas e planos de negócio tradicionais; ele reúne, em células visuais, problema, stakeholders, riscos, marcos (100–450 dias) e indicadores, de modo a alinhar estratégia e entrega sem “documentação pesada”. A aula mostra inclusive um preenchimento automático desse canvas com IA, o que costuma gerar curiosidade sobre como “promptar” cada campo 
+.
+
+Na etapa de priorização, surge a Matriz Valor × Factibilidade: no eixo vertical listam-se benefícios para o jurisdicionado (valor) e, no horizontal, barreiras técnicas, orçamentárias e culturais (factibilidade). Demandas que caem no quadrante “alto-alto” são executadas primeiro; o conceito é simples, mas alunos perguntam como definir as escalas e onde encaixar intangíveis como confiança do cidadão 
+.
+
+Para modular expectativas sobre transformação, os slides destacam o Diagnóstico de Maturidade Digital e de IA – uma escala de 1 (iniciante) a 5 (líder digital) adaptada de MIT Sloan, Oxford Insights e McKinsey. A dúvida recorrente é se um tribunal pode estar em níveis diferentes para “tecnologia” e “governança”; o material confirma que sim, pois o instrumento é multidimensional (pessoas, dados, modelo operacional etc.) 
+.
+
+No bloco de dados, a clássica pirâmide DIKW (Data–Information–Knowledge–Wisdom) ajuda a separar fato bruto de insight, mas muitos confundem “informação” com “conhecimento”. O slide esclarece que informação nasce quando o dado é contextualizado; conhecimento, quando várias informações se relacionam para orientar ação 
+.
+
+Daí parte-se para o processo de Business Intelligence (BI) – pergunta, coleta, ETL, análise, decisão – e para a discussão de dashboards. A frequência de dúvidas é sobre onde encaixar segurança e LGPD; a resposta: esses dois itens atravessam todo o fluxo, como mostram as caixas laterais do diagrama 
+.
+
+Ainda sobre dados, surge a governança segundo a NBR 38505-1 (“Avaliar–Dirigir–Monitorar”) e os modelos de maturidade (DAMA DMBOK, DCAM, DMM-CMMI, Avaliação do Governo Federal). Os alunos costumam perguntar qual usar; os instrutores sugerem começar pela avaliação do Governo Federal por ser pública e simplificada, e depois avançar para DAMA quando se quiser granularidade de processos .
+
+Outro quadro que exige atenção é a arquitetura de referência de dados: zonas de landing, trusted e refined, camadas de consumo (API/SQL/dashboards) e serviços de segurança (cripto, data-loss prevention). O risco de confundir “data lake” com “warehouse” é alto; o slide mostra que ambos coexistem – o lake armazena tudo, o warehouse serve dados já modelados para consulta rápida 
+.
+
+No campo de inovação, o gráfico das categorias de adotantes de Rogers (inovadores → retardatários) gera questões sobre como “mover” servidores da maioria tardia para a inicial; a recomendação pedagógica é combinar quick wins tecnológicos com storytelling de valor público 
+.
+
+Quando a conversa vira para métodos, três itens costumam travar o debate. Primeiro, o Manifesto Ágil: alunos memorizam os quatro valores mas raramente os 12 princípios – sobretudo “desenvolvimento sustentável” e “simplificação”. Os slides explicam que esses princípios, e não só Scrum, são a ponte com o setor público . Segundo, a tabela que pontua quando usar cascata, híbrido ou ágil: dúvidas surgem sobre a linha de corte; a regra do curso é 5–9 pontos = cascata, 10–21 = híbrido, 22–25 = ágil puro 
+. Terceiro, escalar squads: a taxonomia “Time Ágil → Produto → Plataforma → Comunidade” e os quatro arquétipos (multifuncionais, autogerenciados, fluxo, rede) costumam confundir hierarquia com autonomia; o material lembra que a liderança continua definindo missão e KPI, mas o “como” fica com as equipes .
+
+No universo jurídico, a recém-publicada Resolução CNJ 615/2025 introduz classificação de risco (baixo × alto) para sistemas de IA e cria o Comitê Nacional de IA; a pergunta-padrão é se chatbots entram em “alto risco”. A resposta do slide é não, a menos que influenciem sentenças ou priorização de processos – daí a importância da análise de impacto 
+.
+
+Por fim, aparecem conceitos transversais que também levantam mão na aula: o T-shaped knowledge, defendendo profundidade em uma área e familiaridade nas outras (essencial para gestores digitais) ; a aplicação prática de RPA e IA generativa em fluxos de trabalho (exemplo do robô Expedito e chatbots internos) ; e estudos de casos reais de BI no TJPB e TJSC, que servem para demonstrar como dados mudam distribuição de pessoal ou criação de câmaras especializadas – perguntas frequentes giram em torno de “quem atualiza esses painéis?” e “quanto custa?” .
+
+Em resumo, as possíveis “pedras no caminho” didático concentram-se em: entender cada quadrante de priorização, distinguir níveis de maturidade, ligar valores ágeis a processos públicos, mapear papéis na governança de dados e interpretar o escopo da Resolução 615. Antecipar explicações para esses pontos poupa tempo de aula e enriquece o diálogo com o chatbot.
