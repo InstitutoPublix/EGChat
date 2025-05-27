@@ -542,3 +542,51 @@ Aprimorar as aquisições e contratações.
 Aprimorar a segurança da informação e a gestão de dados.
 
 Promover serviços de infraestrutura e soluções corporativas.
+
+O Programa de Desenvolvimento de Gestores do TJCE/2025 abre-se esclarecendo que sua razão de existir é capacitar todas as lideranças do Tribunal a operar num Judiciário cada vez mais digital, analítico e orientado por IA. A proposta pedagógica combina 40 horas de aulas on-line, presenciais e sessões de mentoria, articuladas em seis encontros que percorrem quatro grandes módulos: (1) Inovação, Transformação Digital e Governança de Dados, (2) Transformação do Judiciário por meio do Digital e da IA, (3) Gestão Estratégica, Resultados e Indicadores e (4) Gerência de Plano de Trabalho e Gestão Operacional. Para concluir o curso, cada grupo de até cinco alunos deve entregar um Projeto Aplicativo avaliado pela alta gestão do Tribunal
+
+Aula 1 – Inovação, Transformação Digital e IA (Módulo 1).
+O ponto de partida é conceitual: inovar é pôr uma ideia em prática gerando valor público; invenção sem adoção não basta. O material faz um passeio histórico — da roda de 3500 a.C. à IA generativa de 2022 — para mostrar a aceleração dos ciclos tecnológicos e justificar a exigência de “gestores speed-understanders” capazes de aprender antes que o ambiente mude 
+. Em seguida apresenta-se o Framework de cinco pilares que vai acompanhar todo o curso: ① fundamentos legais, ② alinhamento institucional, ③ governança e segurança de dados, ④ solução tecnológica e ⑤ gestão da mudança 
+.
+No bloco de transformação digital, três fases da administração pública — governo eletrônico, governo aberto e governo digital — são conectadas à Lei 14.129/2021, aos Decretos 12.069/2024 (ENGD) e 12.198/2024 (EFGD) e a princípios como governo centrado no cidadão, integrado, inteligente e confiável
+
+Sobre IA, a aula detalha a pirâmide IA → ML → Deep Learning → IA Generativa, situa o hype cycle de 2024, destaca que 70 % das patentes vêm da China enquanto os EUA lideram em “modelos notáveis” 
+. No contexto judiciário, o material relembra o Programa Justiça 4.0 e o novo marco regulatório da Resolução CNJ 615/2025, que substitui e aprofunda a Res. 332/2020 ao criar um Comitê Nacional de IA, classificar riscos e impor relatórios públicos de uso transparente 
+.
+
+Aula 2 – Gestão e Análise de Dados para Tomada de Decisão (Módulo 1, continuação).
+A cultura data-driven é apresentada como condição para decisões mais assertivas e para o cumprimento de metas judiciais. Quatro tipos de análise — descritiva, diagnóstica, preditiva e prescritiva — são dispostos em matriz valor × complexidade, servindo de guia para escolher técnicas e ferramentas 
+. A sequência traz um fluxo completo de Business Intelligence (pergunta → coleta → ETL → análise → decisão → governança) apoiado por arquiteturas de referência que separam zonas de aterrissagem, confiança e refino de dados, além de data lakes, warehouses e APIs 
+.
+A adequação à LGPD perpassa todo o debate, reforçando princípios de finalidade, necessidade, transparência e segurança no tratamento de dados pessoais. Para ilustrar aplicações concretas, o curso menciona painéis do CNJ (“Justiça em Números”) e o índice iGovTIC-JUD, no qual o TJCE alcançou 90,53 pontos em 2024 
+.
+
+Aula 3 – Segurança de Dados, Soluções Digitais e IA para o Judiciário (início do Módulo 2).
+Entrando no cerne da digitalização, discute-se como proteger, processar e monetizar dados em ambiente judicial. O material apresenta a espinha dorsal de segurança (arquitetura, fluxo de dados, zonas de confiabilidade, federação e virtualização) 
+, depois mapeia as principais soluções tecnológicas já em uso nos tribunais: RPA para expedição automática de ofícios (robô Expedito), classificação de peças, painéis de acompanhamento de prazos e chatbots para triagem 
+.
+O capítulo normativo lista as resoluções CNJ 185/2013 (PJe), 370/2021 (ENTIC-JUD), 396/2021 (Segurança Cibernética), 345/2020 e 378/2021 (Juízo 100 % Digital) e reforça novamente a Res. 615/2025 como guarda-chuva para IA 
+. Um tópico especial aborda indicadores para medir maturidade digital, impacto em serviços públicos, transparência, privacidade e sustentabilidade (redução de papel, índice de inovação etc.) 
+.
+
+Aula 4 – Gestão da Mudança e Plano de Implementação (Módulo 2, conclusão).
+Aqui o enfoque desloca-se das tecnologias para as pessoas. Três modelos clássicos — Kotter, ADKAR e Knoster — são revisitados e sintetizados em oito “elementos fundamentais” (internalização da visão, compreensão do plano, agentes da mudança, comunicação constante, engajamento, desenvolvimento de competências, remoção de barreiras e perenidade) 
+.
+O curso mostra como alinhar essa agenda humana a metodologias ágeis. Há um quadro de pontuação que decide se um projeto deve usar cascata, híbrido ou ágil puro segundo complexidade, engajamento de stakeholders e urgência 
+. Depois, exemplifica-se a construção de agentes e copilotos de IA — do nível 0 (LLMs) ao nível 5 (agentes múltiplos e autônomos) — para apoiar produtividade pessoal, gestão de equipes e decisões estratégicas 
+. Ferramentas no-code como Make.com e Streamlit ilustram como criar fluxos de agendamento ou chatbots internos sem depender de grandes times de TI 
+.
+
+Aulas 5 e 6 – Projeto Aplicativo, Métodos Ágeis e Gestão Operacional (Módulos 3 e 4).
+Os encontros presenciais mergulham na aplicação prática. Primeiro, o Canvas Ágil de Projetos é apresentado como instrumento para transformar ideias em entregas num ciclo de 100-450 dias, com colunas para problema, riscos, stakeholders, impacto e marcos de sucesso 
+. Exercícios em Miro conduzem as equipes a elaborar visão SMART de transformação digital, priorizar temas com a matriz valor × factibilidade e fundamentar problemas com indicadores (ex.: tempo médio de tramitação em varas de família) 
+.
+Depois, discutem-se as bases do Manifesto Ágil de 2001 e sua adaptação ao setor público: times interdisciplinares, sprint de duas semanas, feedback contínuo do usuário e quatro valores (“indivíduos e interações acima de processos e ferramentas”…). A aula explica como escalar equipes ágeis em tribos, plataformas e comunidades de prática 
+.
+Por fim, os docentes reforçam que “a visão sem execução é um devaneio” e que apenas a materialização em projetos assegura a perenidade do que foi aprendido. Cada Projeto Aplicativo deverá, portanto, demonstrar ganhos concretos — redução de custos, aumento de agilidade, melhoria na experiência do jurisdicionado — articulando indicadores antes, durante e depois da intervenção 
+.
+
+Síntese integradora.
+Ao longo das seis aulas, o curso costura um enredo único: inovação requer combinar normas atualizadas, estratégia institucional, governança de dados robusta, tecnologia adequada e, sobretudo, gestão da mudança. Os participantes são convidados a sair da condição de consumidores de sistemas e tornar-se designers de soluções, usando IA de forma ética e segura para acelerar o cumprimento das metas do Programa +Gestão 
+. O resultado pretendido é um TJCE capaz de entregar justiça mais célere, transparente e centrada no cidadão, sustentado por evidências analíticas, métodos ágeis e lideranças que pensem grande, comecem pequeno e cresçam rápido.
