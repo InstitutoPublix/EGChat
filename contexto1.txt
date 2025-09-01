@@ -337,88 +337,109 @@ tjce@institutopublix.com.br
 TODAS AS AULAS PRESENCIAIS SÃO NO SEGUINTE LOCAL: ESMEC
 
 
-| Turma | Dia        | Turno | Tipo                | Nº | Data  | Horário                 |
-|-------|------------|-------|---------------------|----|-------|-------------------------|
-| 1 | Segunda | Manhã | Aula | 1 | 05/05 | 8h-12h |
-| 1 | Segunda | Manhã | Aula | 2 | 12/05 | 8h-12h |
-| 1 | Segunda | Manhã | Aula | 3 | 19/05 | 8h-12h |
-| 1 | Segunda | Manhã | Aula | 4 | 26/05 | 8h-12h |
-| 1 | Segunda | Manhã | Aula (presencial) | 5 | 02/06 | 8h-12h / 14h-18h |
-| 1 | Segunda | Manhã | Aula (presencial) | 6 | 03/06 | 8h-12h / 14h-16h |
-| 1 | Segunda | Manhã | Mentoria | 1 | 09/06 | 8h-12h |
-| 1 | Segunda | Manhã | Mentoria | 2 | 16/06 | 8h-12h |
-| 2 | Segunda | Tarde | Aula | 1 | 05/05 | 14h-18h |
-| 2 | Segunda | Tarde | Aula | 2 | 12/05 | 14h-18h |
-| 2 | Segunda | Tarde | Aula | 3 | 19/05 | 14h-18h |
-| 2 | Segunda | Tarde | Aula | 4 | 26/05 | 14h-18h |
-| 2 | Segunda | Tarde | Aula (presencial) | 5 | 02/06 | 14h-18h |
-| 2 | Segunda | Tarde | Aula (presencial) | 6 | 03/06 | 14h-18h |
-| 2 | Segunda | Tarde | Mentoria | 1 | 09/06 | 14h-18h |
-| 2 | Segunda | Tarde | Mentoria | 2 | 16/06 | 14h-18h |
-| 3 | Terça   | Manhã | Aula | 1 | 06/05 | 8h-12h |
-| 3 | Terça   | Manhã | Aula | 2 | 13/05 | 8h-12h |
-| 3 | Terça   | Manhã | Aula | 3 | 20/05 | 8h-12h |
-| 3 | Terça   | Manhã | Aula | 4 | 27/05 | 8h-12h |
-| 3 | Terça   | Manhã | Aula (presencial) | 5 | 04/06 | 8h-12h / 14h-18h |
-| 3 | Terça   | Manhã | Aula (presencial) | 6 | 05/06 | 8h-12h / 14h-16h |
-| 3 | Terça   | Manhã | Mentoria | 1 | 10/06 | 8h-12h |
-| 3 | Terça   | Manhã | Mentoria | 2 | 17/06 | 8h-12h |
-| 4 | Terça   | Tarde | Aula | 1 | 06/05 | 14h-18h |
-| 4 | Terça   | Tarde | Aula | 2 | 13/05 | 14h-18h |
-| 4 | Terça   | Tarde | Aula | 3 | 20/05 | 14h-18h |
-| 4 | Terça   | Tarde | Aula | 4 | 27/05 | 14h-18h |
-| 4 | Terça   | Tarde | Aula (presencial) | 5 | 04/06 | 14h-18h |
-| 4 | Terça   | Tarde | Aula (presencial) | 6 | 05/06 | 14h-18h |
-| 4 | Terça   | Tarde | Mentoria | 1 | 10/06 | 14h-18h |
-| 4 | Terça   | Tarde | Mentoria | 2 | 17/06 | 14h-18h |
-| 5 | Quarta  | Manhã | Aula | 1 | 07/05 | 8h-12h |
-| 5 | Quarta  | Manhã | Aula | 2 | 14/05 | 8h-12h |
-| 5 | Quarta  | Manhã | Aula | 3 | 21/05 | 8h-12h |
-| 5 | Quarta  | Manhã | Aula | 4 | 28/05 | 8h-12h |
-| 5 | Quarta  | Manhã | Aula (presencial) | 5 | 09/06 | 8h-12h / 14h-18h |
-| 5 | Quarta  | Manhã | Aula (presencial) | 6 | 10/06 | 8h-12h / 14h-16h |
-| 5 | Quarta  | Manhã | Mentoria | 1 | 18/06 | 8h-12h |
-| 5 | Quarta  | Manhã | Mentoria | 2 | 25/06 | 8h-12h |
-| 6 | Quarta  | Tarde | Aula | 1 | 07/05 | 14h-18h |
-| 6 | Quarta  | Tarde | Aula | 2 | 14/05 | 14h-18h |
-| 6 | Quarta  | Tarde | Aula | 3 | 21/05 | 14h-18h |
-| 6 | Quarta  | Tarde | Aula | 4 | 28/05 | 14h-18h |
-| 6 | Quarta  | Tarde | Aula (presencial) | 5 | 09/06 | 14h-18h |
-| 6 | Quarta  | Tarde | Aula (presencial) | 6 | 10/06 | 14h-18h |
-| 6 | Quarta  | Tarde | Mentoria | 1 | 18/06 | 14h-18h |
-| 6 | Quarta  | Tarde | Mentoria | 2 | 25/06 | 14h-18h |
-| 7 | Quinta  | Manhã | Aula | 1 | 08/05 | 8h-12h |
-| 7 | Quinta  | Manhã | Aula | 2 | 15/05 | 8h-12h |
-| 7 | Quinta  | Manhã | Aula | 3 | 22/05 | 8h-12h |
-| 7 | Quinta  | Manhã | Aula | 4 | 29/05 | 8h-12h |
-| 7 | Quinta  | Manhã | Aula (presencial) | 5 | 11/06 | 8h-12h / 14h-18h |
-| 7 | Quinta  | Manhã | Aula (presencial) | 6 | 12/06 | 8h-12h / 14h-16h |
-| 7 | Quinta  | Manhã | Mentoria | 1 | 18/06 | 8h-12h |
-| 7 | Quinta  | Manhã | Mentoria | 2 | 26/06 | 8h-12h |
-| 8 | Quinta  | Tarde | Aula | 1 | 08/05 | 14h-18h |
-| 8 | Quinta  | Tarde | Aula | 2 | 15/05 | 14h-18h |
-| 8 | Quinta  | Tarde | Aula | 3 | 22/05 | 14h-18h |
-| 8 | Quinta  | Tarde | Aula | 4 | 29/05 | 14h-18h |
-| 8 | Quinta  | Tarde | Aula (presencial) | 5 | 11/06 | 14h-18h |
-| 8 | Quinta  | Tarde | Aula (presencial) | 6 | 12/06 | 14h-18h |
-| 8 | Quinta  | Tarde | Mentoria | 1 | 18/06 | 14h-18h |
-| 8 | Quinta  | Tarde | Mentoria | 2 | 26/06 | 14h-18h |
-| 9 | Sexta   | Manhã | Aula | 1 | 09/05 | 8h-12h |
-| 9 | Sexta   | Manhã | Aula | 2 | 16/05 | 8h-12h |
-| 9 | Sexta   | Manhã | Aula | 3 | 23/05 | 8h-12h |
-| 9 | Sexta   | Manhã | Aula | 4 | 30/05 | 8h-12h |
-| 9 | Sexta   | Manhã | Aula (presencial) | 5 | 16/06 | 8h-12h / 14h-18h |
-| 9 | Sexta   | Manhã | Aula (presencial) | 6 | 17/06 | 8h-12h / 14h-16h |
-| 9 | Sexta   | Manhã | Mentoria | 1 | 13/06 | 8h-12h |
-| 9 | Sexta   | Manhã | Mentoria | 2 | 27/06 | 8h-12h |
-| 10 | Sexta  | Tarde | Aula | 1 | 09/05 | 14h-18h |
-| 10 | Sexta  | Tarde | Aula | 2 | 16/05 | 14h-18h |
-| 10 | Sexta  | Tarde | Aula | 3 | 23/05 | 14h-18h |
-| 10 | Sexta  | Tarde | Aula | 4 | 30/05 | 14h-18h |
-| 10 | Sexta  | Tarde | Aula (presencial) | 5 | 16/06 | 14h-18h |
-| 10 | Sexta  | Tarde | Aula (presencial) | 6 | 17/06 | 14h-18h |
-| 10 | Sexta  | Tarde | Mentoria | 1 | 13/06 | 14h-18h |
-| 10 | Sexta  | Tarde | Mentoria | 2 | 27/06 | 14h-18h |
+CRONOGRAMA — MENTOR DE IA (SET–OUT 2025)
+
+| Turma | Dia     | Turno  | Tipo               | Nº | Data     | Horário              |
+|-------|---------|--------|--------------------|----|----------|----------------------|
+| 1     | Segunda | Manhã  | Aula (online)      | 1  | 01/09/25 | 8h–12h              |
+| 2     | Segunda | Tarde  | Aula (online)      | 1  | 01/09/25 | 14h–18h             |
+| 3     | Terça   | Manhã  | Aula (online)      | 1  | 02/09/25 | 8h–12h              |
+| 4     | Terça   | Tarde  | Aula (online)      | 1  | 02/09/25 | 14h–18h             |
+| 5     | Quarta  | Manhã  | Aula (online)      | 1  | 03/09/25 | 8h–12h              |
+| 6     | Quarta  | Tarde  | Aula (online)      | 1  | 03/09/25 | 14h–18h             |
+| 7     | Quinta  | Manhã  | Aula (online)      | 1  | 04/09/25 | 8h–12h              |
+| 8     | Quinta  | Tarde  | Aula (online)      | 1  | 04/09/25 | 14h–18h             |
+| 9     | Sexta   | Manhã  | Aula (online)      | 1  | 05/09/25 | 8h–12h              |
+| 10    | Sexta   | Tarde  | Aula (online)      | 1  | 05/09/25 | 14h–18h             |
+| 1     | Segunda | Manhã  | Aula (online)      | 2  | 08/09/25 | 8h–12h              |
+| 2     | Segunda | Tarde  | Aula (online)      | 2  | 08/09/25 | 14h–18h             |
+| 3     | Terça   | Manhã  | Aula (online)      | 2  | 09/09/25 | 8h–12h              |
+| 4     | Terça   | Tarde  | Aula (online)      | 2  | 09/09/25 | 14h–18h             |
+| 5     | Quarta  | Manhã  | Aula (online)      | 2  | 10/09/25 | 8h–12h              |
+| 6     | Quarta  | Tarde  | Aula (online)      | 2  | 10/09/25 | 14h–18h             |
+| 7     | Quinta  | Manhã  | Aula (online)      | 2  | 11/09/25 | 8h–12h              |
+| 8     | Quinta  | Tarde  | Aula (online)      | 2  | 11/09/25 | 14h–18h             |
+| 9     | Sexta   | Manhã  | Aula (online)      | 2  | 12/09/25 | 8h–12h              |
+| 10    | Sexta   | Tarde  | Aula (online)      | 2  | 12/09/25 | 14h–18h             |
+| 2     | Segunda | Tarde  | Aula (online)      | 3  | 15/09/25 | 14h–18h             |
+| 3     | Terça   | Manhã  | Aula (online)      | 3  | 16/09/25 | 8h–12h              |
+| 4     | Terça   | Tarde  | Aula (online)      | 3  | 16/09/25 | 14h–18h             |
+| 5     | Quarta  | Manhã  | Aula (online)      | 3  | 17/09/25 | 8h–12h              |
+| 6     | Quarta  | Tarde  | Aula (online)      | 3  | 17/09/25 | 14h–18h             |
+| 1     | Quinta  | Manhã  | Aula (online)      | 3  | 18/09/25 | 8h–12h              |
+| 7     | Quinta  | Manhã  | Aula (online)      | 3  | 18/09/25 | 8h–12h              |
+| 8     | Quinta  | Tarde  | Aula (online)      | 3  | 18/09/25 | 14h–18h             |
+| 9     | Sexta   | Manhã  | Aula (online)      | 3  | 19/09/25 | 8h–12h              |
+| 10    | Sexta   | Tarde  | Aula (online)      | 3  | 19/09/25 | 14h–18h             |
+| 1     | Segunda | Manhã  | Aula (online)      | 4  | 22/09/25 | 8h–12h              |
+| 2     | Segunda | Tarde  | Aula (online)      | 4  | 22/09/25 | 14h–18h             |
+| 3     | Terça   | Manhã  | Aula (online)      | 4  | 23/09/25 | 8h–12h              |
+| 4     | Terça   | Tarde  | Aula (online)      | 4  | 23/09/25 | 14h–18h             |
+| 5     | Quarta  | Manhã  | Aula (online)      | 4  | 24/09/25 | 8h–12h              |
+| 6     | Quarta  | Tarde  | Aula (online)      | 4  | 24/09/25 | 14h–18h             |
+| 7     | Quinta  | Manhã  | Aula (online)      | 4  | 25/09/25 | 8h–12h              |
+| 8     | Quinta  | Tarde  | Aula (online)      | 4  | 25/09/25 | 14h–18h             |
+| 9     | Sexta   | Manhã  | Aula (online)      | 4  | 26/09/25 | 8h–12h              |
+| 10    | Sexta   | Tarde  | Aula (online)      | 4  | 26/09/25 | 14h–18h             |
+| 1     | Segunda | —      | Aula (presencial)  | 5  | 29/09/25 | 8h–12h / 14h–18h    |
+| 2     | Segunda | —      | Aula (presencial)  | 5  | 29/09/25 | 8h–12h / 14h–18h    |
+| 1     | Terça   | —      | Aula (presencial)  | 6  | 30/09/25 | 8h–12h / 14h–18h    |
+| 2     | Terça   | —      | Aula (presencial)  | 6  | 30/09/25 | 8h–12h / 14h–18h    |
+| 3     | Quarta  | —      | Aula (presencial)  | 5  | 01/10/25 | 8h–12h / 14h–18h    |
+| 4     | Quarta  | —      | Aula (presencial)  | 5  | 01/10/25 | 8h–12h / 14h–18h    |
+| 3     | Quinta  | —      | Aula (presencial)  | 6  | 02/10/25 | 8h–12h / 14h–18h    |
+| 4     | Quinta  | —      | Aula (presencial)  | 6  | 02/10/25 | 8h–12h / 14h–18h    |
+| 5     | Segunda | —      | Aula (presencial)  | 5  | 06/10/25 | 8h–12h / 14h–18h    |
+| 6     | Segunda | —      | Aula (presencial)  | 5  | 06/10/25 | 8h–12h / 14h–18h    |
+| 5     | Terça   | —      | Aula (presencial)  | 6  | 07/10/25 | 8h–12h / 14h–18h    |
+| 6     | Terça   | —      | Aula (presencial)  | 6  | 07/10/25 | 8h–12h / 14h–18h    |
+| 7     | Quarta  | —      | Aula (presencial)  | 5  | 08/10/25 | 8h–12h / 14h–18h    |
+| 8     | Quarta  | —      | Aula (presencial)  | 5  | 08/10/25 | 8h–12h / 14h–18h    |
+| 7     | Quinta  | —      | Aula (presencial)  | 6  | 09/10/25 | 8h–12h / 14h–18h    |
+| 8     | Quinta  | —      | Aula (presencial)  | 6  | 09/10/25 | 8h–12h / 14h–18h    |
+| 9     | Segunda | —      | Aula (presencial)  | 5  | 13/10/25 | 8h–12h / 14h–18h    |
+| 10    | Segunda | —      | Aula (presencial)  | 5  | 13/10/25 | 8h–12h / 14h–18h    |
+| 1     | Segunda | Online | Mentoria           | 1  | 13/10/25 | a combinar          |
+| 2     | Segunda | Online | Mentoria           | 1  | 13/10/25 | a combinar          |
+| 9     | Terça   | —      | Aula (presencial)  | 6  | 14/10/25 | 8h–12h / 14h–18h    |
+| 10    | Terça   | —      | Aula (presencial)  | 6  | 14/10/25 | 8h–12h / 14h–18h    |
+| 3     | Terça   | Online | Mentoria           | 1  | 14/10/25 | a combinar          |
+| 4     | Terça   | Online | Mentoria           | 1  | 14/10/25 | a combinar          |
+| 5     | Quarta  | Online | Mentoria           | 1  | 15/10/25 | a combinar          |
+| 6     | Quarta  | Online | Mentoria           | 1  | 15/10/25 | a combinar          |
+| 7     | Quinta  | Online | Mentoria           | 1  | 16/10/25 | a combinar          |
+| 8     | Quinta  | Online | Mentoria           | 1  | 16/10/25 | a combinar          |
+| 1     | Segunda | Online | Mentoria           | 2  | 20/10/25 | a combinar          |
+| 2     | Segunda | Online | Mentoria           | 2  | 20/10/25 | a combinar          |
+| 3     | Terça   | Online | Mentoria           | 2  | 21/10/25 | a combinar          |
+| 4     | Terça   | Online | Mentoria           | 2  | 21/10/25 | a combinar          |
+| 5     | Quarta  | Online | Mentoria           | 2  | 22/10/25 | a combinar          |
+| 6     | Quarta  | Online | Mentoria           | 2  | 22/10/25 | a combinar          |
+| 7     | Quinta  | Online | Mentoria           | 2  | 23/10/25 | a combinar          |
+| 8     | Quinta  | Online | Mentoria           | 2  | 23/10/25 | a combinar          |
+| 9     | Sexta   | Online | Mentoria           | 1  | 24/10/25 | a combinar          |
+| 10    | Sexta   | Online | Mentoria           | 1  | 24/10/25 | a combinar          |
+| 9     | Sexta   | Online | Mentoria           | 2  | 31/10/25 | a combinar          |
+| 10    | Sexta   | Online | Mentoria           | 2  | 31/10/25 | a combinar          |
+| —     | Sexta   | —      | ENTREGA FINAL PA   | —  | 07/11/25 | até 23h59           |
+
+LEGENDA (CÓDIGOS):
+A1 e A2 = Módulo Online de Transformação Digital (partes 1 e 2)
+A3 e A4 = Módulo Online de Inteligência Artificial (partes 1 e 2)
+A5       = Módulo Presencial de Gestão de Metas (dia todo)
+A6       = Módulo Presencial de Plano de Ação (dia todo)
+Mentoria = Mentoria online do Projeto Aplicativo (1 e 2)
+
+HORÁRIOS-PADRÃO:
+- Manhã: 8h–12h
+- Tarde: 14h–18h
+- Presencial (A5/A6): 8h–12h e 14h–18h (dia todo)
+
+RESERVA DE SALAS (somente módulos presenciais):
+- Semana 1: 2 salas simultâneas de 29/09 a 02/10
+- Semana 2: 2 salas simultâneas de 06/10 a 09/10
+- Semana 3: 2 salas simultâneas nos dias 13 e 14/10
+
 
 
 TEMPLATE DO APLICATIVO:
