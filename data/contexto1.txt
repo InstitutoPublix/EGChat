@@ -1,7 +1,7 @@
 CASO PERGUNTE SOBRE O GUIA TJCE:
 
 Programa de Desenvolvimento
-de Gestores – TJCE/2025
+de Gestores – TJCE/2026
 
 Guia Orientador
 da elaboração do
@@ -326,259 +326,41 @@ ativamente do desenvolvimento da proposta de Projeto Aplicativo
 em grupo.
 9
 
+Atenção: É necessário preencher o questionário de avaliação diagnóstica, uma das etapas obrigatórias do curso, que tem como finalidade levantar o seu nível de familiaridade com os conteúdos que serão abordados.
 
-Dúvidas?
-Fale com a equipe organizadora:
+Clique aqui para responder ao questionário: https://pt.surveymonkey.com/r/BRJK288
+O prazo para envio da resposta é até quarta-feira, dia 6 de maio de 2026.
+
+Confira abaixo o cronograma da sua turma:
+Turma 1 (Segunda-feira – manhã – 08h às 12h)
+Aula 1: segunda-feira, 04 de maio – 08h às 12h
+Aula 2: segunda-feira, 11 de maio – 08h às 12h
+Aula 3: segunda-feira, 18 de maio – 08h às 12h
+Aula 4: segunda-feira, 25 de maio – 08h às 12h
+Aula 5 (presencial): segunda-feira, 08 de junho – 8h às 12h e 14h às 18h
+Aula 6 (presencial): terça-feira, 09 de junho – 8h às 12h e 14h às 18h
+Mentoria 1: segunda-feira, 15 de junho – 08h às 12h
+Mentoria 2: segunda-feira, 22 de junho – 08h às 12h
+
+Link das aulas: 
+Turma 1 (Segunda-feira – manhã– 08h às 12h): https://meet.google.com/her-kizn-gjw
+
+Turma 2 (Terça-feira – tarde – 14h às 18h)
+Aula 1: terça-feira, 05 de maio – 14h às 18h
+Aula 2: terça-feira, 12 de maio – 14h às 18h
+Aula 3: terça-feira, 19 de maio – 14h às 18h
+Aula 4: terça-feira, 26 de maio – 14h às 18h
+Aula 5 (presencial): quarta-feira, 10 de junho – 8h às 12h e 14h às 18h
+Aula 6 (presencial): quinta-feira, 11 de junho – 8h às 12h e 14h às 18h
+Mentoria 1: terça-feira, 16 de junho – 14h às 18h
+Mentoria 2: terça-feira, 23 de junho – 14h às 18h
+
+Link das aulas: 
+Turma 2 (Terça-feira – tarde– 14h às 18h): https://meet.google.com/kez-ssgj-xej
+
+Em caso de dúvidas, entre em contato com a equipe organizadora:
 tjce@institutopublix.com.br
-(61) 99326-0480
-
-
-
-TODAS AS AULAS PRESENCIAIS SÃO NO SEGUINTE LOCAL: ESMEC
-
-
-CRONOGRAMA COMPLETO — SETEMBRO E OUTUBRO 2025
-TURMA 1
-
-Setembro 2025
-
-Segunda-feira, 01/09/2025 — Aula online — manhã (08h–12h)
-
-Segunda-feira, 01/09/2025 — Aula online — tarde (14h–18h)
-
-Segunda-feira, 08/09/2025 — Aula online — manhã (08h–12h)
-
-Segunda-feira, 08/09/2025 — Aula online — tarde (14h–18h)
-
-Quinta-feira, 18/09/2025 — Aula online — manhã (08h–12h)
-
-Segunda-feira, 22/09/2025 — Aula online — manhã (08h–12h)
-
-Segunda-feira, 29/09/2025 — Aula presencial — dia todo (08h–12h e 14h–18h)
-
-Terça-feira, 30/09/2025 — Aula presencial — dia todo (08h–12h e 14h–18h)
-
-Outubro 2025
-
-Segunda-feira, 13/10/2025 — Mentoria online — manhã (08h–12h)
-
-Segunda-feira, 20/10/2025 — Mentoria online — manhã (08h–12h)
-
-TURMA 2
-
-Setembro 2025
-
-Segunda-feira, 01/09/2025 — Aula online — tarde (14h–18h)
-
-Segunda-feira, 08/09/2025 — Aula online — tarde (14h–18h)
-
-Segunda-feira, 15/09/2025 — Aula online — tarde (14h–18h)
-
-Segunda-feira, 22/09/2025 — Aula online — tarde (14h–18h)
-
-Segunda-feira, 29/09/2025 — Aula presencial — dia todo (08h–12h e 14h–18h)
-
-Terça-feira, 30/09/2025 — Aula presencial — dia todo (08h–12h e 14h–18h)
-
-Outubro 2025
-
-Segunda-feira, 13/10/2025 — Mentoria online — tarde (14h–18h)
-
-Segunda-feira, 20/10/2025 — Mentoria online — tarde (14h–18h)
-
-TURMA 3
-
-Setembro 2025
-
-Terça-feira, 02/09/2025 — Aula online — manhã (08h–12h)
-
-Terça-feira, 09/09/2025 — Aula online — manhã (08h–12h)
-
-Terça-feira, 16/09/2025 — Aula online — manhã (08h–12h)
-
-Terça-feira, 23/09/2025 — Aula online — manhã (08h–12h)
-
-Terça-feira, 30/09/2025 — Aula presencial — dia todo (08h–12h e 14h–18h)
-
-Quarta-feira, 01/10/2025 — Aula presencial — dia todo (08h–12h e 14h–18h)
-
-Quinta-feira, 02/10/2025 — Aula presencial — dia todo (08h–12h e 14h–18h)
-
-Outubro 2025
-
-Terça-feira, 14/10/2025 — Mentoria online — manhã (08h–12h)
-
-Terça-feira, 21/10/2025 — Mentoria online — manhã (08h–12h)
-
-TURMA 4
-
-Setembro 2025
-
-Terça-feira, 02/09/2025 — Aula online — tarde (14h–18h)
-
-Terça-feira, 09/09/2025 — Aula online — tarde (14h–18h)
-
-Terça-feira, 16/09/2025 — Aula online — tarde (14h–18h)
-
-Terça-feira, 23/09/2025 — Aula online — tarde (14h–18h)
-
-Terça-feira, 30/09/2025 — Aula presencial — dia todo (08h–12h e 14h–18h)
-
-Quarta-feira, 01/10/2025 — Aula presencial — dia todo (08h–12h e 14h–18h)
-
-Quinta-feira, 02/10/2025 — Aula presencial — dia todo (08h–12h e 14h–18h)
-
-Outubro 2025
-
-Terça-feira, 14/10/2025 — Mentoria online — tarde (14h–18h)
-
-Terça-feira, 21/10/2025 — Mentoria online — tarde (14h–18h)
-
-TURMA 5
-
-Setembro 2025
-
-Quarta-feira, 03/09/2025 — Aula online — manhã (08h–12h)
-
-Quarta-feira, 10/09/2025 — Aula online — manhã (08h–12h)
-
-Quarta-feira, 17/09/2025 — Aula online — manhã (08h–12h)
-
-Quarta-feira, 24/09/2025 — Aula online — manhã (08h–12h)
-
-Quarta-feira, 01/10/2025 — Aula presencial — dia todo (08h–12h e 14h–18h)
-
-Segunda-feira, 06/10/2025 — Aula presencial — dia todo (08h–12h e 14h–18h)
-
-Terça-feira, 07/10/2025 — Aula presencial — dia todo (08h–12h e 14h–18h)
-
-Outubro 2025
-
-Quarta-feira, 15/10/2025 — Mentoria online — manhã (08h–12h)
-
-Quarta-feira, 22/10/2025 — Mentoria online — manhã (08h–12h)
-
-TURMA 6
-
-Setembro 2025
-
-Quarta-feira, 03/09/2025 — Aula online — tarde (14h–18h)
-
-Quarta-feira, 10/09/2025 — Aula online — tarde (14h–18h)
-
-Quarta-feira, 17/09/2025 — Aula online — tarde (14h–18h)
-
-Quarta-feira, 24/09/2025 — Aula online — tarde (14h–18h)
-
-Quarta-feira, 01/10/2025 — Aula presencial — dia todo (08h–12h e 14h–18h)
-
-Segunda-feira, 06/10/2025 — Aula presencial — dia todo (08h–12h e 14h–18h)
-
-Terça-feira, 07/10/2025 — Aula presencial — dia todo (08h–12h e 14h–18h)
-
-Outubro 2025
-
-Quarta-feira, 15/10/2025 — Mentoria online — tarde (14h–18h)
-
-Quarta-feira, 22/10/2025 — Mentoria online — tarde (14h–18h)
-
-TURMA 7
-
-Setembro 2025
-
-Quinta-feira, 04/09/2025 — Aula online — manhã (08h–12h)
-
-Quinta-feira, 11/09/2025 — Aula online — manhã (08h–12h)
-
-Quinta-feira, 18/09/2025 — Aula online — manhã (08h–12h)
-
-Quinta-feira, 25/09/2025 — Aula online — manhã (08h–12h)
-
-Quinta-feira, 02/10/2025 — Aula presencial — dia todo (08h–12h e 14h–18h)
-
-Quarta-feira, 08/10/2025 — Aula presencial — dia todo (08h–12h e 14h–18h)
-
-Quinta-feira, 09/10/2025 — Aula presencial — dia todo (08h–12h e 14h–18h)
-
-Outubro 2025
-
-Quinta-feira, 16/10/2025 — Mentoria online — manhã (08h–12h)
-
-Quinta-feira, 23/10/2025 — Mentoria online — manhã (08h–12h)
-
-TURMA 8
-
-Setembro 2025
-
-Quinta-feira, 04/09/2025 — Aula online — tarde (14h–18h)
-
-Quinta-feira, 11/09/2025 — Aula online — tarde (14h–18h)
-
-Quinta-feira, 18/09/2025 — Aula online — tarde (14h–18h)
-
-Quinta-feira, 25/09/2025 — Aula online — tarde (14h–18h)
-
-Quinta-feira, 02/10/2025 — Aula presencial — dia todo (08h–12h e 14h–18h)
-
-Quarta-feira, 08/10/2025 — Aula presencial — dia todo (08h–12h e 14h–18h)
-
-Quinta-feira, 09/10/2025 — Aula presencial — dia todo (08h–12h e 14h–18h)
-
-Outubro 2025
-
-Quinta-feira, 16/10/2025 — Mentoria online — tarde (14h–18h)
-
-Quinta-feira, 23/10/2025 — Mentoria online — tarde (14h–18h)
-
-TURMA 9
-
-Setembro 2025
-
-Sexta-feira, 05/09/2025 — Aula online — manhã (08h–12h)
-
-Sexta-feira, 12/09/2025 — Aula online — manhã (08h–12h)
-
-Sexta-feira, 19/09/2025 — Aula online — manhã (08h–12h)
-
-Sexta-feira, 26/09/2025 — Aula online — manhã (08h–12h)
-
-Segunda-feira, 06/10/2025 — Aula presencial — dia todo (08h–12h e 14h–18h)
-
-Segunda-feira, 13/10/2025 — Aula presencial — dia todo (08h–12h e 14h–18h)
-
-Terça-feira, 14/10/2025 — Aula presencial — dia todo (08h–12h e 14h–18h)
-
-Outubro 2025
-
-Sexta-feira, 24/10/2025 — Mentoria online — manhã (08h–12h)
-
-Sexta-feira, 31/10/2025 — Mentoria online — manhã (08h–12h)
-
-TURMA 10
-
-Setembro 2025
-
-Sexta-feira, 05/09/2025 — Aula online — tarde (14h–18h)
-
-Sexta-feira, 12/09/2025 — Aula online — tarde (14h–18h)
-
-Sexta-feira, 19/09/2025 — Aula online — tarde (14h–18h)
-
-Sexta-feira, 26/09/2025 — Aula online — tarde (14h–18h)
-
-Segunda-feira, 06/10/2025 — Aula presencial — dia todo (08h–12h e 14h–18h)
-
-Segunda-feira, 13/10/2025 — Aula presencial — dia todo (08h–12h e 14h–18h)
-
-Terça-feira, 14/10/2025 — Aula presencial — dia todo (08h–12h e 14h–18h)
-
-Outubro 2025
-
-Sexta-feira, 24/10/2025 — Mentoria online — tarde (14h–18h)
-
-Sexta-feira, 31/10/2025 — Mentoria online - tarde (14h–18h)
-
-TEMPLATE DO APLICATIVO:
+(61) 9932-6048
 
 Orientações preliminares:
 Este modelo deverá ser obrigatoriamente utilizado por todos os grupos participantes do Programa de Desenvolvimento de Gestores (PDG) do TJCE.

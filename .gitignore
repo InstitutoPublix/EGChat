@@ -1,4 +1,6 @@
 .streamlit/secrets.toml
+.qdrant/
+.streamlit-start.*.log
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
