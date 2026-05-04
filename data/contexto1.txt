@@ -1,5 +1,3 @@
-CASO PERGUNTE SOBRE O GUIA TJCE:
-
 Programa de Desenvolvimento
 de Gestores – TJCE/2026
 
@@ -7,13 +5,13 @@ Guia Orientador
 da elaboração do
 PROJETO APLICATIVO
 
-Caro participante,
+Sobre os assuntos que irá aprender e introdução ao curso:
 
 Você está vivenciando o Programa de Desenvolvimento de Gestores (PDG)
 do Tribunal de Justiça do Estado do Ceará (TJCE), uma ação de capacitação
 continuada que integra o Programa de Modernização do Poder Judiciário do
 Estado do Ceará (PROMOJUD).
-Ao longo do curso, você tem sido convidado a refletir sobre a sua atuação
+Ao longo do curso, você irá aprender sobre assuntos como, sua atuação
 como gestor, ampliando seus conhecimentos sobre inovação, transformação
 digital, inteligência artificial, gestão por resultados e planejamento aplicado à
 realidade do Judiciário.
@@ -41,7 +39,7 @@ visibilidade institucional. Este é o momento de transformar ideias em soluçõe
 e conhecimento em ação.
 Bom trabalho e sucesso no desenvolvimento do seu projeto!
 
-Objetivo Geral
+Objetivo Geral
 Este guia tem como objetivo apoiar os grupos de alunos na elaboração
 de um Projeto Aplicativo, conectando os aprendizados dos quatro
 módulos a uma solução prática e inovadora para um desafio real
@@ -80,12 +78,21 @@ Os melhores projetos de cada turma serão apresentados à alta gestão do
 TJCE.
 2
 
-Etapas de
+Sobre a ementa e Etapas de
 Desenvolvimento
 A seguir, são apresentadas as quatro etapas principais para o desenvolvimento
 do Projeto Aplicativo. Cada uma está relacionada a um módulo do curso e
 deve ser construída progressivamente, com base nos aprendizados adquiridos
 ao longo da formação.
+
+Ementa do curso com os 4 módulos:
+
+1-Identificação do Desafio
+2-Análise de Dados e
+Transformação Digital
+3-Proposta de Solução com 
+Resultados-Chave e Indicadores
+4-Plano de Ação e Implementação
 
 Identificação do Desafio
 Nesta etapa, o grupo deve analisar sua realidade institucional para identificar
@@ -118,7 +125,7 @@ processos, apoiem decisões ou ampliem a entrega de valor público?
 
 3
 
-Análise de Dados e
+Análise de Dados e
 Transformação Digital
 Após identificar o desafio, é essencial compreendê-lo com maior
 profundidade. Esta etapa tem como objetivo reunir dados, evidências e
@@ -154,7 +161,7 @@ seja ética, transparente e alinhada ao interesse público?
 
 4
 
-Proposta de Solução com
+Proposta de Solução com
 Resultados-Chave e Indicadores
 Com base no desafio identificado e nas evidências e análises realizadas , o
 grupo deverá agora estruturar a proposta de solução, detalhando que tipo
@@ -194,7 +201,7 @@ implementada?
 
 5
 
-Plano de Ação e Implementação
+Plano de Ação e Implementação
 Com a solução já definida, esta etapa se dedica ao planejamento da sua
 execução prática. O grupo deve elaborar um plano de ação estruturado,
 descrevendo as etapas necessárias para viabilizar a proposta, com indicações
@@ -230,7 +237,7 @@ Como as equipes envolvidas serão engajadas e comunicadas ao longo da
 execução?
 6
 
-Template do Projeto
+Template do Projeto
 Aplicativo
 Visando padronizar e facilitar a elaboração das propostas, foi desenvolvido
 um template padrão que servirá como instrumento norteador para a
@@ -249,7 +256,7 @@ Acesse aqui: https://bit.ly/TemplateTJCE
 
 7
 
-Apresentação das
+Apresentação das
 Propostas
 A proposta do Projeto Aplicativo deve ser elaborada progressivamente ao
 longo do Programa de Desenvolvimento de Gestores (PDG), com base nos
@@ -296,7 +303,7 @@ realizar ajustes.
 
 8
 
-Avaliação das
+Avaliação das
 Propostas
 Ao final das mentorias, todos os participantes deverão preencher uma ficha
 de avaliação, no qual deverão atribuir notas a todas as propostas

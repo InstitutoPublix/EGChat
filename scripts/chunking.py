@@ -17,14 +17,3 @@ def split_documents(documents: list[Document]) -> list[Document]:
         print("Nenhum chunk foi criado. Verifique os documentos de entrada.")
 
     return chunks
-
-if __name__ == "__main__":
-    from config import DATA_DIR, DEFAULT_SOURCE_FILES
-    from loaders import load_documents
-
-    path = DATA_DIR / "contexto1.txt"
-    documentos = load_documents([path])
-    print(documentos[0].metadata)  # Imprime os primeiros 200 caracteres do conteúdo
-    chunks = split_documents(documentos)
-    print(chunks[0])  # Imprime o primeiro chunk
-    print(chunks[0].metadata)  # Imprime os metadados do primeiro chunk

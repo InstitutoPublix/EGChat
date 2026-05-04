@@ -3,7 +3,7 @@ from typing import Iterable
 from langchain_core.documents import Document
 from pypdf import PdfReader
 
-EXTENCOES_PERMITIDAS = [".txt", ".pdf"]
+EXTENCOES_PERMITIDAS = [".txt", ".pdf", ".docx"]
 
 def load_documents(paths: Iterable[Path]) -> list[Document]:
     documentos: list[Document] = []

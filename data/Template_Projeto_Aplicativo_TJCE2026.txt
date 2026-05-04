@@ -1,0 +1,77 @@
+Projeto Aplicativo – Programa de Desenvolvimento de Gestores TJCE/2026
+Sobre o modelo do projeto aplicativo que deve seguir:
+Orientações preliminares:
+	Este modelo deverá ser obrigatoriamente utilizado por todos os grupos participantes do Programa de Desenvolvimento de Gestores (PDG) do TJCE.
+A proposta deve conter no máximo 10 páginas, excluindo anexos complementares (caso utilizados).
+	Cada grupo deverá desenvolver apenas uma proposta de solução, com foco em um desafio real enfrentado pela sua unidade ou pelo TJCE como um todo.
+	A solução proposta deve envolver o uso de ferramentas digitais ou de inteligência artificial, aplicada de forma estratégica para a melhoria de processos, apoio à decisão ou inovação na gestão pública.
+	O desafio tratado no projeto deve estar vinculado ao Plano de Trabalho da Unidade, no âmbito do Programa +Gestão, ou corresponder a uma nova demanda estratégica institucional.
+	A proposta deverá ser desenvolvida de forma colaborativa pelos integrantes do grupo, e apresentada durante as mentorias, dentro dos prazos definidos.
+	O preenchimento deve ser objetivo, claro e bem estruturado, utilizando os campos do modelo e seguindo as orientações explicativas presentes no documento.
+	Ao final, os grupos devem estar preparados para apresentar e justificar sua proposta com base nos conteúdos abordados nos quatro módulos do curso.
+	Você poderá contar com o apoio do Mentor TJCE, uma ferramenta de inteligência artificial desenvolvida especialmente para este curso. Utilize o Mentor para tirar dúvidas, revisar conceitos, estruturar ideias e avançar na elaboração da proposta. 
+Participantes
+Descreva o nome de todos os participantes e suas respectivas áreas de atuação
+1.	Nome do Projeto
+Informe um título claro, objetivo e representativo da proposta. Deve refletir a essência da solução desenvolvida.
+2.	Objetivo
+Explique de forma concisa o propósito da proposta. O foco deve estar na solução de um desafio real com o uso de ferramentas digitais.
+3.	Identificação do Desafio
+Descreva de forma clara o desafio real enfrentado por uma unidade ou pelo TJCE. Indique se a demanda está vinculada ao Plano de Trabalho da Unidade (Programa +Gestão) ou se se trata de uma nova demanda estratégica. Além disso, relacione a proposta com os objetivos estratégicos do TJCE e do Programa +Gestão, explicando o alinhamento institucional.
+4.	Análise de Dados e Evidências
+Apresente dados, indicadores e informações que justifiquem a necessidade de intervenção. Explique as fontes utilizadas, os sinais de desempenho insatisfatório e analise o potencial de uso da inteligência artificial para apoiar a superação do desafio. Considere também os riscos, aspectos éticos, de segurança da informação e conformidade com a LGPD.
+5.	Descrição da Solução e Desenvolvimento da Ferramenta
+Nesta seção, o grupo deve apresentar de forma clara e objetiva a proposta de solução para o desafio identificado, com foco na aplicação de ferramentas de transformação digital e inteligência artificial (IA).
+Explique que tipo de tecnologia será aplicada (por exemplo, IA generativa, preditiva, automação inteligente, análise de sentimentos, classificação e triagem de documentos, mineração de dados, robôs de atendimento etc.) e como essa solução irá funcionar na prática para resolver o problema. Descreva o fluxo de uso da tecnologia no processo e como ela será integrada à rotina da unidade.
+Você poderá utilizar exemplos reais de outras organizações que aplicaram soluções semelhantes para demonstrar a viabilidade técnica e operacional da proposta, reforçar seu potencial de impacto e inspirar boas práticas adaptadas à realidade do TJCE.
+Para demonstrar a viabilidade da proposta, responda às seguintes questões:
+	Quem é o público-alvo da solução? (ex: servidores, magistrados, cidadãos, equipes de TI, setores administrativos, gestores etc.)
+	Quais documentos, dados ou informações servirão como entrada para a solução digital? (ex: petições, formulários, atas, planilhas, bases de dados, registros processuais etc.)
+	Esses dados estão disponíveis de forma estruturada e acessível para uso digital?
+	Há requisitos de segurança e privacidade envolvidos? (ex: proteção de dados pessoais, sigilo funcional, adequação à LGPD, segurança da informação etc.)
+	Quais são os requisitos técnicos e operacionais mínimos para a implantação? (ex: integração com sistemas existentes, disponibilidade de infraestrutura, suporte técnico, capacitação da equipe usuária)
+6.	Unidade responsável
+Indique qual unidade do TJCE será a principal responsável pela proposta, ou seja, aquela que é diretamente impactada pelo desafio identificado e que assumirá a liderança na coordenação e sustentação da solução no dia a dia.
+7.	Unidades envolvidas (internas e externas)
+Liste as unidades do TJCE e/ou parceiros externos que precisam ser articulados para a viabilidade da proposta.
+8.	Objetivos, Resultados-Chave e Indicadores
+Nesta seção, descreva os benefícios práticos esperados com a implementação da solução proposta, considerando impactos em eficiência, produtividade, qualidade do serviço ou satisfação dos usuários internos e externos.
+Esses benefícios devem estar alinhados com os objetivos estratégicos do TJCE. Para cada objetivo, associe um ou mais Resultados-Chave, que representem os efeitos mensuráveis esperados da solução, permitindo acompanhar os avanços e avaliar o sucesso da proposta.
+Os Resultados-Chave devem ser formulados segundo os critérios SMART, ou seja:
+	Específico – O que exatamente se pretende alcançar?
+	Mensurável – Como será possível monitorar o progresso?
+	Atingível – A meta é realista dentro do contexto da unidade?
+	Relevante – Está alinhada às prioridades institucionais e ao desafio proposto?
+	Temporal – Em quanto tempo se espera alcançar o resultado?
+Por fim, identifique os indicadores de monitoramento correspondentes a cada Resultado-Chave, informando o objeto de mensuração, fórmula de cálculo, unidade de medida, periodicidade e fonte de dados/responsável.
+Quadro de Objetivos e Resultados-chave
+Exemplo:
+Objetivo Estratégico Impactado	Resultado-chave (SMART)
+Promover a celeridade e a qualidade na prestação dos serviços	Reduzir o tempo médio de tramitação de processos internos em 20% até dez/2025
+Prover soluções de TIC inovadoras e integradas para a transformação digital	Automatizar 100% das triagens de solicitações com apoio de IA até set/2025
+Garantir o atendimento
+acessível, acolhedor e
+resolutivo	Alcançar nota média ≥ 4,0 em pesquisa de satisfação até dez/2025
+
+Quadro de Indicadores de Monitoramento
+Exemplo:
+Alinhamento Estratégico	Indicador	Fórmula de cálculo	Unidade de medida	Periodicidade	Fonte  	Responsável
+Objetivo Estratégico impactado	Indicador estratégico impactado						
+Promover a celeridade e a qualidade na prestação dos serviços	Tempo médio de duração dos processos pendentes líquido	Tempo médio de tramitação	Soma dos tempos / Nº de casos	Dias corridos	Mensal	Sistema de protocolo / SEAD	
+Prover soluções de TIC inovadoras e integradas para a transformação digital	iGov – TIC - JUD	Nº de processos automatizados	Contagem automática dos fluxos	Total de casos	Mensal	Sistema de gestão de processos	
+Garantir o atendimento
+acessível, acolhedor e
+resolutivo	Índice de satisfação com o atendimento	Satisfação dos usuários	Média da pontuação em escala de 1 a 5	Escala de 1 a 5	Trimestral	Pesquisa interna 	
+9.	Plano de Ação e Implementação
+Estruture as etapas necessárias para implementar a solução, identificando responsáveis, prazos estimados e recursos envolvidos. Considere necessidades de capacitação, integração com sistemas, apoio técnico ou ajustes normativos. Inclua ações de comunicação, engajamento.
+Etapa	Ação	Responsável	Prazo estimado	Observações
+				
+				
+				
+				
+				
+				
+10.	Orçamento estimado
+Caso aplicável, estimar os custos necessários para viabilizar a proposta e a origem dos recursos.
+11.	Considerações finais
+Utilize este campo para trazer outras considerações da proposta de solução desenvolvida.

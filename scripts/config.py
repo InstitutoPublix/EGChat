@@ -28,5 +28,6 @@ OPENAI_EMBEDDING_MODEL = "text-embedding-3-small"
 CLAUDE_MODEL = _env("CLAUDE_MODEL", "claude-haiku-4-5-20251001")
 
 DEFAULT_SOURCE_FILES = [
-    PROJECT_ROOT / "data" / "contexto1.txt"
+    PROJECT_ROOT / "data" / "contexto1.txt",
+    PROJECT_ROOT / "data" / "Template_Projeto_Aplicativo_TJCE2026.txt"
 ]
