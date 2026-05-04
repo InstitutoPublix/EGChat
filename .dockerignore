@@ -2,8 +2,6 @@
 .git
 .github
 .qdrant
-.streamlit/secrets.toml
-.streamlit-start.*.log
 __pycache__
 *.pyc
 *.pyo
