@@ -6,7 +6,6 @@ da elaboração do
 PROJETO APLICATIVO
 
 Sobre os assuntos que irá aprender e introdução ao curso:
-
 Você está vivenciando o Programa de Desenvolvimento de Gestores (PDG)
 do Tribunal de Justiça do Estado do Ceará (TJCE), uma ação de capacitação
 continuada que integra o Programa de Modernização do Poder Judiciário do
@@ -27,8 +26,9 @@ Trabalho da Unidade, no âmbito do Programa +Gestão, ou corresponder a
 uma nova demanda estratégica que mereça atenção e atuação qualificada.
 Os projetos devem propor melhorias viáveis, mensuráveis e sustentáveis,
 com potencial de gerar impacto positivo na gestão por resultados, na
-modernização de processos e na qualidade dos serviços públicos prestados. A
-entrega do projeto, a participação em pelo menos 70% das aulas e a
+modernização de processos e na qualidade dos serviços públicos prestados.
+Sobre certificados e entrega do projeto:
+A entrega do projeto, a participação em pelo menos 70% das aulas e a
 resposta aos questionários de avaliação ex ante e ex post, são requisitos
 obrigatórios para a emissão do certificado de conclusão do PDG.
 Durante o curso, vocês serão incentivados a construir esse projeto passo a
@@ -49,9 +49,7 @@ mensuráveis e sustentáveis, com impacto direto na gestão por
 resultados, na modernização de processos e na excelência do serviço
 público.
 
-Sobre o Projeto Aplicativo
-
-Entrega final até outubro de 2025. 
+Sobre o Projeto Aplicativo 
 
 Formato: Trabalho em grupo, com entrega de um documento em PDF
 com no máximo 10 páginas e uma apresentação (ex: PowerPoint ou
@@ -72,13 +70,11 @@ Template: Para garantir padronização e facilitar a organização das
 propostas, será fornecido aos participantes um template padrão para
 elaboração do Projeto Aplicativo.
 
-
-
 Os melhores projetos de cada turma serão apresentados à alta gestão do
 TJCE.
 2
 
-Sobre a ementa e Etapas de
+Sobre a ementa, plano de ensino com conteúdo e Etapas de
 Desenvolvimento
 A seguir, são apresentadas as quatro etapas principais para o desenvolvimento
 do Projeto Aplicativo. Cada uma está relacionada a um módulo do curso e
@@ -93,6 +89,8 @@ Transformação Digital
 3-Proposta de Solução com 
 Resultados-Chave e Indicadores
 4-Plano de Ação e Implementação
+
+Plano de ensino com conteúdo detalhado:
 
 Identificação do Desafio
 Nesta etapa, o grupo deve analisar sua realidade institucional para identificar

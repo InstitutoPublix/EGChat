@@ -54,7 +54,7 @@ def main() -> None:
         help="Recreate/reindex the Qdrant collection even if it already exists.",
     )
     args = parser.parse_args()
-    ingest_documents(force=True)
+    ingest_documents(force=args.force)
 
 
 if __name__ == "__main__":

@@ -9,6 +9,7 @@ from config import (
     OPENAI_EMBEDDING_MODEL,
     QDRANT_API_KEY,
     QDRANT_COLLECTION,
+    QDRANT_TIMEOUT,
     QDRANT_URL,
 )
 
@@ -26,7 +27,7 @@ def _qdrant_kwargs() -> dict:
     return {
         "url": QDRANT_URL,
         "api_key": QDRANT_API_KEY,
-        "timeout": 30,
+        "timeout": QDRANT_TIMEOUT,
     }
 
 
