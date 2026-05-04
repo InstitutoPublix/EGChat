@@ -1,4 +1,3 @@
-streamlit
 python-dotenv
 anthropic
 openai
@@ -10,3 +9,5 @@ langchain-openai
 langchain-qdrant
 qdrant-client
 pypdf
+Flask
+gunicorn

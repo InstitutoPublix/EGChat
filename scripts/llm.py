@@ -26,7 +26,6 @@ def _format_chat_history(chat_history: list[dict] | None) -> str:
 
     return "\n\n".join(history_parts)
 
-
 def generate_answer(question: str, context: str, chat_history: list[dict] | None = None) -> str:
     formatted_history = _format_chat_history(chat_history)
     sys_prompt_formatado = SYSTEM_PROMPT_TEMPLATE.format(
@@ -37,7 +36,7 @@ def generate_answer(question: str, context: str, chat_history: list[dict] | None
 
     resp = client.messages.create(
         model=CLAUDE_MODEL,
-        max_tokens=400,
+        max_tokens=800,
         temperature=0.1,
         system=sys_prompt_formatado,                    
         messages=[{"role": "user", "content": question}]

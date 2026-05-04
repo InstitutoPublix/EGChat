@@ -1,0 +1,478 @@
+/* Variaveis visuais centrais. Alterar cores e tokens aqui evita procurar
+   valores repetidos pelo arquivo inteiro. */
+:root {
+  --app-bg: #f2f2f2;
+  --sidebar-bg: #0f3d2e;
+  --sidebar-border: rgba(255, 255, 255, 0.22);
+  --text: #111827;
+  --muted: #3f3f46;
+  --input-bg: #d1d5db;
+  --input-placeholder: #64748b;
+  --assistant-bg: rgba(255, 255, 255, 0.78);
+  --user-bg: #e5e7eb;
+  --border: rgba(17, 24, 39, 0.12);
+  --shadow: 0 8px 22px rgba(15, 23, 42, 0.08);
+}
+
+/* Reset minimo para previsibilidade entre navegadores sem trazer framework CSS. */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-height: 100%;
+}
+
+body {
+  min-height: 100%;
+  margin: 0;
+  background: var(--app-bg);
+  color: var(--text);
+  font-family: "Source Sans Pro", "Segoe UI", Arial, sans-serif;
+  line-height: 1.5;
+}
+
+button,
+textarea {
+  font: inherit;
+}
+
+/* Layout geral: sidebar fixa em desktop e area principal centralizada. */
+.app-shell {
+  display: grid;
+  grid-template-columns: 18rem minmax(0, 1fr);
+  min-height: 100vh;
+}
+
+/* Sidebar institucional com a mesma cor principal usada no Streamlit. */
+.sidebar {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow-y: auto;
+  background: var(--sidebar-bg);
+  color: white;
+  padding: 1.5rem 1.25rem;
+}
+
+/* Logos mantem proporcao original e se adaptam a largura disponivel. */
+.sidebar-logos {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.sidebar-logo {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.sidebar-logo-main {
+  margin-top: 0.25rem;
+}
+
+.partner-logos {
+  display: grid;
+  gap: 1.15rem;
+}
+
+.publix-logo {
+  max-width: 86%;
+  margin: 0 auto;
+}
+
+.sidebar-divider {
+  height: 1px;
+  margin: 1.5rem 0 1rem;
+  background: var(--sidebar-border);
+}
+
+/* Controle de historico da sessao local do navegador. */
+.sidebar-caption {
+  margin: 0 0 1rem;
+  color: rgba(255, 255, 255, 0.86);
+  font-size: 0.875rem;
+}
+
+.clear-button {
+  width: 100%;
+  min-height: 2.6rem;
+  border: 1px solid var(--sidebar-border);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.08);
+  color: white;
+  cursor: pointer;
+}
+
+.clear-button:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* Estados de foco visiveis melhoram acessibilidade via teclado. */
+.clear-button:focus-visible,
+.send-button:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid rgba(34, 197, 94, 0.35);
+  outline-offset: 2px;
+}
+
+/* Conteudo principal limita largura em desktop para manter leitura confortavel. */
+.main-content {
+  min-width: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.content-inner {
+  width: min(980px, calc(100% - 3rem));
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 1.25rem 0 1rem;
+}
+
+/* Cabecalho do app: icone do projeto, titulo e subtitulo institucional. */
+.app-header {
+  flex: 0 0 auto;
+}
+
+.title-row {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  min-height: 4rem;
+}
+
+.header-icon {
+  width: 92px;
+  height: 92px;
+  flex: 0 0 auto;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+h1 {
+  margin: 0;
+  color: #0f172a;
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+.app-subtitle {
+  max-width: 860px;
+  margin: 0.25rem 0 1.5rem;
+  color: var(--muted);
+  font-size: 1rem;
+}
+
+/* Lista de mensagens. O JS injeta artigos .message dentro desta area. */
+.messages {
+  flex: 1 1 auto;
+  min-height: 18rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding-bottom: 1rem;
+}
+
+/* Cada mensagem tem avatar e balao. A grade evita desalinhamento com textos longos. */
+.message {
+  display: grid;
+  grid-template-columns: 2.25rem minmax(0, 1fr);
+  gap: 0.75rem;
+  align-items: flex-start;
+}
+
+/* Avatares SVG inline: sem dependencia de imagens externas ou bibliotecas. */
+.avatar {
+  width: 2.25rem;
+  height: 2.25rem;
+  display: grid;
+  place-items: center;
+  border-radius: 999px;
+}
+
+.avatar svg {
+  width: 1.25rem;
+  height: 1.25rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.message.assistant .avatar {
+  background: white;
+  color: var(--sidebar-bg);
+  border: 1px solid var(--border);
+}
+
+.message.user .avatar {
+  background: var(--sidebar-bg);
+  color: white;
+}
+
+/* Baloes de chat. O usuario preserva quebras de linha; o assistente renderiza markdown. */
+.bubble {
+  min-width: 0;
+  width: fit-content;
+  max-width: 100%;
+  padding: 0.85rem 1rem;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.message.assistant .bubble {
+  background: var(--assistant-bg);
+  white-space: normal;
+}
+
+.message.user .bubble {
+  background: var(--user-bg);
+  white-space: pre-wrap;
+}
+
+/* Estilos do markdown renderizado nas respostas do assistente. */
+.message.assistant .bubble > :first-child {
+  margin-top: 0;
+}
+
+.message.assistant .bubble > :last-child {
+  margin-bottom: 0;
+}
+
+.message.assistant .bubble p {
+  margin: 0 0 0.75rem;
+}
+
+.message.assistant .bubble h3,
+.message.assistant .bubble h4,
+.message.assistant .bubble h5 {
+  margin: 0.85rem 0 0.45rem;
+  color: #0f172a;
+  font-size: 1rem;
+  line-height: 1.35;
+}
+
+.message.assistant .bubble ul,
+.message.assistant .bubble ol {
+  margin: 0.45rem 0 0.75rem;
+  padding-left: 1.35rem;
+}
+
+.message.assistant .bubble li + li {
+  margin-top: 0.25rem;
+}
+
+.message.assistant .bubble code {
+  border-radius: 4px;
+  background: rgba(15, 23, 42, 0.08);
+  padding: 0.12rem 0.28rem;
+  color: #0f172a;
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  font-size: 0.92em;
+}
+
+.message.assistant .bubble pre {
+  overflow-x: auto;
+  margin: 0.6rem 0 0.75rem;
+  border-radius: 8px;
+  background: #111827;
+  padding: 0.85rem;
+}
+
+.message.assistant .bubble pre code {
+  display: block;
+  background: transparent;
+  color: #f9fafb;
+  padding: 0;
+  white-space: pre;
+}
+
+.message.assistant .bubble a {
+  color: #0f3d2e;
+  font-weight: 600;
+}
+
+/* Estado temporario exibido enquanto a API Flask processa a pergunta. */
+.message.loading .bubble {
+  color: #4b5563;
+}
+
+.loading-dots::after {
+  content: "";
+  display: inline-block;
+  width: 1.4rem;
+  text-align: left;
+  animation: dots 1.2s steps(4, end) infinite;
+}
+
+@keyframes dots {
+  0%,
+  20% {
+    content: "";
+  }
+
+  40% {
+    content: ".";
+  }
+
+  60% {
+    content: "..";
+  }
+
+  80%,
+  100% {
+    content: "...";
+  }
+}
+
+/* Input fixo no rodape da area principal, semelhante ao st.chat_input. */
+.input-shell {
+  position: sticky;
+  bottom: 0;
+  flex: 0 0 auto;
+  padding-top: 0.75rem;
+  background: linear-gradient(
+    180deg,
+    rgba(242, 242, 242, 0),
+    var(--app-bg) 38%,
+    var(--app-bg)
+  );
+}
+
+.status-line {
+  min-height: 1.25rem;
+  margin: 0 0 0.35rem;
+  color: #4b5563;
+  font-size: 0.875rem;
+}
+
+/* Campo de texto expansivel e botao de envio. */
+.chat-form {
+  display: flex;
+  align-items: flex-end;
+  gap: 0.65rem;
+  width: 100%;
+  padding: 0.55rem 0.65rem;
+  border: 1px solid rgba(100, 116, 139, 0.35);
+  border-radius: 8px;
+  background: var(--input-bg);
+  box-shadow: var(--shadow);
+}
+
+textarea {
+  width: 100%;
+  min-height: 2.75rem;
+  max-height: 9rem;
+  border: 0;
+  resize: none;
+  background: transparent;
+  color: var(--text);
+  caret-color: var(--text);
+  padding: 0.65rem 0.25rem;
+}
+
+textarea::placeholder {
+  color: var(--input-placeholder);
+  opacity: 1;
+}
+
+textarea:focus {
+  outline: 0;
+}
+
+.send-button {
+  width: 2.75rem;
+  height: 2.75rem;
+  flex: 0 0 2.75rem;
+  display: grid;
+  place-items: center;
+  border: 0;
+  border-radius: 8px;
+  background: var(--sidebar-bg);
+  color: white;
+  cursor: pointer;
+}
+
+.send-button:hover {
+  background: #14533d;
+}
+
+.send-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.send-button svg {
+  width: 1.25rem;
+  height: 1.25rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Adaptacao mobile: sidebar deixa de ser fixa e os logos ficam mais compactos. */
+@media (max-width: 760px) {
+  .app-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    position: relative;
+    height: auto;
+    padding: 1rem;
+  }
+
+  .sidebar-logos {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1rem;
+  }
+
+  .partner-logos {
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .sidebar-logo-main {
+    max-width: 18rem;
+    margin: 0;
+  }
+
+  .publix-logo {
+    max-width: 100%;
+  }
+
+  .content-inner {
+    width: calc(100% - 2rem);
+    padding-top: 1rem;
+  }
+
+  .title-row {
+    gap: 0.85rem;
+  }
+
+  .header-icon {
+    width: 72px;
+    height: 72px;
+  }
+
+  .message {
+    grid-template-columns: 2rem minmax(0, 1fr);
+    gap: 0.6rem;
+  }
+
+  .avatar {
+    width: 2rem;
+    height: 2rem;
+    font-size: 0.8rem;
+  }
+}

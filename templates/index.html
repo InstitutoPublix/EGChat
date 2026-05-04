@@ -1,0 +1,114 @@
+<!doctype html>
+<!--
+  Template principal do chat Flask.
+  O backend renderiza esta pagina uma vez; depois disso, o app.js controla
+  mensagens, historico local e chamadas para /api/chat.
+-->
+<html lang="pt-BR" data-max-history="{{ max_history_interactions }}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Mentor Virtual TJCE</title>
+    <link rel="icon" href="{{ url_for('asset', filename='icon_tjce_branco.png') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  </head>
+  <body>
+    <div class="app-shell">
+      <!-- Sidebar -->
+      <aside class="sidebar" aria-label="Informacoes do app">
+        <div class="sidebar-logos">
+          <img
+            class="sidebar-logo sidebar-logo-main"
+            src="{{ url_for('asset', filename='icon_tjce_branco.png') }}"
+            alt="TJCE"
+          >
+
+          <div class="partner-logos">
+            <img
+              class="sidebar-logo"
+              src="{{ url_for('asset', filename='logo_escola.png') }}"
+              alt="Escola Superior da Magistratura do Estado do Ceara"
+            >
+            <img
+              class="sidebar-logo publix-logo"
+              src="{{ url_for('asset', filename='logo_publix.png') }}"
+              alt="Instituto Publix"
+            >
+          </div>
+        </div>
+
+        <div class="sidebar-divider"></div>
+
+        <p class="sidebar-caption">
+          Memoria da conversa: ultimas {{ max_history_interactions }} interacoes desta sessao.
+        </p>
+
+        <button class="clear-button" id="clearChat" type="button">
+          Limpar historico
+        </button>
+      </aside>
+
+      <!-- Acabecalho institucional, lista de mensagens e campo de entrada. -->
+      <main class="main-content">
+        <div class="content-inner">
+          <header class="app-header">
+            <div class="title-row">
+              <img
+                class="header-icon"
+                src="{{ url_for('asset', filename='icon_car.jpg') }}"
+                alt=""
+                onerror="this.remove()"
+              >
+              <h1>Mentor Virtual TJCE</h1>
+            </div>
+
+            <p class="app-subtitle">
+              Sou o Mentor Virtual do curso de Transformacao Digital, feito pelo TJCE em parceria
+              com o Instituto Publix. Envie sua pergunta abaixo para consultar o material de apoio.
+            </p>
+          </header>
+
+          <section
+            class="messages"
+            id="messages"
+            aria-live="polite"
+            aria-label="Mensagens da conversa"
+          ></section>
+
+          <!-- O input fica no HTML para preservar acessibilidade; o envio e feito pelo app.js. -->
+          <div class="input-shell">
+            <p class="status-line" id="statusLine" role="status" aria-live="polite"></p>
+            <form class="chat-form" id="chatForm">
+              <textarea
+                id="messageInput"
+                name="message"
+                rows="1"
+                placeholder="Sua pergunta"
+                autocomplete="off"
+                required
+              ></textarea>
+              <button class="send-button" type="submit" aria-label="Enviar pergunta">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M4 12h14"></path>
+                  <path d="m13 6 6 6-6 6"></path>
+                </svg>
+              </button>
+            </form>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <!-- Configuracoes pequenas vindas do backend não coloca chave nenhuma aq -->
+    <script>
+      window.MENTOR_CONFIG = {
+        welcomeMessage: {{ welcome_message|tojson }},
+        maxHistoryInteractions: {{ max_history_interactions|tojson }}
+      };
+    </script>
+    <!-- Bibliotecas locais: evitam falha por CDN bloqueada e nao entram no requirements.txt. -->
+    <script src="{{ url_for('static', filename='vendor/marked.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='vendor/purify.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='app.js') }}" defer></script>
+  </body>
+</html>
