@@ -97,14 +97,14 @@ steps:
         IMAGE_PATH="${_REGION}-docker.pkg.dev/$PROJECT_ID/${_REPOSITORY}/${_SERVICE_NAME}"
         KEEP="${_KEEP_IMAGES}"
 
-        gcloud artifacts docker images list "$IMAGE_PATH" \
+        gcloud artifacts docker images list "$$IMAGE_PATH" \
           --include-tags \
           --sort-by="~UPDATE_TIME" \
           --format="value(DIGEST)" | \
-        tail -n +"$((KEEP + 1))" | \
+        tail -n +"$$(($$KEEP + 1))" | \
         while read -r digest; do
-          if [ -n "$digest" ]; then
-            gcloud artifacts docker images delete "$IMAGE_PATH@$digest" \
+          if [ -n "$$digest" ]; then
+            gcloud artifacts docker images delete "$$IMAGE_PATH@$$digest" \
               --quiet \
               --delete-tags || true
           fi
