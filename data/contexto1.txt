@@ -387,7 +387,3 @@ Identificação do Desafio
 Descreva de forma clara o desafio real enfrentado por uma unidade ou pelo TJCE. Indique se a demanda está vinculada ao Plano de Trabalho da Unidade (Programa +Gestão) ou se se trata de uma nova demanda estratégica. Além disso, relacione a proposta com os objetivos estratégicos do TJCE e do Programa +Gestão, explicando o alinhamento institucional.
 Análise de Dados e Evidências
 Apresente dados, indicadores e informações que justifiquem a necessidade de intervenção. Explique as fontes utilizadas, os sinais de desempenho insatisfatório e analise o potencial de uso da inteligência artificial para apoiar a superação do desafio. Considere também os riscos, aspectos éticos, de segurança da informação e conformidade com a LGPD.
-
-Referências bibliográficas:
-FOSTER, Richard; KAPLAN, Sarah. Destruição Criativa. Por que empresas feitas para durar não são bem-sucedidas. Como Transformá-las, Rio de Janeiro, Campus, 2002
-LAMARRE, Eric; SMAJE, Kate; ZEMMEL, Rodney. Rewired: the McKinsey Guide to Outcompeting in the Age of Digital and AI. John Wiley & Sons, 2023.

@@ -149,29 +149,5 @@ EGChat/
 
 ---
 
-## 🔍 Pesquisar por Tópico
-
-### Performance
-- [README.md → Performance](/README.md#performance)
-- [CI-CD.md → 📈 Tempos por Step](/CI-CD.md#-tempos-por-step)
-
-### Segurança
-- [README.md → Segurança](/README.md#segurança)
-- [CI-CD.md → Secrets & IAM](/CI-CD.md#-secrets--iam)
-
-### Monitoramento
-- [CI-CD.md → Monitorar](/CI-CD.md#-monitorar)
-- [README.md → Troubleshooting](/README.md#troubleshooting)
-
-### Configuração
-- [CI-CD.md → Configuração](/CI-CD.md#-configuração)
-- [README.md → Setup](/README.md#instalação-local)
-
-### Desenvolvimento
-- [README.md → Desenvolvimento](/README.md#-desenvolvimento)
-- [README.md → Adicionar Novo Documento](/README.md#adicionar-novo-documento)
-
----
-
 **Última atualização**: 2026-05-05  
 **Versão**: 1.0

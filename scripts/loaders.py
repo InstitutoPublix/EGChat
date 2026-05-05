@@ -5,7 +5,7 @@ from pypdf import PdfReader
 
 EXTENCOES_PERMITIDAS = [".txt", ".pdf", ".docx"]
 
-def load_documents(paths: Iterable[Path]) -> list[Document]:
+def load_documents(paths: Iterable[Path], verbose: bool = True) -> list[Document]:
     documentos: list[Document] = []
 
     for path in paths:
@@ -32,7 +32,9 @@ def load_documents(paths: Iterable[Path]) -> list[Document]:
                                  )
                         )
         else:
-            print(f"Extensão {path.suffix} não é permitida. Pulando arquivo {path}.")
+            if verbose:
+                print(f"Extensão {path.suffix} não é permitida. Pulando arquivo {path}.")
     
-    print(f"\n{len(documentos)} documentos carregados com sucesso.")
+    if verbose:
+        print(f"\n{len(documentos)} documentos carregados com sucesso.")
     return documentos

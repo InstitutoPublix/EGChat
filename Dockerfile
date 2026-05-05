@@ -30,12 +30,12 @@ COPY templates/ templates/
 COPY static/ static/
 COPY assets/ assets/
 COPY data/ data/
+COPY models/mmarco-reranker/ models/mmarco-reranker/
 
-# Pré-baixar modelo de reranker (executado uma única vez durante build)
-RUN python scripts/download_reranker_model.py || echo "⚠️  Nota: Modelo será baixado na primeira execução"
-
-# Copiar modelo pré-baixado se existir (opcional)
-COPY models/ models/ 2>/dev/null || true
+# Runtime deve carregar o reranker somente do disco, sem chamar o HF Hub.
+ENV HF_HUB_OFFLINE=1
+ENV TRANSFORMERS_OFFLINE=1
+RUN python -c "from reranker import _get_reranker; _get_reranker(); print('Reranker local validado.')"
 
 # Health check
 HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \

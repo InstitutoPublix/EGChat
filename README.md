@@ -1,14 +1,13 @@
-# Mentor Virtual TJCE 🤖
+# Mentor Virtual TJCE
 
 Assistente de IA para responder dúvidas sobre o curso de Transformação Digital do TJCE, usando Retrieval-Augmented Generation (RAG).
 
-- **Status**: ✅ Em produção
 - **URL**: https://mentor-virtual-tjce-931025652334.southamerica-east1.run.app
 - **Tecnologia**: Flask + Claude API + Qdrant + OpenAI Embeddings
 
 ---
 
-## 📋 Índice
+## Índice
 
 1. [Como Funciona](#como-funciona)
 2. [Arquitetura](#arquitetura)
@@ -19,7 +18,7 @@ Assistente de IA para responder dúvidas sobre o curso de Transformação Digita
 
 ---
 
-## 🔍 Como Funciona
+## Como Funciona
 
 O **Mentor Virtual** responde perguntas sobre o curso usando **Retrieval-Augmented Generation (RAG)**:
 
@@ -51,7 +50,7 @@ Resposta: "Turma 1 (seg, 08h-12h): Aula 1 em 04/mai, ..."
 
 ---
 
-## 🏗️ Arquitetura
+## Arquitetura
 
 ### Componentes Principais
 
@@ -136,7 +135,7 @@ POST /api/chat
 
 ---
 
-## 💻 Instalação Local
+## Instalação Local
 
 ### Pré-requisitos
 
@@ -188,7 +187,7 @@ CLAUDE_MODEL=claude-haiku-4-5-20251001
 
 ---
 
-## 🚀 Deploy
+## Deploy
 
 ### Cloud Build
 
@@ -298,56 +297,7 @@ CLAUDE_MODEL=claude-opus-4-7  # ou outro modelo
 
 ---
 
-## 📊 Performance
-
-| Métrica | Valor |
-|---------|-------|
-| Tempo de resposta (p95) | ~2-3s |
-| Latência Qdrant | ~500ms |
-| Latência Claude | ~1.5s |
-| Max tokens por resposta | 1000 |
-| Contexto máximo | ~5 documentos |
-| Taxa de acerto RAG | ~85% |
-
----
-
-## 🛡️ Segurança
-
-- ✅ Secrets em Secret Manager (não hardcoded)
-- ✅ Variáveis injetadas em runtime
-- ✅ Service Account com IAM mínimo
-- ✅ HTTPS obrigatório
-- ✅ CORS restrito
-- ✅ Rate limiting no Cloud Run
-
----
-
-## 🤝 Contribuindo
-
-```bash
-# 1. Crie branch
-git checkout -b feature/minha-feature
-
-# 2. Faça mudanças
-# Edite arquivos...
-
-# 3. Teste localmente
-python app.py
-
-# 4. Commit
-git add .
-git commit -m "feat: descrição da mudança"
-
-# 5. Push
-git push origin feature/minha-feature
-
-# 6. Crie PR
-# GitHub → Pull Requests → New PR
-```
-
----
-
-## 📚 Documentação
+## Documentação
 
 | Documento | Conteúdo |
 |-----------|----------|
@@ -359,7 +309,7 @@ git push origin feature/minha-feature
 
 ---
 
-## 🧪 Testes
+## Testes
 
 ```bash
 # Health check
@@ -371,57 +321,11 @@ curl -X POST https://mentor-virtual-tjce-931025652334.southamerica-east1.run.app
   -d '{"message":"Quantas turmas?","history":[]}'
 ```
 
----
+## Licença
 
-## 🐛 Troubleshooting
-
-### Aplicação não inicia localmente
-
-```bash
-# Verifique .env
-cat .env | grep CLAUDE_API_KEY
-
-# Teste importação
-python -c "from anthropic import Anthropic; print('OK')"
-```
-
-### Qdrant não conecta
-
-```bash
-# Teste URL
-curl -s https://seu-qdrant-url/health | jq .
-```
-
-### Secrets não acessíveis em Cloud Run
-
-Ver `.github/CI-CD.md` → Troubleshooting
+Instituto Publix - 2026
 
 ---
-
-## 📞 Suporte
-
-- 📧 Email: consultores@institutopublix.com.br
-- 🐛 Issues: GitHub Issues
-- 📋 Documentação: `.github/` directory
-
----
-
-## 📄 Licença
-
-Instituto Publix - 2025
-
----
-
-## 🚀 Status
-
-| Componente | Status |
-|------------|--------|
-| Frontend | ✅ Online |
-| Backend | ✅ Online |
-| RAG/Qdrant | ✅ Online |
-| Claude API | ✅ Online |
-| Cloud Run | ✅ Online |
-| CI/CD | ✅ Configurado |
 
 **Última atualização**: 2026-05-05  
 **Deploy**: Automático via Cloud Build / GitHub Actions

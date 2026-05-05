@@ -43,6 +43,9 @@ env/
 .env
 .streamlit/
 .qdrant/
+models/*
+!models/mmarco-reranker/
+!models/mmarco-reranker/**
 
 # Dev containers
 .devcontainer/

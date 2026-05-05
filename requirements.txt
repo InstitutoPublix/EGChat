@@ -15,6 +15,7 @@ rank-bm25
 torch
 transformers
 tokenizers
+huggingface_hub
 scipy
 scikit-learn
 Pillow

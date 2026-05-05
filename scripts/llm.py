@@ -5,7 +5,6 @@ from prompts import SYSTEM_PROMPT_TEMPLATE
 
 load_dotenv()
 
-
 def _format_chat_history(chat_history: list[dict] | None) -> str:
     if not chat_history:
         return "Sem historico anterior."

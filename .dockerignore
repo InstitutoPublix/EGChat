@@ -2,6 +2,9 @@
 .git
 .github
 .qdrant
+models/*
+!models/mmarco-reranker/
+!models/mmarco-reranker/**
 __pycache__
 *.pyc
 *.pyo

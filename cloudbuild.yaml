@@ -9,10 +9,12 @@ substitutions:
   _QDRANT_URL: https://847e925b-b8a7-400e-92c4-c15fba8de03f.sa-east-1-0.aws.cloud.qdrant.io
   _QDRANT_COLLECTION: egchat_tjce
   _CLAUDE_MODEL: claude-haiku-4-5-20251001
+  _KEEP_IMAGES: "2"
 
 options:
   logging: CLOUD_LOGGING_ONLY
   machineType: N1_HIGHCPU_8
+  substitutionOption: ALLOW_LOOSE
 
 steps:
   - id: ensure-artifact-registry
@@ -71,14 +73,14 @@ steps:
       - --max-instances
       - "1"
       - --memory
-      - 512Mi
+      - 2Gi
       - --cpu
       - "1"
       - --cpu-throttling
       - --timeout
       - "300"
       - --concurrency
-      - "10"
+      - "4"
       - --service-account
       - mentor-virtual-tjce-run-sa@$PROJECT_ID.iam.gserviceaccount.com
       - --set-env-vars
@@ -86,12 +88,30 @@ steps:
       - --set-secrets
       - OPENAI_API_KEY=openai-api-key:latest,CLAUDE_API_KEY=claude-api-key:latest,QDRANT_API_KEY=qdrant-api-key:latest
 
+  - id: cleanup-old-images
+    name: gcr.io/google.com/cloudsdktool/cloud-sdk:slim
+    entrypoint: bash
+    args:
+      - -ceu
+      - |
+        IMAGE_PATH="${_REGION}-docker.pkg.dev/$PROJECT_ID/${_REPOSITORY}/${_SERVICE_NAME}"
+        KEEP="${_KEEP_IMAGES}"
+
+        gcloud artifacts docker images list "$IMAGE_PATH" \
+          --include-tags \
+          --sort-by="~UPDATE_TIME" \
+          --format="value(DIGEST)" | \
+        tail -n +"$((KEEP + 1))" | \
+        while read -r digest; do
+          if [ -n "$digest" ]; then
+            gcloud artifacts docker images delete "$IMAGE_PATH@$digest" \
+              --quiet \
+              --delete-tags || true
+          fi
+        done
+
 images:
   - ${_REGION}-docker.pkg.dev/$PROJECT_ID/${_REPOSITORY}/${_SERVICE_NAME}:$BUILD_ID
   - ${_REGION}-docker.pkg.dev/$PROJECT_ID/${_REPOSITORY}/${_SERVICE_NAME}:latest
-
-options:
-  logging: CLOUD_LOGGING_ONLY
-  substitutionOption: ALLOW_LOOSE
 
 timeout: 1800s

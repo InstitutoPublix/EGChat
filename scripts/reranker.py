@@ -7,22 +7,50 @@ from sentence_transformers import CrossEncoder
 
 MODEL_DIR = PROJECT_ROOT / "models"
 # mmarco é treinado em MS MARCO multilingual, inclui português nativamente
-MODEL_NAME = "cross-encoder/mmarco-mMiniLMv2-L12-H384-v1"
+MODEL_REPO_ID = "cross-encoder/mmarco-mMiniLMv2-L12-H384-v1"
 MODEL_CACHE_PATH = MODEL_DIR / "mmarco-reranker"
+REQUIRED_MODEL_FILES = (
+    "config.json",
+    "model.safetensors",
+    "tokenizer_config.json",
+)
 
 
 def _ensure_model_dir() -> None:
     MODEL_DIR.mkdir(parents=True, exist_ok=True)
+    MODEL_CACHE_PATH.mkdir(parents=True, exist_ok=True)
+
+
+def _missing_model_files() -> list[str]:
+    return [
+        file_name
+        for file_name in REQUIRED_MODEL_FILES
+        if not (MODEL_CACHE_PATH / file_name).is_file()
+    ]
+
+
+def ensure_local_reranker_model() -> None:
+    missing_files = _missing_model_files()
+    if missing_files:
+        missing = ", ".join(missing_files)
+        raise RuntimeError(
+            "Modelo de reranker nao encontrado em "
+            f"{MODEL_CACHE_PATH}. Arquivos ausentes: {missing}. "
+            "Execute `python scripts/download_reranker_model.py` antes do build."
+        )
+
+
+def _configure_model_cache() -> None:
+    os.environ.setdefault("HF_HOME", str(MODEL_DIR))
+    os.environ.setdefault("SENTENCE_TRANSFORMERS_HOME", str(MODEL_DIR))
 
 
 @lru_cache(maxsize=1)
 def _get_reranker() -> CrossEncoder:
     _ensure_model_dir()
-    os.environ["SENTENCE_TRANSFORMERS_HOME"] = str(MODEL_DIR)
-    return CrossEncoder(
-        MODEL_NAME,
-        model_kwargs={"cache_dir": str(MODEL_CACHE_PATH)},
-    )
+    ensure_local_reranker_model()
+    _configure_model_cache()
+    return CrossEncoder(str(MODEL_CACHE_PATH))
 
 
 def rerank_documents(
