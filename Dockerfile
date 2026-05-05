@@ -31,6 +31,12 @@ COPY static/ static/
 COPY assets/ assets/
 COPY data/ data/
 
+# Pré-baixar modelo de reranker (executado uma única vez durante build)
+RUN python scripts/download_reranker_model.py || echo "⚠️  Nota: Modelo será baixado na primeira execução"
+
+# Copiar modelo pré-baixado se existir (opcional)
+COPY models/ models/ 2>/dev/null || true
+
 # Health check
 HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
     CMD python -c "import urllib.request; urllib.request.urlopen('http://localhost:${PORT}/').read()"

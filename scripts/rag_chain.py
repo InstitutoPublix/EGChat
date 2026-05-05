@@ -1,6 +1,8 @@
 from langchain_core.documents import Document
 from llm import generate_answer
+from reranker import rerank_documents
 from retriever import get_retriever
+from config import RERANKER_ENABLED, RERANKER_TOP_K
 
 FALLBACK_MESSAGE = "Informacao nao disponivel no material de apoio."
 MAX_HISTORY_INTERACTIONS = 2
@@ -55,6 +57,9 @@ def answer_question(question: str, chat_history: list[dict] | None = None) -> st
     documents = get_retriever(clean_question)
     if not documents:
         return FALLBACK_MESSAGE
+
+    if RERANKER_ENABLED:
+        documents = rerank_documents(clean_question, documents, RERANKER_TOP_K)
 
     context = _format_context(documents)
     return generate_answer(
