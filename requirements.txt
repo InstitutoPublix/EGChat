@@ -1,3 +1,5 @@
+--extra-index-url https://download.pytorch.org/whl/cpu
+
 python-dotenv
 anthropic
 openai
@@ -10,6 +12,12 @@ langchain-qdrant
 qdrant-client
 pypdf
 rank-bm25
+torch
+transformers
+tokenizers
+scipy
+scikit-learn
+Pillow
 sentence-transformers>=2.2.0
 Flask
 gunicorn
