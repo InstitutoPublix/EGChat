@@ -388,4 +388,6 @@ Descreva de forma clara o desafio real enfrentado por uma unidade ou pelo TJCE. 
 Análise de Dados e Evidências
 Apresente dados, indicadores e informações que justifiquem a necessidade de intervenção. Explique as fontes utilizadas, os sinais de desempenho insatisfatório e analise o potencial de uso da inteligência artificial para apoiar a superação do desafio. Considere também os riscos, aspectos éticos, de segurança da informação e conformidade com a LGPD.
 
-
+Referências bibliográficas:
+FOSTER, Richard; KAPLAN, Sarah. Destruição Criativa. Por que empresas feitas para durar não são bem-sucedidas. Como Transformá-las, Rio de Janeiro, Campus, 2002
+LAMARRE, Eric; SMAJE, Kate; ZEMMEL, Rodney. Rewired: the McKinsey Guide to Outcompeting in the Age of Digital and AI. John Wiley & Sons, 2023.

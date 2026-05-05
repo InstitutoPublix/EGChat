@@ -1,0 +1,335 @@
+Slides da aula 01:
+Resolução
+Criativa de
+Problemas
+
+Total de 24 slides
+
+Conteúdo dos slides:
+
+Slide 3
+Estrutura típica de
+solução de problemas
+1. Identifique o problema
+2. estruturar o problema
+3. procure possíveis soluções
+4. tome uma decisão
+5. Implementar
+6. monitorar/buscar feedback
+
+Slide 4
+Ferramentas de pensamento cria/vo
+para resolver problemas, aproveitar oportunidades e inovar
+1. Pensar grande
+2. Pensar como outro
+3. Contrariar
+4. Restringir
+5. Arquitetura de escolha
+6. Velho + velho = novo
+7. Engenharia reversa
+8. Contornar o problema
+9. Inserção aleatória
+10. Interrogar e extrapolar
+11. Resolver algo mais simples
+12. Combinar e redefinir
+
+Slide 5
+PENSE GRANDE
+SE UM PROBLEMA NÃO PUDER SER RESOLVIDO, AMPLIE-O
+Dwight D. Eisenhower
+Premissa
+Problemas mais amplos permitem soluções mais amplas – que
+podem, surpreendentemente, ser mais fáceis de resolver.
+1. Escreva o problema como está (em forma de pergunta)
+2. Pergunte: "Qual é o maior problema por trás disso?"
+3. ConHnue perguntando “por que” e recuando até chegar a uma
+iteração mais ampla e geral.
+4. Procure maneiras de responder a essa pergunta – e a menor com a
+qual você começou também será resolvida.
+
+Slide 6
+PENSE COMO OUTRO
+REPETIDAMENTE, O PROBLEMA IMPOSSÍVEL É RESOLVIDO
+QUANDO VEMOS QUE O PROBLEMA É APENAS UMA DECISÃO
+DIFÍCIL ESPERANDO PARA SER TOMADA
+Robert H. Schuller
+Premissa
+É mais provável que você resolva um problema diPcil pela óHca de
+outra pessoa do que de sua própria
+1. Esqueça que você trabalha na organização X, com tal nome
+insHtucional/história/restrição.
+2. Entre na mentalidade de alguém ou alguma coisa (uma tema)
+3. Tente ser essa insHtuição/pessoa em um pouco de dramaHzação
+4. Agora volte para o problema/oportunidade e dramaHze resolvendoo da perspecHva dessa pessoa ou insHtuição.
+5. Livre de suas restrições habituais, você descobrirá soluções novas e
+não consideradas anteriormente.
+
+Slide 7
+§ Coloque-se no lugar da pessoa/ins2tuição que
+você está interpretando.
+§ O que há neles que você pode admirar? 
+§ Quais são as três palavras que os descrevem? 
+§ Quais são as coisas mais claras e fortes que
+você pode dizer sobre a maneira como eles
+fazem as coisas?
+§ Você não precisa acertar isso; você está apenas
+usando a perspec2va dessa pessoa ou
+ins2tuição como um trampolim para “ter uma
+maneira diferente de pensar”.
+
+Slide 8
+CONTRARIAR
+SE TODOS TRABALHÁSSEMOS NA SUPOSIÇÃO DE QUE O QUE É
+ACEITO COMO VERDADE É REALMENTE VERDADE, HAVERIA
+POUCO ESPERANÇA DE EVOLUÇÃO
+Orville Wright
+Premissa
+Suposições. Hábitos. Hipóteses. Convenções. RoHnas. Caímos em
+padrões de fazer – e pensar – e deixamos de encontrar um caminho
+melhor. Em outras palavras, só porque não está quebrado, não
+significa que você não pode consertá-lo de alguma maneira.
+1. antes de analisar o problema, observe as suposições e convenções
+em torno do problema.
+2. Assuma a posição de que não precisa ser assim; você pode ignorar
+essas convenções e começar do zero.
+3. Observe como mudar as regras do jogo reformula como o problema
+pode ser abordado – e possibilita soluções inovadoras e empolgantes.
+9
+§ Para tirar o máximo proveito dessa ferramenta, é
+importante não dizer: 'Poderíamos talvez fazer isso
+de maneira diferente?', mas ser incisivo e dizer:
+'Faremos isso de maneira diferente’
+§ Ser contrário a desafiar as convenções estabelecidas
+é desafiador
+§ Você vai precisar de determinação para desafiar a
+mentalidade “sempre foi assim”
+
+Slide 9
+RESTRINGIR
+QUANTO MAIS RESTRIÇÕES SE IMPÕE, MAIS SE LIBERTA. E A
+ARBITRARIEDADE DA RESTRIÇÃO SERVE APENAS PARA OBTER
+PRECISÃO DE EXECUÇÃO
+Igor Stravinsky
+Premissa
+usar uma restrição é reduzir as opções, não para que você
+(necessariamente) chegue lá mais rápido, mas para chegar a um lugar
+diferente.
+1. Faça um brainstorming de algumas restrições que você poderia
+introduzir na solução do problema
+2. Pergunte quais dessas restrições podem ter um lado posiHvo
+3. Se sua restrição tem um benePcio claro ou diferente, adicione-a ao
+problema inicial e pense em como resolver o problema agora
+4. Como a restrição foi criada arHficialmente, pode não importar se você a
+alcançar apenas parcialmente, se ela ainda fornecer uma óHma solução
+nova para o problema original
+
+Slide 10
+Exemplos de restrições
+A solução...
+§ não deve custar nada
+§ deve ser implementável em um dia
+§ deve ser a primeira desse %po
+§ deve ser popular
+§ deve ser controversa
+§ deve remover um elemento existente
+§ não deve ser tecnológica
+§ não deve envolver pessoas
+§ deve tornar as coisas mais simples
+
+Slide 11
+ARQUITETURA DE ESCOLHA
+ACREDITO QUE SE VOCÊ MOSTRAR ÀS PESSOAS OS PROBLEMAS E
+MOSTRAR AS SOLUÇÕES, ELAS SERÃO LEVADAS A AGIR
+Bill Gates
+Premissa
+A arquitetura de escolha é uma maneira de promover comportamentos,
+projetando o ambiente ou as circunstâncias para que as pessoas envolvidas
+queiram fazer o que é mais adequado.
+1. olhe para um problema que envolve pessoas
+2. Pergunte o que essas pessoas poderiam fazer para negar o
+problema?
+3. Agora você tem algo bem diferente para debater:
+como criamos (ou apresentamos) um ambiente onde as pessoas
+escolhem aHvamente o caminho que queremos que elas sigam?
+
+Slide 12
+EXEMPLO
+Problema: Como fazer com que mais pessoas usem as escadas? 
+Benefícios: escada rolante disponível para pessoas com
+bolsas ou crianças pequenas ou que estavam grávidas
+ou doentes ou idosos.
+
+Slide 13
+Possíveis soluções
+§ Colocar cartazes dizendo: ‘Por favor, guarde as escadas
+rolantes para os idosos, enfermos ou grávidas’
+§ Desligar a escada rolante, ou torná-la muito lenta
+Solução adotada
+§ Transformaram das escadas em um teclado gigante
+§ Muito mais pessoas optaram por usar as escadas, porque de
+repente era mais agradável do que usar a escada rolante
+
+Slide 14
+VELHO + VELHO = NOVO
+UMA IDEIA NADA MAIS É DO QUE UMA NOVA COMBINAÇÃO DE
+ELEMENTOS ANTIGOS
+James Webb Young
+Premissa
+A combinação é uma maneira de fazer ideias existentes interagirem
+para criar algo completamente novo
+1. Você pode começar com o que você já tem
+2. Você pode combinar mais de duas ideias
+3. Faça um brainstorming de quais ideias existentes boas e úteis já estão
+"lá fora" que você gostaria de integrar para criar algo novo
+4. Verifique se ao trazer mais de uma ideia, você realmente está criando
+algo novo (não simplesmente empilhando ideias sem alterá-las)
+5. E verifique se a nova ideia é tão simples quanto as ideias originais
+
+Slide 15
+Exemplo
+§ Envio de fotos
+– ideia an%ga
+§ Telefone = Comunicação que é do momento e da
+qual não há registro Nsico
+– ideia an%ga
+§ Envio de fotos 'no momento' sem deixar nenhum
+registro duradouro delas
+- nova ideia
+§ Snapchat
+- enviar fotos (com legendas) que são excluídas
+automa?camente após a visualização um período que
+você definiu
+§ O Facebook estava disposto a pagar mais de US$ 3
+bilhões para comprar a empresa apenas dois anos
+após seu lançamento
+Isso juntando apenas duas velhas ideias
+
+Slide 16
+ENGENHARIA REVERSA
+A MAGIA DE UM HOMEM É A ENGENHARIA DE OUTRO
+Robert Heinlein
+Premissa
+Na solução de problemas, podemos fazer engenharia reversa da
+solução começando pelo final – com a solução ou inovação desejada –
+e trabalhar do fim para o começo.
+1. Concentre-se no resultado que deseja: como é a solução ideal?
+2. Afaste-se gradualmente dessa posição para onde está, observando
+as mudanças necessárias para chegar lá.
+3. Agora observe essas etapas na ordem de onde você está para onde
+deseja estar e estabeleça as ações necessárias para executá-las.
+
+Slide 17
+O benefício da
+retrospectiva
+É mais fácil a%ngir uma meta quando
+você sabe que essa meta é alcançável.
+Depois que Edison quebrou a lâmpada,
+outras pessoas sabiam que valia a pena
+trabalhar também, porque sabiam que
+era possível.
+
+Slide 18
+CONTORNAR O PROBLEMA
+QUANDO A VIDA LHE DER LIMÕES, FAÇA UMA LIMONADA
+Premissa
+Você tem um problema/desafio/questão? Bem, em vez de tentar
+resolvê-lo, apenas crie um ambiente onde isso não importa.
+1. Pergunte-se: quais são as consequências de não corrigir o problema?
+2. Explore maneiras de contornar o problema, para que você ainda
+possa chegar ao mesmo lugar sem se envolver no problema
+3. Explore também alternaHvas em que você toma uma direção
+radicalmente diferente, o que torna toda a questão irrelevante
+
+Slide 19
+INSERÇÃO ALEATÓRIA
+PENSAR É O TRABALHO MAIS DIFÍCIL QUE EXISTE, O QUE
+PROVAVELMENTE É A RAZÃO PELA QUAL TÃO POUCAS PESSOAS
+SE DEDICAM A ELE
+Premissa
+O piloto automáHco e o reconhecimento de padrões são truques brilhantes
+dos nossos cérebros. As vezes é necessário forçar o cérebro quebrar
+padrões e pensar diferente
+Henry Ford
+1. Use um dicionário para criar uma palavra-semente, além do termo
+mais amplo que a descreve e um atributo que ela possui.
+Ex.: Palavra 1 – Elefante; Palavra 2 – Animal; Palavra 3 – Cinza
+2. Use essas palavras como trampolins para resolver seu problema,
+como encontrar uma associação entre a palavra e seu problema; você
+pode gerar uma “ideia de ponte” primeiro.
+
+Slide 20
+INTERROGAR E EXTRAPOLAR
+SE EU TIVESSE UMA HORA PARA RESOLVER UM PROBLEMA,
+PASSARIA 55 MINUTOS PENSANDO NO PROBLEMA E CINCO
+MINUTOS PENSANDO NAS SOLUÇÕES
+Premissa
+seria negligente não reconhecer que alguns problemas podem ser
+resolvidos com uma análise rigorosa e racional.
+Albert Einstein
+1. Decomponha o problema em suas partes consHtuintes, cada vez
+mais específicas.
+2. Estabeleça quais dessas partes muito menores contêm o problema e
+quais são adequadas como são.
+3. Extrapole: discuta a correção e percorra o cenário novamente,
+verificando se corrigindo esses problemas menores, tudo funciona e o
+problema está resolvido.
+
+Slide 21
+§ Um 'diagrama de aranha' pode ser uma ó%ma
+maneira de explorar um problema e dividi-lo
+em componentes
+§ No centro você desenha um círculo contendo
+todo o problema
+§ Então, à medida que você o quebra, cada parte
+se torna um novo círculo (ou nó) daquele
+centro. Um diagrama cada vez maior de peças
+cada vez menores à medida que você se afasta
+do centro
+
+Slide 22
+RESOLVER ALGO MAIS SIMPLES
+A SIMPLICIDADE É O GRAU MAIS ALTO DA SOFISTICAÇÃO
+Premissa
+Nas organizações, sempre nos dizem para aumentar nossa visão. Para
+mirar mais alto. Para conseguir mais. Mas e se – às vezes – não
+mirarmos tão alto? E se – ocasionalmente – nos contentarmos com o
+segundo melhor? E se – de vez em quando – conseguirmos um pouco
+menos?
+Leonardo da Vinci
+1. Você tem que resolver o problema? Talvez você possa apenas
+resolver as consequências (podem ser mais simples de lidar).
+2. Há parte do problema que você pode resolver para chegar perto da
+solução que deseja?
+3. Ou faça a pergunta certa para dizer: 'O que poderíamos resolver em
+vez disso para obter o mesmo resultado ou um resultado semelhante?'
+
+Slide 23
+Como uma caneta comum não funcionaria no
+espaço, a NASA gastou 10 anos e US$ 10
+milhões desenvolvendo a caneta espacial
+Mas se %vesse declarado a questão certa:
+“Precisamos de algo para fazer anotações no
+espaço” poderiam ter recebido o que os
+astronautas da URSS receberam
+Um lápis
+
+Slide 24
+COMBINAR E REDEFINIR
+A INOVAÇÃO FAZ O MUNDO GIRAR. TRAZ PROSPERIDADE E
+LIBERDADE
+Premissa
+Nem tudo pode ser combinado com sucesso. mas quando se trata de
+resolver um problema diPcil, ou tentar abrir uma oportunidade fechada,
+usar uma variedade de ferramentas pode realmente ajudar.
+Leonardo da Vinci
+1. Escolha uma ferramenta de pensamento criaHvo que deseja usar
+para abordar o problema/oportunidade/necessidade de inovação.
+2. Tenha sempre em mente as ferramentas individuais; pode ser que
+uma determinada ferramenta pareça parHcularmente adequada para
+desenvolver o progresso que você fez com uma ferramenta anterior.
+3. Depois de usar uma ferramenta, observe o progresso que você fez
+e conHnue a parHr desse ponto, empregando uma segunda ou
+terceira ferramenta.
+
+Referências bibliográficas:
+Livro - The Creative Problem Solver de Ian Atkinson 

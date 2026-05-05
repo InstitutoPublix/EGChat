@@ -1,0 +1,100 @@
+name: Build and Deploy to Cloud Run
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+env:
+  PROJECT_ID: chattjce
+  REGION: southamerica-east1
+  SERVICE_NAME: mentor-virtual-tjce
+  REPOSITORY: cloud-run-source-deploy
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Authenticate to Google Cloud
+        uses: google-github-actions/auth@v2
+        with:
+          workload_identity_provider: ${{ secrets.WIF_PROVIDER }}
+          service_account: ${{ secrets.WIF_SERVICE_ACCOUNT }}
+
+      - name: Set up Cloud SDK
+        uses: google-github-actions/setup-gcloud@v2
+
+      - name: Configure Docker for Artifact Registry
+        run: |
+          gcloud auth configure-docker ${{ env.REGION }}-docker.pkg.dev
+
+      - name: Ensure Artifact Registry repository exists
+        run: |
+          if ! gcloud artifacts repositories describe ${{ env.REPOSITORY }} \
+            --location=${{ env.REGION }} \
+            --project=${{ env.PROJECT_ID }} 2>/dev/null; then
+            gcloud artifacts repositories create ${{ env.REPOSITORY }} \
+              --location=${{ env.REGION }} \
+              --repository-format=docker \
+              --description="Docker images for Cloud Run" \
+              --project=${{ env.PROJECT_ID }}
+            echo "Repository created"
+          else
+            echo "Repository already exists"
+          fi
+
+      - name: Build Docker image
+        run: |
+          docker build \
+            -t ${{ env.REGION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.REPOSITORY }}/${{ env.SERVICE_NAME }}:${{ github.sha }} \
+            -t ${{ env.REGION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.REPOSITORY }}/${{ env.SERVICE_NAME }}:latest \
+            .
+
+      - name: Push image to Artifact Registry
+        run: |
+          docker push ${{ env.REGION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.REPOSITORY }}/${{ env.SERVICE_NAME }}:${{ github.sha }}
+          docker push ${{ env.REGION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.REPOSITORY }}/${{ env.SERVICE_NAME }}:latest
+
+      - name: Deploy to Cloud Run
+        run: |
+          gcloud run deploy ${{ env.SERVICE_NAME }} \
+            --image=${{ env.REGION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.REPOSITORY }}/${{ env.SERVICE_NAME }}:${{ github.sha }} \
+            --region=${{ env.REGION }} \
+            --platform=managed \
+            --allow-unauthenticated \
+            --min-instances=0 \
+            --max-instances=1 \
+            --memory=512Mi \
+            --cpu=1 \
+            --cpu-throttling \
+            --timeout=300 \
+            --concurrency=10 \
+            --service-account=${{ env.SERVICE_NAME }}-run-sa@${{ env.PROJECT_ID }}.iam.gserviceaccount.com \
+            --set-env-vars=\
+QDRANT_URL=${{ secrets.QDRANT_URL }},\
+QDRANT_COLLECTION=${{ secrets.QDRANT_COLLECTION }},\
+CLAUDE_MODEL=${{ secrets.CLAUDE_MODEL }},\
+PYTHONUNBUFFERED=1 \
+            --set-secrets=\
+OPENAI_API_KEY=openai-api-key:latest,\
+CLAUDE_API_KEY=claude-api-key:latest,\
+QDRANT_API_KEY=qdrant-api-key:latest \
+            --project=${{ env.PROJECT_ID }}
+
+      - name: Output service URL
+        run: |
+          SERVICE_URL=$(gcloud run services describe ${{ env.SERVICE_NAME }} \
+            --region=${{ env.REGION }} \
+            --platform=managed \
+            --format='value(status.url)' \
+            --project=${{ env.PROJECT_ID }})
+          echo "Service deployed at: $SERVICE_URL"
+          echo "SERVICE_URL=$SERVICE_URL" >> $GITHUB_OUTPUT

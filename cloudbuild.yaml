@@ -1,0 +1,97 @@
+# Cloud Build Configuration
+# Triggers Docker build, pushes to Artifact Registry, deploys to Cloud Run
+# Usage: gcloud builds submit --project=PROJECT_ID --config=cloudbuild.yaml
+
+substitutions:
+  _REGION: southamerica-east1
+  _SERVICE_NAME: mentor-virtual-tjce
+  _REPOSITORY: cloud-run-source-deploy
+  _QDRANT_URL: https://847e925b-b8a7-400e-92c4-c15fba8de03f.sa-east-1-0.aws.cloud.qdrant.io
+  _QDRANT_COLLECTION: egchat_tjce
+  _CLAUDE_MODEL: claude-haiku-4-5-20251001
+
+options:
+  logging: CLOUD_LOGGING_ONLY
+  machineType: N1_HIGHCPU_8
+
+steps:
+  - id: ensure-artifact-registry
+    name: gcr.io/google.com/cloudsdktool/cloud-sdk:slim
+    entrypoint: bash
+    args:
+      - -ceu
+      - |
+        gcloud artifacts repositories describe "${_REPOSITORY}" \
+          --project="$PROJECT_ID" \
+          --location="${_REGION}" >/dev/null 2>&1 || \
+        gcloud artifacts repositories create "${_REPOSITORY}" \
+          --project="$PROJECT_ID" \
+          --location="${_REGION}" \
+          --repository-format=docker \
+          --description="Imagens Docker do Cloud Run"
+
+  - id: build-image
+    name: gcr.io/cloud-builders/docker
+    args:
+      - build
+      - -t
+      - ${_REGION}-docker.pkg.dev/$PROJECT_ID/${_REPOSITORY}/${_SERVICE_NAME}:$BUILD_ID
+      - -t
+      - ${_REGION}-docker.pkg.dev/$PROJECT_ID/${_REPOSITORY}/${_SERVICE_NAME}:latest
+      - .
+
+  - id: push-build-id
+    name: gcr.io/cloud-builders/docker
+    args:
+      - push
+      - ${_REGION}-docker.pkg.dev/$PROJECT_ID/${_REPOSITORY}/${_SERVICE_NAME}:$BUILD_ID
+
+  - id: push-latest
+    name: gcr.io/cloud-builders/docker
+    args:
+      - push
+      - ${_REGION}-docker.pkg.dev/$PROJECT_ID/${_REPOSITORY}/${_SERVICE_NAME}:latest
+
+  - id: deploy-cloud-run
+    name: gcr.io/google.com/cloudsdktool/cloud-sdk:slim
+    args:
+      - gcloud
+      - run
+      - deploy
+      - ${_SERVICE_NAME}
+      - --image
+      - ${_REGION}-docker.pkg.dev/$PROJECT_ID/${_REPOSITORY}/${_SERVICE_NAME}:$BUILD_ID
+      - --region
+      - ${_REGION}
+      - --platform
+      - managed
+      - --allow-unauthenticated
+      - --min-instances
+      - "0"
+      - --max-instances
+      - "1"
+      - --memory
+      - 512Mi
+      - --cpu
+      - "1"
+      - --cpu-throttling
+      - --timeout
+      - "300"
+      - --concurrency
+      - "10"
+      - --service-account
+      - mentor-virtual-tjce-run-sa@$PROJECT_ID.iam.gserviceaccount.com
+      - --set-env-vars
+      - QDRANT_URL=${_QDRANT_URL},QDRANT_COLLECTION=${_QDRANT_COLLECTION},CLAUDE_MODEL=${_CLAUDE_MODEL},PYTHONUNBUFFERED=1
+      - --set-secrets
+      - OPENAI_API_KEY=openai-api-key:latest,CLAUDE_API_KEY=claude-api-key:latest,QDRANT_API_KEY=qdrant-api-key:latest
+
+images:
+  - ${_REGION}-docker.pkg.dev/$PROJECT_ID/${_REPOSITORY}/${_SERVICE_NAME}:$BUILD_ID
+  - ${_REGION}-docker.pkg.dev/$PROJECT_ID/${_REPOSITORY}/${_SERVICE_NAME}:latest
+
+options:
+  logging: CLOUD_LOGGING_ONLY
+  substitutionOption: ALLOW_LOOSE
+
+timeout: 1800s

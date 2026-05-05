@@ -36,7 +36,7 @@ def generate_answer(question: str, context: str, chat_history: list[dict] | None
 
     resp = client.messages.create(
         model=CLAUDE_MODEL,
-        max_tokens=800,
+        max_tokens=1000,
         temperature=0.1,
         system=sys_prompt_formatado,                    
         messages=[{"role": "user", "content": question}]

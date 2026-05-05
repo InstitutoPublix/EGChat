@@ -30,5 +30,8 @@ CLAUDE_MODEL = _env("CLAUDE_MODEL", "claude-haiku-4-5-20251001")
 
 DEFAULT_SOURCE_FILES = [
     PROJECT_ROOT / "data" / "contexto1.txt",
-    PROJECT_ROOT / "data" / "Template_Projeto_Aplicativo_TJCE2026.txt"
+    PROJECT_ROOT / "data" / "Template_Projeto_Aplicativo_TJCE2026.txt", 
+    PROJECT_ROOT / "data" / "Publix_Resolucao_Criativa_de_Problemas.txt",
+    PROJECT_ROOT / "data" / "resolucao_n332.txt",
+    PROJECT_ROOT / "data" / "resolucao_n615.txt",
 ]

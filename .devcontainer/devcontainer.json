@@ -1,5 +1,5 @@
 {
-  "name": "EGChat - Flask App",
+  "name": "mentor-virtual-tjce - Flask App",
   "image": "mcr.microsoft.com/devcontainers/python:1-3.12-bullseye",
   "customizations": {
     "codespaces": {

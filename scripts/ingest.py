@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import argparse
 
 from chunking import split_documents
@@ -47,7 +48,7 @@ def ingest_documents(force: bool = False) -> None:
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Index EGChat documents in Qdrant.")
+    parser = argparse.ArgumentParser(description="Index mentor-virtual-tjce documents in Qdrant.")
     parser.add_argument(
         "--force",
         action="store_true",

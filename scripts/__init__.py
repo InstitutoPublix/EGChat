@@ -1,1 +1,1 @@
-"""RAG modules for the EGChat Streamlit application."""
+"""RAG modules for the mentor-virtual-tjce application."""
