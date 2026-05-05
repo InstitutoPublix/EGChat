@@ -33,36 +33,6 @@ Guia rápido para navegar pela documentação do Mentor Virtual TJCE.
 
 ---
 
-## 📚 Por Tipo de Usuário
-
-### 👨‍💼 Product Manager / Stakeholder
-- [README.md](/README.md) - Visão geral completa
-- [README.md → Como Funciona](/README.md#como-funciona) - Conceitos
-- [README.md → Performance](/README.md#performance) - Métricas
-
-### 👨‍💻 Desenvolvedor (Frontend)
-- [README.md](/README.md) - Overview
-- [README.md → Arquitetura](/README.md#arquitetura) - Entender Backend
-- [README.md → Desenvolvimento](/README.md#desenvolvimento) - Setup local
-
-### 👨‍💻 Desenvolvedor (Backend)
-- [README.md → Arquitetura](/README.md#arquitetura) - Componentes
-- [README.md → Desenvolvimento](/README.md#desenvolvimento) - Guia completo
-- [CI-CD.md](/CI-CD.md) - Deploy local
-
-### 🔧 DevOps / SRE
-- [CI-CD.md](/CI-CD.md) - **Documento principal**
-- [CI-CD.md → Pipeline Overview](/CI-CD.md#-pipeline-overview) - Como funciona
-- [CI-CD.md → Monitorar](/CI-CD.md#monitorar) - Logs e status
-- [CI-CD.md → Troubleshooting](/CI-CD.md#troubleshooting) - Resolver problemas
-
-### 🚀 DevSecOps
-- [CI-CD.md → Secrets & IAM](/CI-CD.md#-secrets--iam) - Segurança
-- [README.md → Segurança](/README.md#segurança) - Práticas
-- [CI-CD.md → Monitorar](/CI-CD.md#monitorar) - Auditoria
-
----
-
 ## 🔗 Documentação por Componente
 
 ### Frontend
