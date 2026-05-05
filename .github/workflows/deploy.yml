@@ -79,14 +79,14 @@ jobs:
             --concurrency=10 \
             --service-account=${{ env.SERVICE_NAME }}-run-sa@${{ env.PROJECT_ID }}.iam.gserviceaccount.com \
             --set-env-vars=\
-QDRANT_URL=${{ secrets.QDRANT_URL }},\
-QDRANT_COLLECTION=${{ secrets.QDRANT_COLLECTION }},\
-CLAUDE_MODEL=${{ secrets.CLAUDE_MODEL }},\
-PYTHONUNBUFFERED=1 \
-            --set-secrets=\
-OPENAI_API_KEY=openai-api-key:latest,\
-CLAUDE_API_KEY=claude-api-key:latest,\
-QDRANT_API_KEY=qdrant-api-key:latest \
+            QDRANT_URL=${{ secrets.QDRANT_URL }},\
+            QDRANT_COLLECTION=${{ secrets.QDRANT_COLLECTION }},\
+            CLAUDE_MODEL=${{ secrets.CLAUDE_MODEL }},\
+            PYTHONUNBUFFERED=1 \
+                        --set-secrets=\
+            OPENAI_API_KEY=openai-api-key:latest,\
+            CLAUDE_API_KEY=claude-api-key:latest,\
+            QDRANT_API_KEY=qdrant-api-key:latest \
             --project=${{ env.PROJECT_ID }}
 
       - name: Output service URL
