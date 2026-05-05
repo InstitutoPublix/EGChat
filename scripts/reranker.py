@@ -6,8 +6,9 @@ from langchain_core.documents import Document
 from sentence_transformers import CrossEncoder
 
 MODEL_DIR = PROJECT_ROOT / "models"
-MODEL_NAME = "BAAI/bge-small-en-v1.5"
-MODEL_CACHE_PATH = MODEL_DIR / "bge-small-en-v1.5"
+# mmarco é treinado em MS MARCO multilingual, inclui português nativamente
+MODEL_NAME = "cross-encoder/mmarco-mMiniLMv2-L12-H384-v1"
+MODEL_CACHE_PATH = MODEL_DIR / "mmarco-reranker"
 
 
 def _ensure_model_dir() -> None:
@@ -18,7 +19,10 @@ def _ensure_model_dir() -> None:
 def _get_reranker() -> CrossEncoder:
     _ensure_model_dir()
     os.environ["SENTENCE_TRANSFORMERS_HOME"] = str(MODEL_DIR)
-    return CrossEncoder(MODEL_NAME, cache_folder=str(MODEL_CACHE_PATH))
+    return CrossEncoder(
+        MODEL_NAME,
+        model_kwargs={"cache_dir": str(MODEL_CACHE_PATH)},
+    )
 
 
 def rerank_documents(

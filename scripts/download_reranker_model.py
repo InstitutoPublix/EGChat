@@ -21,7 +21,7 @@ from reranker import _ensure_model_dir, _get_reranker
 
 
 def download_model():
-    print("📥 Baixando modelo BGE Small para reranking...")
+    print("📥 Baixando modelo mMiniLM (multilingual) para reranking...")
     print(f"📁 Diretório: {PROJECT_ROOT / 'models'}")
 
     _ensure_model_dir()
